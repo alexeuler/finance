@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :blog do
     resources :posts
+    get ':slug', to: 'posts#show'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
