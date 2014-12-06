@@ -5,6 +5,8 @@ class Blog::PostsController < ApplicationController
   # GET /blog/posts.json
   def index
     @blog_posts = Blog::Post.all
+    @blog_posts=@blog_posts.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
+    @blog_tags = Blog::Tag.all
   end
 
   # GET /blog/posts/1

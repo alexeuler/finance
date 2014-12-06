@@ -1,0 +1,9 @@
+<div class="blog-tag">
+  <%= link_to "all", blog_posts_path %>
+</div>
+
+<% blog_tags.each do |tag| %>
+    <div class="blog-tag">
+      <%= link_to tag.value, blog_posts_path(tag: tag.value) %>
+    </div>
+<% end %>
