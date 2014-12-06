@@ -5,7 +5,7 @@
       <h1> <%= link_to blog_post.title, show_url %> </h1>
     </div>
     <div class="image">
-      <%= image_tag blog_post.image %>
+      <%= image_tag blog_post.image.url(:normal) %>
     </div>
     <div class="body">
       <p><%= blog_post.body %></p>

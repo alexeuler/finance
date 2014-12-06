@@ -17,3 +17,6 @@
 
 #Ignore Rubymine files
 /.idea
+
+#Ignore paperclip images
+/public/system
