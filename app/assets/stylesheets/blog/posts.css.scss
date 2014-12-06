@@ -1,3 +1,11 @@
 // Place all the styles related to the blog::posts controller here.
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.blog-item {
+  @include box-shadow(0px 0px 5px #7C6744);
+  padding: 10px;
+  @include gradient-vertical(#FDFFB1, #fff);
+  .heading {
+    h1{margin:0;}
+  }
+}
