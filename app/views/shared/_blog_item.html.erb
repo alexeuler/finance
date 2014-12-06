@@ -1,17 +1,19 @@
 <% show_url = blog_post.slug.empty? ? blog_post : blog_post.slug %>
-<div class="blog-item">
-  <div class="heading">
-    <h1> <%= link_to blog_post.title, show_url%> </h1>
-  </div>
-  <div class="image">
-    <%= image_tag blog_post.image %>
-  </div>
-  <div class="body">
-    <p><%= blog_post.body %></p>
-  </div>
-  <div class="edit">
-    <%= link_to 'Show', show_url %>
-    <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
-    <%= link_to 'Destroy', blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
+<div class="blog-item-layout col-md-6">
+  <div class="blog-item">
+    <div class="heading">
+      <h1> <%= link_to blog_post.title, show_url %> </h1>
+    </div>
+    <div class="image">
+      <%= image_tag blog_post.image %>
+    </div>
+    <div class="body">
+      <p><%= blog_post.body %></p>
+    </div>
+    <div class="edit">
+      <%= link_to 'Show', show_url %>
+      <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
+      <%= link_to 'Destroy', blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
+    </div>
   </div>
 </div>
