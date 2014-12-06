@@ -11,7 +11,6 @@
       <p><%= blog_post.body %></p>
     </div>
     <div class="edit">
-      <%= link_to 'Show', show_url %>
       <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
       <%= link_to 'Destroy', blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
     </div>
