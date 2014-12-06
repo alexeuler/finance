@@ -6,6 +6,7 @@ class Blog::Tag < ActiveRecord::Base
     tag_string = tag_strings.join(" ")
     tags = tag_string.split(" ")
     tags.uniq!
+    tags.sort!
 
     #clear tags models
     Blog::Tag.delete_all
