@@ -21,7 +21,21 @@
 
 ru:
   hello: "Привет, мир!"
+  general:
+    new: "Новый"
+    edit: "Правка"
+    destroy: "Удалить"
+    show: "Показать"
+    back: "Назад"
+    all: "Все"
   navbar:
+    title: "Финансы"
     blog: "Блог"
     video: "Видео"
     about: "О сайте"
+    email_icon: "Войти / подписаться через email"
+    facebook_icon: "Войти / подписаться через facebook"
+    twitter_icon: "Войти / подписаться через twitter"
+    rss_icon: "Войти / подписаться через rss"
+    navigation: "Навигация"
+

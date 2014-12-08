@@ -11,8 +11,8 @@
       <p><%= blog_post.excerpt %></p>
     </div>
     <div class="edit">
-      <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
-      <%= link_to 'Destroy', blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= link_to t("general.edit"), edit_blog_post_path(blog_post) %>
+      <%= link_to t("general.destroy"), blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
     </div>
   </div>
 </div>

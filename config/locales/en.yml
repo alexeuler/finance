@@ -21,7 +21,21 @@
 
 en:
   hello: "Hello world"
+  general:
+    new: "New"
+    edit: "Edit"
+    destroy: "Edit"
+    show: "Edit"
+    back: "Back"
+    all: "All"
   navbar:
+    title: "Finance"
     blog: "Blog"
     video: "Video"
     about: "About"
+    email_icon: "Sign in / subscribe via email"
+    facebook_icon: "Sign in / subscribe via facebook"
+    twitter_icon: "Sign in / subscribe via twitter"
+    rss_icon: "Sign in / subscribe via rss"
+    navigation: "Navigation"
+
