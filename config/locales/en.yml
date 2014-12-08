@@ -24,7 +24,7 @@ en:
   general:
     new: "New"
     edit: "Edit"
-    destroy: "Edit"
+    destroy: "Destroy"
     show: "Edit"
     back: "Back"
     all: "All"
