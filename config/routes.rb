@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   scope module: :blog do
     root 'posts#index'
+    get '/:locale', to: 'posts#index'
   end
 
 
