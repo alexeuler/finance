@@ -6,7 +6,7 @@ class Blog::PostsController < ApplicationController
   def index
     @blog_posts = Blog::Post.where(language: I18n.locale).order(created_at: :desc).all
     @blog_posts=@blog_posts.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
-    @blog_tags = Blog::Tag.all
+    @blog_tags = Blog::Tag.where(language: I18n.locale).all
   end
 
   # GET /blog/posts/1
