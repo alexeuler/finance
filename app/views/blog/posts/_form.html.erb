@@ -41,7 +41,7 @@
           <%= f.label :image %><br>
           <%= f.file_field :image %>
           <%= f.label :image_delete do %>
-              <%= f.check_box :image_delete %>
+              <%= f.check_box :image_delete, {checked:false} %>
               Delete Image
           <% end %>
         </div>

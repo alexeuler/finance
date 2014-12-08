@@ -7,13 +7,7 @@ class Blog::Post < ActiveRecord::Base
 
   before_save :destroy_image?
 
-  def image_delete
-    @image_delete ||= "0"
-  end
-
-  def image_delete=(value)
-    @image_delete = value
-  end
+  attr_accessor :image_delete
 
   private
   def destroy_image?
