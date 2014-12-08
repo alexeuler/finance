@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+
+  scope module: :blog do
+    root 'posts#index'
+  end
+
+
   scope "/:locale" do
     namespace :blog do
+      root 'posts#index'
       resources :posts
       get ':slug', to: 'posts#show'
     end
