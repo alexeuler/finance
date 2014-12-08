@@ -1,44 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% show_url = @blog_post.slug.empty? ? @blog_post : @blog_post.slug %>
+<div class="blog-post-layout">
+  <div class="blog-post">
+    <div class="heading">
+      <h1> <%= link_to @blog_post.title, show_url %> </h1>
+    </div>
+    <div class="image">
+      <%= image_tag @blog_post.image.url(:large) if @blog_post.image.file?%>
+    </div>
+    <div class="body">
+      <p><%= @blog_post.body %></p>
+    </div>
+    <div class="edit">
+      <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
+      <%= link_to 'Destroy', @blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog_post.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @blog_post.body %>
-</p>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @blog_post.tags %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @blog_post.status %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @blog_post.image %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @blog_post.category %>
-</p>
-
-<p>
-  <strong>Excerpt:</strong>
-  <%= @blog_post.excerpt %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @blog_post.slug %>
-</p>
-
-<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-<%= link_to 'Back', blog_posts_path %>
