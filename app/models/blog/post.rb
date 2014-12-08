@@ -1,5 +1,5 @@
 class Blog::Post < ActiveRecord::Base
-  has_attached_file :image, :styles => { :normal => "400x250>", :thumb => "100x62>" },
+  has_attached_file :image, :styles => { :normal => "400x250>", :large => "800x500>" },
                     :default_url => "/images/blog/:style/missing.png"
   validates_attachment :image,
                        :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
