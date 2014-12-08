@@ -19,9 +19,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+ru:
+  hello: "Привет, мир!"
   navbar:
-    blog: "Blog"
-    video: "Video"
-    about: "About"
+    blog: "Блог"
+    video: "Видео"
+    about: "О сайте"
