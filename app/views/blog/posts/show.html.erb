@@ -8,7 +8,7 @@
       <%= image_tag @blog_post.image.url(:large) if @blog_post.image.file?%>
     </div>
     <div class="body">
-      <p><%= @blog_post.body %></p>
+      <p><%= @blog_post.body.html_safe %></p>
     </div>
     <div class="edit">
       <%= link_to t("general.edit"), edit_blog_post_path(@blog_post) %>
