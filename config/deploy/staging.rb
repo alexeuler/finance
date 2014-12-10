@@ -4,7 +4,7 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-set :application, 'staging_finance'
+set :application, 'finance_staging'
 
 website_url='lovimagaz.ru'
 ssh_user='deployment'

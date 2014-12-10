@@ -84,3 +84,7 @@ test:
 production:
   <<: *default
   database: finance_production
+
+staging:
+  <<: *default
+  database: finance_staging
