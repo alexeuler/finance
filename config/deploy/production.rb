@@ -7,10 +7,13 @@
 website_url='lovimagaz.ru'
 ssh_user='deployment'
 
+set :application, 'finance'
+set :root, "/var/www/#{fetch(:application)}/current"
+set :ssh_address, ssh_user+"@"+website_url
 
-role :app, [ssh_user+"@"+website_url]
-role :web, [ssh_user+"@"+website_url]
-role :db,  [ssh_user+"@"+website_url]
+role :app, [fetch(:ssh_address)]
+role :web, [fetch(:ssh_address)]
+role :db,  [fetch(:ssh_address)]
 
 
 # Extended Server Syntax
