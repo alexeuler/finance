@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :images, only: %w(index create destroy)
+
   scope module: :blog do
     root 'posts#index'
     get '/:locale', to: 'posts#index'

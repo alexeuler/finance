@@ -20,3 +20,5 @@
 
 #Ignore paperclip images
 /public/system
+
+/.capistrano
