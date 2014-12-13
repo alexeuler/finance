@@ -13,7 +13,7 @@
       </td>
       <td class='side-panel'>
         <div>
-          <%= form_for(@image, remote:true, authencity_token: true) do |f| %>
+          <%= form_for(@image, remote:true, html:{:'data-type' => :html}) do |f| %>
               <div class="field">
                 <%= f.label :tags %><br>
                 <%= f.text_field :tags %>

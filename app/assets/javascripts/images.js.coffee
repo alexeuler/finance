@@ -8,11 +8,11 @@ deleteFormSelector = '.button_to'
 
 prepare = ->
   $('#new_image').on 'ajax:success', (e, data, status, xhr) ->
-    alert xhr.responseText
+    console.log xhr
   $('#new_image').on 'ajax:error', (e, data, status, xhr) ->
     alert 'Error sending ajax request'
   $('#delete_image').on 'ajax:success', (e, data, status, xhr) ->
-    alert xhr.responseText
+    console.log xhr
   $('#delete_image').on 'ajax:error', (e, data, status, xhr) ->
     alert 'Error sending ajax request'
 

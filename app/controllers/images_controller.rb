@@ -12,16 +12,15 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
+    @images = Image.all
     @image = Image.new(image_params)
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to images_path, notice: 'Image was successfully created.' }
-        format.js {render text:'ok'}
+        format.html { render :index}
         format.json { render json: 'Image was successfully created.' }
       else
         format.html { render :index, notice: 'Error creating image' }
-        format.js{render text:'ok'}
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
