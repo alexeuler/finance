@@ -6,7 +6,19 @@ bodySelector = '.image-gallery'
 containerSelector = '.image-gallery .image-container'
 deleteFormSelector = '.button_to'
 
-addClickEvents = ->
+prepare = ->
+  $('#new_image').on 'ajax:success', (e, data, status, xhr) ->
+    alert xhr.responseText
+  $('#new_image').on 'ajax:error', (e, data, status, xhr) ->
+    alert 'Error sending ajax request'
+  $('#delete_image').on 'ajax:success', (e, data, status, xhr) ->
+    alert xhr.responseText
+  $('#delete_image').on 'ajax:error', (e, data, status, xhr) ->
+    alert 'Error sending ajax request'
+
+
+
+
   $(containerSelector).on 'click',(e) ->
     container = $(e.currentTarget)
     $(containerSelector).removeClass('selected')
@@ -16,7 +28,7 @@ addClickEvents = ->
 
 
 $(document).on "page:change", ->
-  $(document).on "image.gallery.prepare", addClickEvents
+  $(document).on "image.gallery.prepare", prepare
   $(document).trigger "image.gallery.prepare" #to prepare it in case of ajax
 
 

@@ -48,3 +48,6 @@ group :development do
 end
 
 gem 'thin'
+
+#This is for ajax request for files
+gem 'remotipart'

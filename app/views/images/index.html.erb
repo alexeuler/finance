@@ -13,7 +13,7 @@
       </td>
       <td class='side-panel'>
         <div>
-          <%= form_for(@image) do |f| %>
+          <%= form_for(@image, remote:true, authencity_token: true) do |f| %>
               <div class="field">
                 <%= f.label :tags %><br>
                 <%= f.text_field :tags %>
@@ -26,14 +26,11 @@
               </div>
               <br/>
 
-              <div class="actions">
                 <%= f.submit class: 'btn btn-default', value: 'Add' %>
-
-
-              </div>
               <br/>
           <% end %>
-          <%= button_to 'Delete', @image, :method => :delete, class: 'btn btn-default' %>
+          <%= button_to 'Delete', @image, :method => :delete,
+                        remote: true, class: 'btn btn-default', form:{id:'delete_image'} %>
         </div>
       </td>
     </tr>

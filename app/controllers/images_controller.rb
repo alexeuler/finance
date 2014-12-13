@@ -17,9 +17,11 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.save
         format.html { redirect_to images_path, notice: 'Image was successfully created.' }
+        format.js {render text:'ok'}
         format.json { render json: 'Image was successfully created.' }
       else
         format.html { render :index, notice: 'Error creating image' }
+        format.js{render text:'ok'}
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
