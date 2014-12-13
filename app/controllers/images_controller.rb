@@ -6,6 +6,11 @@ class ImagesController < ApplicationController
   def index
     @images = Image.all
     @image = Image.new
+    respond_to do |format|
+        format.html { render }
+        format.json { render layout:false}
+    end
+
   end
 
   # POST /images
