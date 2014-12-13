@@ -5,11 +5,14 @@
 buttonSelector ='.blog-post-form-body .modal-launch-button'
 modalSelector ='.blog-post-form-body #myModal'
 
-$ ->
+
+
+$(document).on "page:change", ->
   modal = $(modalSelector).modal show:false
   $(buttonSelector).on 'click', ->
     $.ajax(
       url: "/images"
     ).done (response)->
-      console.log response
+      modal.find('.modal-body').html(response)
       modal.modal('show')
+      $(document).trigger('image.gallery.prepare')
