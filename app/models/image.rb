@@ -2,9 +2,11 @@ class Image < ActiveRecord::Base
   attr_accessor :file
   has_attached_file :file, styles: {:large => '800x500>', :medium => '400x250>', :small => '200x125>', :thumb => '96x60>'},
                     use_timestamp: false,
-                    url: '/paperclip/images/:style/image_:access_token.:extension',
+                    url: '/paperclip/images/:style/:access_token.:extension',
                     path: ':rails_root/public/:url'
+  validates_attachment_presence :file
   validates_attachment :file, content_type: {content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']}
+
 
   before_create :generate_access_token
 

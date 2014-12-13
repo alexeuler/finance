@@ -1,30 +1,42 @@
 <div class="image-gallery">
-  <div class="images-container">
-    <% @images.each do |image| %>
-        <div class="image-container" data-id="<%= image.id %>">
-          <%= image_tag image.file.url(:small) %>
+  <table>
+    <tbody>
+    <tr>
+      <td class="images-container">
+        <div>
+          <% @images.each do |image| %>
+              <div class="image-container" data-id="<%= image.id %>">
+                <%= image_tag image.file.url(:small) %>
+              </div>
+          <% end %>
         </div>
-    <% end %>
-  </div>
-  <%= form_for(@image) do |f| %>
-      <div class="field">
-        <%= f.label :tags %><br>
-        <%= f.text_field :tags %>
-      </div>
-      <br/>
+      </td>
+      <td class='side-panel'>
+        <div>
+          <%= form_for(@image) do |f| %>
+              <div class="field">
+                <%= f.label :tags %><br>
+                <%= f.text_field :tags %>
+              </div>
+              <br/>
 
-      <div class="field">
-        <%= f.label :file %><br>
-        <%= f.file_field :file %>
-      </div>
-      <br/>
+              <div class="field">
+                <%= f.label :file %><br>
+                <%= f.file_field :file %>
+              </div>
+              <br/>
 
-      <div class="actions">
-        <%= f.submit class: 'btn btn-default', value: 'Add' %>
+              <div class="actions">
+                <%= f.submit class: 'btn btn-default', value: 'Add' %>
 
 
-      </div>
-      <br/>
-  <% end %>
-  <%= button_to 'Delete', @image, :method => :delete, class: 'btn btn-default' %>
+              </div>
+              <br/>
+          <% end %>
+          <%= button_to 'Delete', @image, :method => :delete, class: 'btn btn-default' %>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
