@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .blog-item-layout, .posts-panel-layout {
-  padding:10px;
+  padding: 10px;
 }
 
 .blog-item, .posts-panel, .blog-post {
@@ -10,6 +10,29 @@
   padding: 10px;
   @include gradient-vertical(#FDFFB1, #fff);
   .heading {
-    h1{margin:0;}
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+.form-body {
+  .form-table {
+    width: 100%;
+    .left-controls, .right-controls {
+      vertical-align: top;
+      padding:10px;
+      &>div{
+
+      }
+
+    }
+    .left-controls {
+      width:80%;
+    }
+
+    .right-controls {
+      width:20%;
+    }
   }
 }

@@ -1,9 +1,10 @@
 <div class="panel panel-default">
-  <div class="panel-body">
+  <div class="form-body">
     <%= form_for(@blog_post) do |f| %>
         <% if @blog_post.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(@blog_post.errors.count, "error") %> prohibited this blog_post from being saved:</h2>
+              <h2><%= pluralize(@blog_post.errors.count, "error") %> prohibited this blog_post from being
+                saved:</h2>
 
               <ul>
                 <% @blog_post.errors.full_messages.each do |message| %>
@@ -12,66 +13,75 @@
               </ul>
             </div>
         <% end %>
+        <table class="form-table">
+          <tr>
+            <td class="left-controls">
+              <div>
+                <div class="field">
+                  <%= f.label :title %><br>
+                  <%= f.text_field :title, class: "form-control" %>
+                </div>
+                <br/>
 
-        <div class="field">
-          <%= f.label :title %><br>
-          <%= f.text_field :title, class: "form-control" %>
-        </div>
-        <br/>
+                <div class="field">
+                  <%= f.label :body %><br>
+                  <%= f.text_area :body, class: "form-control", rows: 15 %>
+                </div>
+                <br/>
 
-        <div class="field">
-          <%= f.label :language %><br>
-          <%= f.text_field :language, class: "form-control" %>
-        </div>
-        <br/>
+                <div class="field">
+                  <%= f.label :excerpt %><br>
+                  <%= f.text_area :excerpt, class: "form-control", rows: 5 %>
+                </div>
+                <br/>
+              </div>
+            </td>
+
+            <td class="right-controls">
+              <div>
+                <div class="field">
+                  <%= f.label :language %><br>
+                  <%= f.text_field :language, class: "form-control" %>
+                </div>
+                <br/>
 
 
-        <div class="field">
-          <%= f.label :body %><br>
-          <%= f.text_area :body, class: "form-control", rows: 20 %>
-        </div>
-        <br/>
+                <div class="field">
+                  <%= f.label :tags %><br>
+                  <%= f.text_field :tags, class: "form-control" %>
+                </div>
+                <br/>
 
-        <div class="field">
-          <%= f.label :tags %><br>
-          <%= f.text_field :tags, class: "form-control" %>
-        </div>
-        <br/>
+                <div class="field">
+                  <%= f.label :status %><br>
+                  <%= f.text_field :status, class: "form-control" %>
+                </div>
+                <br/>
 
-        <div class="field">
-          <%= f.label :status %><br>
-          <%= f.text_field :status, class: "form-control" %>
-        </div>
-        <br/>
+                <div class="field">
+                  <%= f.label :image %><br>
+                  <button type="button" class="btn btn-default invoke-image-gallery">Add</button>
+                </div>
+                <br/>
 
-        <div class="field">
-          <%= f.label :image %><br>
-          <%= f.file_field :image %>
-          <%= f.label :image_delete do %>
-              <%= f.check_box :image_delete, {checked:false} %>
-              Delete Image
-          <% end %>
-        </div>
-        <br/>
+                <div class="field">
+                  <%= f.label :category %><br>
+                  <%= f.text_field :category, class: "form-control" %>
+                </div>
+                <br/>
 
-        <div class="field">
-          <%= f.label :category %><br>
-          <%= f.text_field :category, class: "form-control" %>
-        </div>
-        <br/>
 
-        <div class="field">
-          <%= f.label :excerpt %><br>
-          <%= f.text_area :excerpt, class: "form-control" %>
-        </div>
-        <br/>
+                <div class="field">
+                  <%= f.label :slug %><br>
+                  <%= f.text_field :slug, class: "form-control" %>
+                </div>
+                <br/>
 
-        <div class="field">
-          <%= f.label :slug %><br>
-          <%= f.text_field :slug, class: "form-control" %>
-        </div>
-        <br/>
 
+              </div>
+            </td>
+          </tr>
+        </table>
         <div class="actions">
           <%= f.submit %>
         </div>
