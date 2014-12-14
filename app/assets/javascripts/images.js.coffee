@@ -7,8 +7,14 @@ containerSelector = '.image-gallery .image-container'
 gallerySelector = '.image-gallery .images-container'
 deleteFormSelector = '.button_to'
 
+buttonsState = (state) ->
+  $('#add_button').prop('disabled', state)
+  $('#delete_button').prop('disabled', state)
+  $('#delete_button').prop('disabled', true) if $('.selected').length is 0
+
 addClickEvents = ->
   $(containerSelector).on 'click',(e) ->
+    $('#delete_button').prop('disabled', false)
     container = $(e.currentTarget)
     $(containerSelector).removeClass('selected')
     container.addClass('selected')
@@ -16,6 +22,9 @@ addClickEvents = ->
     $(deleteFormSelector).attr('action',"/images/#{id}")
 
 prepare = ->
+  $('#new_image').on 'ajax:before', ->
+    buttonsState(true)
+
   $('#new_image').on 'ajax:success', (e, data, status, xhr) ->
     response = xhr.responseText
     regex = /error/i
@@ -24,8 +33,15 @@ prepare = ->
     else
       $(gallerySelector).html(response)
       addClickEvents()
+    buttonsState(false)
+
   $('#new_image').on 'ajax:error', (e, data, status, xhr) ->
+    buttonsState(false)
     alert 'Error sending ajax request'
+
+  $('#delete_image').on 'ajax:before', ->
+    buttonsState(true)
+
   $('#delete_image').on 'ajax:success', (e, data, status, xhr) ->
     response = xhr.responseText
     regex = /error/i
@@ -34,13 +50,16 @@ prepare = ->
     else
       $(gallerySelector).html(response)
       $(document).trigger "image.gallery.prepare"
+    buttonsState(false)
   $('#delete_image').on 'ajax:error', (e, data, status, xhr) ->
+    buttonsState(false)
     alert 'Error sending ajax request'
 
   addClickEvents()
 
 
 $(document).on "page:change", ->
+  $('#delete_button').prop('disabled', true);
   $(document).on "image.gallery.prepare", prepare
   $(document).trigger "image.gallery.prepare" #to prepare it in case of ajax
 

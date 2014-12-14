@@ -19,12 +19,12 @@
                 <%= f.file_field :file %>
               </div>
               <br/>
-
-                <%= f.submit class: 'btn btn-default', value: 'Add' %>
+                <%= f.submit class: 'btn btn-primary', value: 'Add', id:'add_button' %>
               <br/>
           <% end %>
-          <%= button_to 'Delete', @image, :method => :delete,
-                        remote: true, class: 'btn btn-default', form:{id:'delete_image'} %>
+          <br/>
+          <%= button_to 'Delete', @image, :method => :delete, id:'delete_button',
+                        remote: true, class: 'btn btn-primary', form:{id:'delete_image'} %>
         </div>
       </td>
     </tr>
