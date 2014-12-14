@@ -10,9 +10,7 @@ modalSelector ='.blog-post-form-body #myModal'
 $(document).on "page:change", ->
   modal = $(modalSelector).modal show:false
   $(buttonSelector).on 'click', ->
-    $.ajax(
-      url: "/images"
-    ).done (response)->
-      modal.find('.modal-body').html(response)
-      modal.modal('show')
-      $(document).trigger('image.gallery.prepare')
+    $(document).trigger('image.gallery.prepare',
+      modal.find('.modal-body'))
+    modal.modal('show')
+

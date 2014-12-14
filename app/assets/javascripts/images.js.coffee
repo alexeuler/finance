@@ -5,11 +5,11 @@ window.App=
   Views: {}
   Routers: {}
 
-prepare = ->
-  alert '123'
+prepare = (event, parent) ->
+  parent =$(parent)
+  parent.html('Yo')
 
 $(document).on "page:change", ->
   $(document).on "image.gallery.prepare", prepare
-  $(document).trigger "image.gallery.prepare" #to prepare it in case of ajax
 
 

@@ -1,7 +1,0 @@
-<div>
-  <% images.each do |image| %>
-      <div class="image-container" data-id="<%= image.id %>">
-        <%= image_tag image.file.url(:small) %>
-      </div>
-  <% end %>
-</div>

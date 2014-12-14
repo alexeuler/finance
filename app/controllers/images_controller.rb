@@ -5,13 +5,13 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @images = Image.all
-    @image = Image.new
-    render layout: false if request.xhr?
+    @images = @images.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
+    render json: @images
   end
 
 
   def show
-    render text: @image.tags
+    render json: @image
   end
 
   # POST /images
@@ -19,27 +19,13 @@ class ImagesController < ApplicationController
 
   def create
     @image = Image.new(image_params)
-
-    respond_to do |format|
-      if @image.save
-        format.html { render partial: 'image_gallery', locals: {images: Image.all} }
-        format.json { render json: 'Image was successfully created.' }
-      else
-        format.html { render text: 'Error creating image.' }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
-    end
+    @image.save ? render(text:'Ok') : render(text: 'Error')
   end
 
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
-  # Used for tags only
   def update
-    if @image.update(image_params)
-      render json: Image::Tag.select(:value).order(:value).to_a.map {|tag| tag.value}
-    else
-      render json: 'Error updating image tags'
-    end
+    @image.update(image_params) ? render(text:'Ok') : render(text: 'Error')
   end
 
 
@@ -48,10 +34,7 @@ class ImagesController < ApplicationController
   def destroy
     @image.file.clear
     @image.destroy
-    respond_to do |format|
-      format.html { render partial: 'image_gallery', locals: {images: Image.all} }
-      format.json { head :no_content }
-    end
+    render text:'Ok'
   end
 
   private
