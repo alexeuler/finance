@@ -1,13 +1,7 @@
-<form accept-charset="UTF-8" action="/images?locale=ru" class="new_image" data-remote="true" data-type="html" enctype="multipart/form-data" id="new_image" method="post">
-  <div style="display:none">
-    <input name="utf8" type="hidden" value="✓">
-  </div>
-
-  <div class="field">
-    <label for="image_file">File</label><br>
-    <input id="image_file" name="image[file]" type="file">
-  </div>
-  <br>
-  <input class="btn btn-primary" id="add_button" name="commit" type="submit" value="Add">
-  <br>
-</form>
+<div class="upload-image-control-panel">
+  <label for="image_file">File</label><br>
+  <input id="image_file" name="image[file]" type="file">
+  <br/>
+  <button class="btn btn-primary">Add</button>
+  <button class="btn btn-primary">Delete</button>
+</div>
