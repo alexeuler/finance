@@ -1,0 +1,3 @@
+<div class="image-thumb-container" data-id="<%= @id %>">
+  <img src="<%= @url %>"/>
+</div>

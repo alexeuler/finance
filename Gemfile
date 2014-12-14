@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass', '~> 3.3.1'
 
+#for image uploading
 gem "paperclip", "~> 4.2"
 
 group :development do
@@ -47,7 +48,11 @@ group :development do
   gem 'capistrano-rvm'
 end
 
+#web server
 gem 'thin'
 
 #This is for ajax request for files
 gem 'remotipart'
+
+#erb templates for backbone
+gem 'eco'

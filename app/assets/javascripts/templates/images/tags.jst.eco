@@ -1,0 +1,5 @@
+<div class="tags-control-panel">
+  <% for tag, i in @tags: %>
+      <a href="<%= tag %>">tag</a>
+  <% end %>
+</div>

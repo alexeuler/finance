@@ -1,0 +1,10 @@
+<div class="edit-tags-control-panel">
+  <form accept-charset="UTF-8" action="/images" class="edit-tags-form" method="post">
+    <div class="field">
+      <label for="image_tags">Tags</label><br>
+      <input id="image_tags" name="image[tags]" type="text">
+    </div>
+    <br>
+    <input class="btn btn-primary edit-tags-button" type="submit" value="Update">
+  </form>
+</div>

@@ -10,8 +10,14 @@ class Image < ActiveRecord::Base
   before_create :generate_access_token
 
   def as_json(options = {})
-    options[:url1] = '123'
-    super(options)
+
+    result = super(options)
+    result[:url_large] = self.file.url(:large)
+    result[:url_medium] = self.file.url(:medium)
+    result[:url_small] = self.file.url(:small)
+    result[:url_thumb] = self.file.url(:thumb)
+    result[:url] = self.file.url
+    result
   end
 
   private
