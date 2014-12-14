@@ -12,19 +12,23 @@ App.namespace 'App.Views.Images', (ns)->
     template:JST['templates/images/index']
 
     initialize: ->
-      _.bindAll @, 'render'
+      _.bindAll @, 'render', 'renderThumbs', 'renderTags',
+        'renderEditTags'
       @listenTo(@collection, 'sync', @render)
       @render()
 
     renderThumbs: ->
       #rendering thumbs
       thumbsContainer = $('.image-gallery .thumbs-container')
+      thumbsContainer.empty()
       for image, i in @collection.models
-        thumbs_view = @thumbTemplate({
-          id:image.get('id'),
-          url:image.get('url_small')
-        })
-        thumbsContainer.append thumbs_view
+        #if tags string contains @tag
+        if not @tag? or image.get('tags')?.indexOf(@tag) > -1
+          thumbs_view = @thumbTemplate({
+            id:image.get('id'),
+            url:image.get('url_small')
+          })
+          thumbsContainer.append thumbs_view
 
       #handling events
       thumbsContainer.find(".image-thumb-container").on "click", (e) ->
@@ -45,7 +49,6 @@ App.namespace 'App.Views.Images', (ns)->
         id=$('.image-gallery .thumbs-container').data('id')
         tags=controlPanel.find("#image_tags").val()
         csrfToken = $("meta[name=csrf-token]")[0].content
-        console.log csrfToken
         $.ajax(
           type: 'patch'
           url: "/images/#{id}"
@@ -53,7 +56,32 @@ App.namespace 'App.Views.Images', (ns)->
             csrf: csrfToken
             image:
               tags: tags
-        )
+        ).done ->
+          @renderTags()
+
+    renderTags: ->
+      controlPanel = $(".image-gallery .control-panel-container")
+      #rendering tags
+      tags = []
+      for image, i in @collection.models
+        image_tags=image.get('tags')
+        if image_tags?
+          tags_array = image_tags.split(" ")
+          for tag in tags_array
+            tags.push tag
+      tagsView = @tagsTemplate tags:tags
+      controlPanel.append tagsView
+      $(".image-gallery .tags-control-panel").on 'click', (e)=>
+        e.preventDefault()
+        e.stopPropagation()
+        target = $(e.target)
+        tag = target.attr('href')
+        if tag == "#"
+          @tag = null
+        else
+          @tag = tag
+        @renderThumbs()
+
 
 
     render: ->
@@ -61,19 +89,10 @@ App.namespace 'App.Views.Images', (ns)->
       @$el.append @template()
 
       @renderThumbs()
+      @renderTags()
       @renderEditTags()
+
       controlPanel = $(".image-gallery .control-panel-container")
-      #rendering tags
-      tags = []
-      for image, i in @collection.models
-        image_tags=image.get('tags')
-        if image_tags?
-          for tag in image_tags
-            tags << tag
-      tagsView = @tagsTemplate tags:tags
-      controlPanel.append tagsView
-
-
       #rendering upload_image
       uploadImageView = @uploadImageTemplate()
       controlPanel.append uploadImageView
