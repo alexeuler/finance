@@ -4,27 +4,40 @@
 
 bodySelector = '.image-gallery'
 containerSelector = '.image-gallery .image-container'
+gallerySelector = '.image-gallery .images-container'
 deleteFormSelector = '.button_to'
 
-prepare = ->
-  $('#new_image').on 'ajax:success', (e, data, status, xhr) ->
-    console.log xhr
-  $('#new_image').on 'ajax:error', (e, data, status, xhr) ->
-    alert 'Error sending ajax request'
-  $('#delete_image').on 'ajax:success', (e, data, status, xhr) ->
-    console.log xhr
-  $('#delete_image').on 'ajax:error', (e, data, status, xhr) ->
-    alert 'Error sending ajax request'
-
-
-
-
+addClickEvents = ->
   $(containerSelector).on 'click',(e) ->
     container = $(e.currentTarget)
     $(containerSelector).removeClass('selected')
     container.addClass('selected')
     id=container.data('id')
     $(deleteFormSelector).attr('action',"/images/#{id}")
+
+prepare = ->
+  $('#new_image').on 'ajax:success', (e, data, status, xhr) ->
+    response = xhr.responseText
+    regex = /error/i
+    if response.match(regex)
+      alert response
+    else
+      $(gallerySelector).html(response)
+      addClickEvents()
+  $('#new_image').on 'ajax:error', (e, data, status, xhr) ->
+    alert 'Error sending ajax request'
+  $('#delete_image').on 'ajax:success', (e, data, status, xhr) ->
+    response = xhr.responseText
+    regex = /error/i
+    if response.match(regex)
+      alert response
+    else
+      $(gallerySelector).html(response)
+      $(document).trigger "image.gallery.prepare"
+  $('#delete_image').on 'ajax:error', (e, data, status, xhr) ->
+    alert 'Error sending ajax request'
+
+  addClickEvents()
 
 
 $(document).on "page:change", ->

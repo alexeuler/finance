@@ -3,13 +3,7 @@
     <tbody>
     <tr>
       <td class="images-container">
-        <div>
-          <% @images.each do |image| %>
-              <div class="image-container" data-id="<%= image.id %>">
-                <%= image_tag image.file.url(:small) %>
-              </div>
-          <% end %>
-        </div>
+        <%= render partial: 'image_gallery', locals: {images:@images} %>
       </td>
       <td class='side-panel'>
         <div>

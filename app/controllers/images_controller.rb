@@ -12,15 +12,14 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @images = Image.all
     @image = Image.new(image_params)
 
     respond_to do |format|
       if @image.save
-        format.html { render :index}
+        format.html {render partial: 'image_gallery', locals: {images:Image.all}}
         format.json { render json: 'Image was successfully created.' }
       else
-        format.html { render :index, notice: 'Error creating image' }
+        format.html {render text: 'Error creating image.'}
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
@@ -32,7 +31,7 @@ class ImagesController < ApplicationController
     @image.file.clear
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.html {render partial: 'image_gallery', locals: {images:Image.all}}
       format.json { head :no_content }
     end
   end
