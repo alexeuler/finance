@@ -9,6 +9,11 @@ class Image < ActiveRecord::Base
 
   before_create :generate_access_token
 
+  def as_json(options = {})
+    options[:url1] = '123'
+    super(options)
+  end
+
   private
 
 
