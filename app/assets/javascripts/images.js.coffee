@@ -4,7 +4,7 @@
 
 bodySelector = '.image-gallery'
 containerSelector = '.image-gallery .image-container'
-gallerySelector = '.image-gallery .images-container'
+gallerySelector = '.image-gallery .images-container .panel-section'
 deleteFormSelector = '.image-gallery .button_to'
 updateFormSelector = '.image-gallery #update_tags_form'
 
