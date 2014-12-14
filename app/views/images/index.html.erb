@@ -7,12 +7,17 @@
       </td>
       <td class='side-panel'>
         <div>
-          <%= form_for(@image, remote:true, html:{:'data-type' => :html}) do |f| %>
+          <%= form_for(@image, remote:true, method:'patch', html:{id:'update_tags_form'}) do |f|%>
               <div class="field">
                 <%= f.label :tags %><br>
                 <%= f.text_field :tags %>
               </div>
               <br/>
+              <%= f.submit class: 'btn btn-primary', value: 'Update', id:'update_button' %>
+          <% end %>
+          <br/>
+
+          <%= form_for(@image, remote:true, html:{:'data-type' => :html}) do |f| %>
 
               <div class="field">
                 <%= f.label :file %><br>

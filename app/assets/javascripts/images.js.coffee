@@ -5,7 +5,8 @@
 bodySelector = '.image-gallery'
 containerSelector = '.image-gallery .image-container'
 gallerySelector = '.image-gallery .images-container'
-deleteFormSelector = '.button_to'
+deleteFormSelector = '.image-gallery .button_to'
+updateFormSelector = '.image-gallery #update_tags_form'
 
 buttonsState = (state) ->
   $('#add_button').prop('disabled', state)
@@ -20,6 +21,9 @@ addClickEvents = ->
     container.addClass('selected')
     id=container.data('id')
     $(deleteFormSelector).attr('action',"/images/#{id}")
+    $(updateFormSelector).attr('action',"/images/#{id}")
+    $.ajax(url:"/images/#{id}").done (data, textStatus, jqXHR)->
+      $(updateFormSelector).find('input#image_tags').val data
 
 prepare = ->
   $('#new_image').on 'ajax:before', ->

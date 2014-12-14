@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :images, only: %w(index create destroy)
+  resources :images, only: %w(index create update destroy show)
 
   scope module: :blog do
     root 'posts#index'

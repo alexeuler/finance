@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:destroy]
+  before_action :set_image, only: [:destroy, :show, :update]
 
   # GET /images
   # GET /images.json
@@ -9,8 +9,14 @@ class ImagesController < ApplicationController
     render layout: false if request.xhr?
   end
 
+
+  def show
+    render text: @image.tags
+  end
+
   # POST /images
   # POST /images.json
+
   def create
     @image = Image.new(image_params)
 
@@ -24,6 +30,22 @@ class ImagesController < ApplicationController
       end
     end
   end
+
+  # PATCH/PUT /images/1
+  # PATCH/PUT /images/1.json
+  # Used for tags only
+  def update
+    respond_to do |format|
+      if @image.update(image_params)
+        format.html { redirect_to @image, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @image }
+      else
+        format.html { render :edit }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   # DELETE /images/1
   # DELETE /images/1.json
