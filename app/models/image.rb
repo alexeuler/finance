@@ -7,7 +7,7 @@ class Image < ActiveRecord::Base
   validates_attachment_presence :file
   validates_attachment :file, content_type: {content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']}
 
-
+  after_commit :update_tags
   before_create :generate_access_token
 
   private
@@ -31,5 +31,8 @@ class Image < ActiveRecord::Base
     attachment.instance.access_token
   end
 
+  def update_tags
+    Image::Tag.update_all
+  end
 
 end

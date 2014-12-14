@@ -8,6 +8,9 @@
         </div>
       </td>
       <td class='side-panel'>
+        <div id="tags-section" class="panel-section">
+
+        </div>
         <div class="panel-section">
           <%= form_for(@image, remote: true, method: 'patch', html: {id: 'update_tags_form'}) do |f| %>
               <div class="field">
@@ -17,7 +20,7 @@
               <br/>
               <%= f.submit class: 'btn btn-primary', value: 'Update', id: 'update_button' %>
           <% end %>
-</div>
+        </div>
         <div class="panel-section">
           <%= form_for(@image, remote: true, html: {:'data-type' => :html}) do |f| %>
 

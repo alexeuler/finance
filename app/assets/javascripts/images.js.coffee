@@ -7,6 +7,8 @@ containerSelector = '.image-gallery .image-container'
 gallerySelector = '.image-gallery .images-container .panel-section'
 deleteFormSelector = '.image-gallery .button_to'
 updateFormSelector = '.image-gallery #update_tags_form'
+tagsSelector = '.image-gallery #tags-section'
+updateButtonSelector = '.image-gallery #update_button'
 
 buttonsState = (state) ->
   $('#add_button').prop('disabled', state)
@@ -26,6 +28,13 @@ addClickEvents = ->
       $(updateFormSelector).find('input#image_tags').val data
 
 prepare = ->
+
+  $(updateFormSelector).on "ajax:success",(e, data, status, xhr) ->
+    $(tagsSelector).find('a').remove()
+    for tag in data
+      $(tagsSelector).append "<div><a href='#'>#{tag}</a></div>"
+
+
   $('#new_image').on 'ajax:before', ->
     buttonsState(true)
 

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :images, only: %w(index create update destroy show)
+  namespace :image do
+    resources :tags, only: :index
+  end
 
   scope module: :blog do
     root 'posts#index'

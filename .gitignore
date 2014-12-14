@@ -19,6 +19,6 @@
 /.idea
 
 #Ignore paperclip images
-/public/system
+/public/paperclip
 
 /.capistrano

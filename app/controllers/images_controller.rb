@@ -22,10 +22,10 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html {render partial: 'image_gallery', locals: {images:Image.all}}
+        format.html { render partial: 'image_gallery', locals: {images: Image.all} }
         format.json { render json: 'Image was successfully created.' }
       else
-        format.html {render text: 'Error creating image.'}
+        format.html { render text: 'Error creating image.' }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
@@ -35,14 +35,10 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1.json
   # Used for tags only
   def update
-    respond_to do |format|
-      if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @image }
-      else
-        format.html { render :edit }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
+    if @image.update(image_params)
+      render json: Image::Tag.select(:value).order(:value).to_a.map {|tag| tag.value}
+    else
+      render json: 'Error updating image tags'
     end
   end
 
@@ -53,19 +49,19 @@ class ImagesController < ApplicationController
     @image.file.clear
     @image.destroy
     respond_to do |format|
-      format.html {render partial: 'image_gallery', locals: {images:Image.all}}
+      format.html { render partial: 'image_gallery', locals: {images: Image.all} }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_image
-      @image = Image.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_image
+    @image = Image.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def image_params
-      params.require(:image).permit(:file, :tags)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def image_params
+    params.require(:image).permit(:file, :tags)
+  end
 end
