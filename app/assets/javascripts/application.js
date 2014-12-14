@@ -15,5 +15,7 @@
 //= require jquery.remotipart
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require underscore
+//= require backbone
 //= require images
 //= require_tree .
