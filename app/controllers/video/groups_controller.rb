@@ -69,6 +69,6 @@ class Video::GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_group_params
-      params.require(:video_group).permit(:value, :tags)
+      params.require(:video_group).permit(:value, :tags, :language, :order)
     end
 end

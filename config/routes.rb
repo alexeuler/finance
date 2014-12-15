@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :video do
-    resources :groups
-  end
-
   resources :images, only: %w(index create update destroy show)
 
   scope module: :blog do
@@ -17,6 +13,12 @@ Rails.application.routes.draw do
       root 'posts#index'
       resources :posts
       get ':slug', to: 'posts#show'
+    end
+
+    namespace :video do
+      root 'posts#index'
+      resources :groups
+      resources :posts, only:['index']
     end
   end
 

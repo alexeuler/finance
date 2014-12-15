@@ -5,14 +5,10 @@ class Blog::Post < ActiveRecord::Base
                        :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
   after_commit :update_tags
 
-  before_save :destroy_image?
+  belongs_to :video_group, :class_name => 'Video::Group'
 
-  attr_accessor :image_delete
 
   private
-  def destroy_image?
-    self.image.clear if image_delete == "1"
-  end
 
   def update_tags
     Blog::Tag.update_all

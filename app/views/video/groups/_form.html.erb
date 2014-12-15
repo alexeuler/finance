@@ -1,25 +1,37 @@
 <%= form_for(@video_group) do |f| %>
-  <% if @video_group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@video_group.errors.count, "error") %> prohibited this video_group from being saved:</h2>
+    <% if @video_group.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@video_group.errors.count, "error") %> prohibited this video_group from being saved:</h2>
 
-      <ul>
-      <% @video_group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @video_group.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :value %><br>
+      <%= f.text_field :value %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.text_field :value %>
-  </div>
-  <div class="field">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :order %><br>
+      <%= f.text_field :order %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :language %><br>
+      <%= f.text_field :language %>
+    </div>
+
+    <div class="field">
+      <%= f.label :tags %><br>
+      <%= f.text_field :tags %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
