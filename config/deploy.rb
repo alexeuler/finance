@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.3.3'
 
-set :application, 'finance'
+
 set :repo_url, 'git@github.com:alleycat-at-git/finance.git'
 
 # Default branch is :master
@@ -59,38 +59,42 @@ end
 
 namespace :assets do
 
-  task :clone_db do
-    #closing dv connection
+  task :fetch_db do
+    #closing db connection
     invoke 'server:stop'
     on roles(:db) do
       db_dump = '/tmp/db_dump'
-      execute "pg_dump finance_production > #{db_dump}"
-      execute 'dropdb finance_staging'
-      execute 'createdb finance_staging'
-      execute "psql finance_staging < #{db_dump}"
+      environment = fetch(:rails_env).to_s
+      from = environment=='production' ? 'finance_staging' : 'finance_production'
+      to = environment=='production' ? 'finance_production' : 'finance_staging'
+      execute "pg_dump #{from} > #{db_dump}"
+      execute "dropdb #{to}"
+      execute "createdb #{to}"
+      execute "psql #{to} < #{db_dump}"
       execute "rm #{db_dump}"
     end
     invoke 'server:start'
   end
 
-  task :clone_files do
-    on roles(:app) do
-      from = '/var/www/finance/shared/public/paperclip'
-      to='/var/www/finance_staging/shared/public/paperclip'
+  task :fetch_files do
+    on roles(:web) do
+      environment = fetch(:rails_env).to_s
+      from = environment=='production' ? '/var/www/finance_staging/shared/public/paperclip' : '/var/www/finance/shared/public/paperclip'
+      to = environment=='production' ? '/var/www/finance/shared/public/paperclip' : '/var/www/finance_staging/shared/public/paperclip'
       execute "rm -rf #{to}"
       execute "cp -r #{from} #{to}"
     end
     invoke 'assets:symlink'
   end
 
-  task :clone do
-    invoke 'assets:clone_db'
-    invoke 'assets:clone_files'
+  task :fetch do
+    invoke 'assets:fetch_db'
+    invoke 'assets:fetch_files'
   end
 
   task :symlink do
-    on roles(:app) do
-      root_parent = File.expand_path('../',fetch(:root))
+    on roles(:web) do
+      root_parent = File.expand_path('../', fetch(:root))
       execute "rm -f #{root_parent}/current/public/paperclip"
       execute "ln -s #{root_parent}/shared/public/paperclip #{root_parent}/current/public/paperclip"
     end
@@ -99,10 +103,7 @@ namespace :assets do
 end
 
 
-
 namespace :deploy do
-
   after :published, 'assets:symlink'
   after :published, 'server:restart'
-
 end

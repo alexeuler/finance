@@ -57,6 +57,6 @@ server website_url, user: ssh_user, roles: %w{web app}, my_property: :my_value
 
 
 namespace :deploy do
-  after :published, 'assets:clone'
+  after :published, 'assets:fetch'
 end
 
