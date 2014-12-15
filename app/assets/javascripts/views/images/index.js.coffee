@@ -31,11 +31,14 @@ App.namespace 'App.Views.Images', (ns)->
           thumbsContainer.append thumbs_view
 
       #handling events
-      thumbsContainer.find(".image-thumb-container").on "click", (e) ->
+      thumbsContainer.find(".image-thumb-container").on "click", (e) =>
         id = $(e.currentTarget).data('id')
         thumbsContainer.data('id', id)
         thumbsContainer.find(".image-thumb-container").removeClass('selected')
         $(e.currentTarget).addClass('selected')
+        model = @collection.get(id)
+        tags = model.get('tags')
+        $(".image-gallery #image_tags").val(tags)
 
 
     renderEditTags: ->
@@ -47,20 +50,24 @@ App.namespace 'App.Views.Images', (ns)->
       updateButton = controlPanel.find(".edit-tags-button")
       updateButton.on 'click', =>
         id=$('.image-gallery .thumbs-container').data('id')
-        tags=controlPanel.find("#image_tags").val()
-        csrfToken = $("meta[name=csrf-token]")[0].content
-        $.ajax(
-          type: 'patch'
-          url: "/images/#{id}"
-          data:
-            csrf: csrfToken
-            image:
-              tags: tags
-        ).done( =>
-          @collection.fetch()
-        ).fail( (jqXHR, textStatus) =>
-          alert( "Request failed: " + textStatus );
-        )
+        if id?
+          tags=controlPanel.find("#image_tags").val()
+          csrfToken = $("meta[name=csrf-token]")[0].content
+          $.ajax(
+            type: 'patch'
+            url: "/images/#{id}"
+            data:
+              csrf: csrfToken
+              image:
+                tags: tags
+          ).done( =>
+            @collection.fetch()
+          ).fail( (jqXHR, textStatus) =>
+            alert( "Request failed: " + textStatus );
+          )
+        else
+          alert("Error: Image is not selected")
+
 
     renderTags: ->
       controlPanel = $(".image-gallery .control-panel-container")
