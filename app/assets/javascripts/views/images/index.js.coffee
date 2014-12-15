@@ -17,6 +17,13 @@ App.namespace 'App.Views.Images', (ns)->
       @listenTo(@collection, 'sync', @render)
       @render()
 
+    toggleButtons: (value) ->
+      buttons = $('.image-gallery').find('.add-button, .delete-button, .edit-tags-button')
+      if value
+        buttons.removeClass('disabled')
+      else
+        buttons.addClass('disabled')
+
     renderThumbs: ->
       #rendering thumbs
       thumbsContainer = $('.image-gallery .thumbs-container')
@@ -53,6 +60,7 @@ App.namespace 'App.Views.Images', (ns)->
         if id?
           tags=controlPanel.find("#image_tags").val()
           csrfToken = $("meta[name=csrf-token]")[0].content
+          @toggleButtons(false)
           $.ajax(
             type: 'patch'
             url: "/images/#{id}"
@@ -62,8 +70,10 @@ App.namespace 'App.Views.Images', (ns)->
                 tags: tags
           ).done( =>
             @collection.fetch()
+            @toggleButtons(true)
           ).fail( (jqXHR, textStatus) =>
             alert( "Request failed: " + textStatus );
+            @toggleButtons(true)
           )
         else
           alert("Error: Image is not selected")
@@ -99,10 +109,15 @@ App.namespace 'App.Views.Images', (ns)->
       controlPanel.append uploadImageView
 
       #handling events
+      $(".image-gallery .add-button").on 'click', (e) =>
+        @toggleButtons(false)
+
       $(".image-gallery .new_image").on('ajax:success', (e)=>
         @collection.fetch()
+        @toggleButtons(true)
       ).on('ajax:error', =>
         alert "Error on server side"
+        @toggleButtons(true)
       )
 
       $(".image-gallery .delete-button").on 'click', (e)=>
@@ -111,6 +126,7 @@ App.namespace 'App.Views.Images', (ns)->
         id=$('.image-gallery .thumbs-container').data('id')
         if id?
           csrfToken = $("meta[name=csrf-token]")[0].content
+          @toggleButtons(false)
           $.ajax(
             type: 'delete'
             url: "/images/#{id}"
@@ -118,8 +134,10 @@ App.namespace 'App.Views.Images', (ns)->
               csrf: csrfToken
           ).done( =>
             @collection.fetch()
+            @toggleButtons(true)
           ).fail( (jqXHR, textStatus) =>
             alert( "Request failed: " + textStatus );
+            @toggleButtons(true)
           )
         else
           alert("Error: Image is not selected")
