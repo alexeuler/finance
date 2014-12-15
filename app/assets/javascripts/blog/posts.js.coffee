@@ -12,5 +12,11 @@ $(document).on "page:change", ->
   $(buttonSelector).on 'click', ->
     $(document).trigger('image.gallery.prepare',
       modal.find('.modal-body'))
+    $(".image-gallery-ok-button").on 'click', (e) ->
+      thumbsContainer = $('.image-gallery .thumbs-container')
+      url = thumbsContainer.data('url')
+      text = "<img src='#{url}' alt=''></img>"
+      $("#blog_post_body").val($("#blog_post_body").val() + text)
+      modal.modal('hide')
     modal.modal('show')
 

@@ -40,7 +40,11 @@ App.namespace 'App.Views.Images', (ns)->
       #handling events
       thumbsContainer.find(".image-thumb-container").on "click", (e) =>
         id = $(e.currentTarget).data('id')
+        model = @collection.get(id)
+        url = model.get('url')
         thumbsContainer.data('id', id)
+        thumbsContainer.data('url', url)
+
         thumbsContainer.find(".image-thumb-container").removeClass('selected')
         $(e.currentTarget).addClass('selected')
         model = @collection.get(id)
