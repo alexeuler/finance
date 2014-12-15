@@ -91,8 +91,8 @@ namespace :assets do
   task :symlink do
     on roles(:app) do
       root_parent = File.expand_path('../',fetch(:root))
-      execute "rm -f #{root_parent}/current/public/system"
-      execute "ln -s #{root_parent}/shared/public/paperclip #{root_parent}/current/public/system"
+      execute "rm -f #{root_parent}/current/public/paperclip"
+      execute "ln -s #{root_parent}/shared/public/paperclip #{root_parent}/current/public/paperclip"
     end
   end
 
