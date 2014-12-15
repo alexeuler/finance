@@ -1,0 +1,27 @@
+<h1>Listing video_groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @video_groups.each do |video_group| %>
+      <tr>
+        <td><%= video_group.value %></td>
+        <td><%= video_group.tags %></td>
+        <td><%= link_to 'Show', video_group %></td>
+        <td><%= link_to 'Edit', edit_video_group_path(video_group) %></td>
+        <td><%= link_to 'Destroy', video_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group', new_video_group_path %>

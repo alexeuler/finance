@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :video do
+    resources :groups
+  end
+
   resources :images, only: %w(index create update destroy show)
 
   scope module: :blog do
