@@ -56,8 +56,11 @@ App.namespace 'App.Views.Images', (ns)->
             csrf: csrfToken
             image:
               tags: tags
-        ).done =>
+        ).done( =>
           @collection.fetch()
+        ).fail( (jqXHR, textStatus) =>
+          alert( "Request failed: " + textStatus );
+        )
 
     renderTags: ->
       controlPanel = $(".image-gallery .control-panel-container")
@@ -89,8 +92,11 @@ App.namespace 'App.Views.Images', (ns)->
       controlPanel.append uploadImageView
 
       #handling events
-      $(".image-gallery .new_image").on 'ajax:success', (e)=>
+      $(".image-gallery .new_image").on('ajax:success', (e)=>
         @collection.fetch()
+      ).on('ajax:error', =>
+        alert "Error on server side"
+      )
 
       $(".image-gallery .delete-button").on 'click', (e)=>
         e.preventDefault()
@@ -103,8 +109,13 @@ App.namespace 'App.Views.Images', (ns)->
             url: "/images/#{id}"
             data:
               csrf: csrfToken
-          ).done =>
+          ).done( =>
             @collection.fetch()
+          ).fail( (jqXHR, textStatus) =>
+            alert( "Request failed: " + textStatus );
+          )
+        else
+          alert("Error: Image is not selected")
 
 
 
