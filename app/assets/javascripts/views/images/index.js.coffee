@@ -57,7 +57,7 @@ App.namespace 'App.Views.Images', (ns)->
             image:
               tags: tags
         ).done =>
-          @renderTags()
+          @collection.fetch()
 
     renderTags: ->
       controlPanel = $(".image-gallery .control-panel-container")
@@ -89,6 +89,9 @@ App.namespace 'App.Views.Images', (ns)->
       controlPanel.append uploadImageView
 
       #handling events
+      $(".image-gallery .new_image").on 'ajax:success', (e)=>
+        @collection.fetch()
+
       $(".image-gallery .delete-button").on 'click', (e)=>
         e.preventDefault()
         e.stopPropagation()
@@ -101,7 +104,8 @@ App.namespace 'App.Views.Images', (ns)->
             data:
               csrf: csrfToken
           ).done =>
-            @renderTags()
+            @collection.fetch()
+
 
 
     render: ->
