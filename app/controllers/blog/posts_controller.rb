@@ -1,6 +1,6 @@
 class Blog::PostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-
+  layout 'layouts/blog_posts'
   # GET /blog/posts
   # GET /blog/posts.json
   def index

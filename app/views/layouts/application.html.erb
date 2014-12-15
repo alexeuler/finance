@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for?(:head) ? yield(:head) : "Finance"  %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Finance"  %></title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,7 @@
 <div class="page-container">
   <%= render 'shared/navbar' %>
   <div class="body-container">
-    <%= yield %>
+    <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
 </div>
 
