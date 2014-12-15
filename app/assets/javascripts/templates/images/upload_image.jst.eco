@@ -6,7 +6,7 @@
     </div>
 
     <div class="field">
-      <label for="image_file">File</label><br>
+      <label for="image_file">Upload image</label><br>
       <input id="image_file" name="image[file]" type="file">
     </div>
     <br>

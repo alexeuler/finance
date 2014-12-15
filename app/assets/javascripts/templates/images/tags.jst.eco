@@ -1,4 +1,5 @@
 <div class="tags-control-panel">
+  <label for="Filter by tags">Filter by tags</label>
   <a href="#">all</a>
   <% for tag, i in @tags: %>
       <a href="<%= tag %>"><%= tag %></a>

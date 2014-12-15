@@ -3,25 +3,37 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .image-gallery {
 
-  .side-panel, .images-container {
-    .panel-section {
+  .thumbs-layout, .control-panel-layout {
+    vertical-align: top;
+  }
+  .thumbs-layout {
+    width:80%
+  }
+
+  .control-panel-layout {
+    width:20%
+  }
+
+  .control-panel-container {
+    .tags-control-panel, .edit-tags-control-panel, .upload-image-control-panel {
+      a{
+        display: block;
+      }
       padding:10px;
       @include box-shadow(0px 0px 5px #7C6744);
       @include gradient-vertical(#FDFFB1, #fff);
       margin:10px;
     }
-    vertical-align: top;
   }
 
-  .side-panel {
-    width: 20%;
+  .thumbs-container {
+    padding:10px;
+    @include box-shadow(0px 0px 5px #7C6744);
+    @include gradient-vertical(#FDFFB1, #fff);
+    margin:10px;
   }
 
-  .images-container {
-    width: 80%;
-  }
-
-  .image-container {
+  .image-thumb-container {
 
     display: inline-block;
     margin: 5px;
