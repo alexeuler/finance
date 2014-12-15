@@ -93,6 +93,7 @@ App.namespace 'App.Views.Images', (ns)->
           tags_array = image_tags.split(" ")
           for tag in tags_array
             tags.push tag
+      tags = _.uniq(tags)
       tagsView = @tagsTemplate tags:tags
       controlPanel.append tagsView
       $(".image-gallery .tags-control-panel").on 'click', (e)=>

@@ -30,6 +30,14 @@
                 <br/>
 
                 <div class="field">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary modal-launch-button">
+                    Add Image
+                  </button>
+                </div>
+                <br/>
+
+                <div class="field">
                   <%= f.label :excerpt %><br>
                   <%= f.text_area :excerpt, class: "form-control", rows: 5 %>
                 </div>
@@ -55,15 +63,6 @@
                 <div class="field">
                   <%= f.label :status %><br>
                   <%= f.text_field :status, class: "form-control" %>
-                </div>
-                <br/>
-
-                <div class="field">
-                  <%= f.label :image %><br>
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary modal-launch-button">
-                    Add
-                  </button>
                 </div>
                 <br/>
 
