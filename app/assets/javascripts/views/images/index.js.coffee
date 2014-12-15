@@ -13,7 +13,7 @@ App.namespace 'App.Views.Images', (ns)->
 
     initialize: ->
       _.bindAll @, 'render', 'renderThumbs', 'renderTags',
-        'renderEditTags'
+        'renderEditTags', 'renderUploadImage'
       @listenTo(@collection, 'sync', @render)
       @render()
 
@@ -45,7 +45,7 @@ App.namespace 'App.Views.Images', (ns)->
       controlPanel.append editTagsView
 
       updateButton = controlPanel.find(".edit-tags-button")
-      updateButton.on 'click', ->
+      updateButton.on 'click', =>
         id=$('.image-gallery .thumbs-container').data('id')
         tags=controlPanel.find("#image_tags").val()
         csrfToken = $("meta[name=csrf-token]")[0].content
@@ -56,7 +56,7 @@ App.namespace 'App.Views.Images', (ns)->
             csrf: csrfToken
             image:
               tags: tags
-        ).done ->
+        ).done =>
           @renderTags()
 
     renderTags: ->
@@ -82,6 +82,26 @@ App.namespace 'App.Views.Images', (ns)->
           @tag = tag
         @renderThumbs()
 
+    renderUploadImage: ->
+      controlPanel = $(".image-gallery .control-panel-container")
+      #rendering upload_image
+      uploadImageView = @uploadImageTemplate()
+      controlPanel.append uploadImageView
+
+      #handling events
+      $(".image-gallery .delete-button").on 'click', (e)=>
+        e.preventDefault()
+        e.stopPropagation()
+        id=$('.image-gallery .thumbs-container').data('id')
+        if id?
+          csrfToken = $("meta[name=csrf-token]")[0].content
+          $.ajax(
+            type: 'delete'
+            url: "/images/#{id}"
+            data:
+              csrf: csrfToken
+          ).done =>
+            @renderTags()
 
 
     render: ->
@@ -91,10 +111,5 @@ App.namespace 'App.Views.Images', (ns)->
       @renderThumbs()
       @renderTags()
       @renderEditTags()
-
-      controlPanel = $(".image-gallery .control-panel-container")
-      #rendering upload_image
-      uploadImageView = @uploadImageTemplate()
-      controlPanel.append uploadImageView
-
+      @renderUploadImage()
       @
