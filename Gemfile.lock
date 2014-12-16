@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.9)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
     builder (3.2.2)
@@ -59,6 +60,13 @@ GEM
     coffee-script-source (1.8.0)
     colorize (0.7.3)
     daemons (1.1.9)
+    devise (3.4.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -84,6 +92,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
+    orm_adapter (0.5.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -112,6 +121,8 @@ GEM
     rdoc (4.1.2)
       json (~> 1.4)
     remotipart (1.2.1)
+    responders (1.1.2)
+      railties (>= 3.2, < 4.2)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -149,6 +160,8 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -158,6 +171,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   coffee-rails (~> 4.0.0)
+  devise
   eco
   jbuilder (~> 2.0)
   jquery-rails

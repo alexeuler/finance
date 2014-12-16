@@ -56,3 +56,6 @@ gem 'remotipart'
 
 #erb templates for backbone
 gem 'eco'
+
+#user logins
+gem 'devise'
