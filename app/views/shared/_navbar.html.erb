@@ -38,7 +38,7 @@
       </li>
       <li>
         <a href="#">
-          <%= image_tag "twitter_icon.png", alt: "twitter"%>
+          <%= link_to image_tag("twitter_icon.png", alt: "twitter"), user_omniauth_authorize_path(:twitter)%>
           <span class="visible-xs-inline"><%= t("navbar.twitter_icon") %></span>
         </a>
       </li>

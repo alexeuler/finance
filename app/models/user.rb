@@ -3,15 +3,31 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:facebook]
+  devise :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.first_name = auth.info.first_name   # assuming the user model has a name
-      user.last_name = auth.info.last_name
-      user.image = auth.info.image # assuming the user model has an image
+      case auth.provider
+        when 'facebook'
+          user.email = auth.info.email
+          user.password = Devise.friendly_token[0, 20]
+          user.nickname = auth.info.nickname
+          user.first_name = auth.info.first_name
+          user.last_name = auth.info.last_name
+          user.full_name = user.first_name + ' '+user.last_name
+          user.url = auth.info.urls['Facebook']
+          user.image = auth.info.image
+        when 'twitter'
+          user.full_name = auth.info.name
+          names = auth.info.name.split(' ')
+          user.nickname = auth.info.nickname
+          user.first_name = names[0]
+          user.last_name = names[1]
+          user.email = "#{user.first_name}.#{user.last_name}@twitter.com"
+          user.password = Devise.friendly_token[0, 20]
+          user.url = auth.info.urls['Twitter']
+          user.image = auth.info.image
+      end
     end
   end
 
