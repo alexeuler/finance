@@ -59,3 +59,4 @@ gem 'eco'
 
 #user logins
 gem 'devise'
+gem 'omniauth-facebook'
