@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="page-container">
-  <%= render 'shared/navbar' %>
+  <%= render partial: 'shared/navbar', locals: {selected_tab: yield(:selected_tab)} %>
   <div class="body-container">
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>

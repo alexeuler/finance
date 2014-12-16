@@ -9,18 +9,15 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#"><%= t("navbar.title") %></a>
-      <!--<a class="navbar-brand" href="#">-->
-      <!--<img alt="Brand" src="...">-->
-      <!--</a>-->
     </div>
 
     <!--container that will collapse when the viewport is small-->
     <div id="navbar" class="navbar-collapse collapse">
       <!--Links to pages-->
       <ul class="nav navbar-nav app-header-menu">
-        <li class="active"><%= link_to t("navbar.blog"), blog_posts_path %></li>
-        <li><%= link_to t("navbar.video"), video_posts_path  %></li>
-        <li><a href="#"><%= t("navbar.about") %></a></li>
+        <li class="<%= selected_tab == t("navbar.blog") ? 'active' : '' %>"><%= link_to t("navbar.blog"), blog_posts_path %></li>
+        <li class="<%= selected_tab == t("navbar.video") ? 'active' : '' %>"><%= link_to t("navbar.video"), video_posts_path  %></li>
+        <li class="<%= selected_tab == t("navbar.about") ? 'active' : '' %>"><a href="#"><%= t("navbar.about") %></a></li>
       </ul>
 
 
