@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:facebook, :twitter]
+  devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :vkontakte]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -27,6 +27,16 @@ class User < ActiveRecord::Base
           user.password = Devise.friendly_token[0, 20]
           user.url = auth.info.urls['Twitter']
           user.image = auth.info.image
+        when 'vkontakte'
+          user.email = auth.info.email
+          user.password = Devise.friendly_token[0, 20]
+          user.nickname = auth.info.nickname
+          user.first_name = auth.info.first_name
+          user.last_name = auth.info.last_name
+          user.full_name = user.first_name + ' '+user.last_name
+          user.url = auth.info.urls['Vkontakte']
+          user.image = auth.info.image
+
       end
     end
   end
