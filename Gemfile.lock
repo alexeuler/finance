@@ -197,6 +197,7 @@ DEPENDENCIES
   eco
   jbuilder (~> 2.0)
   jquery-rails
+  omniauth
   omniauth-facebook
   paperclip (~> 4.2)
   pg

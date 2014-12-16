@@ -41,7 +41,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.3.1'
 
 #for image uploading
-gem "paperclip", "~> 4.2"
+gem 'paperclip', '~> 4.2'
 
 group :development do
   gem 'capistrano-rails'
@@ -59,4 +59,5 @@ gem 'eco'
 
 #user logins
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-facebook'
