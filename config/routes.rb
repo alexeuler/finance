@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :images, only: %w(index create update destroy show)
 
   scope module: :blog do
