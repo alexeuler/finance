@@ -90,6 +90,7 @@ namespace :assets do
   task :fetch do
     invoke 'assets:fetch_db'
     invoke 'assets:fetch_files'
+    invoke 'deploy:migrate'
   end
 
   task :symlink do

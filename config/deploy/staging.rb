@@ -57,6 +57,9 @@ server website_url, user: ssh_user, roles: %w{web app}, my_property: :my_value
 
 
 namespace :deploy do
-  after :published, 'assets:fetch'
+  #for some reason db:migrate isn't invoked two times
+  #so need to do this before updated as this copies database from production
+  #and only after that you have to run migrations
+  before :updated, 'assets:fetch'
 end
 
