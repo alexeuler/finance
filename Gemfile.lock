@@ -67,6 +67,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-i18n (0.11.3)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -205,6 +206,7 @@ DEPENDENCIES
   capistrano-rvm
   coffee-rails (~> 4.0.0)
   devise
+  devise-i18n
   eco
   jbuilder (~> 2.0)
   jquery-rails

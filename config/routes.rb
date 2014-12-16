@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users,
-             :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #this string if you don't use locale
+  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   resources :images, only: %w(index create update destroy show)
 
   scope module: :blog do
@@ -9,8 +10,28 @@ Rails.application.routes.draw do
     get '/:locale', to: 'posts#index'
   end
 
+  devise_for :users, skip: :omniauth_callbacks
+  devise_scope :user do
+    match "/users/auth/:provider",
+          constraints: {provider: /vkontakte|facebook|twitter/},
+          to: "users/omniauth_callbacks#passthru",
+          as: :user_omniauth_authorize,
+          via: [:get, :post]
+    match "/users/auth/:action/callback",
+          constraints: {action: /vkontakte|facebook|twitter/},
+          to: "users/omniauth_callbacks",
+          as: :user_omniauth_callback,
+          via: [:get, :post]
+  end
 
+
+
+  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   scope "/:locale" do
+
+
+
+
     namespace :blog do
       root 'posts#index'
       resources :posts
@@ -20,7 +41,7 @@ Rails.application.routes.draw do
     namespace :video do
       root 'posts#index'
       resources :groups
-      resources :posts, only:['index']
+      resources :posts, only: ['index']
     end
   end
 
