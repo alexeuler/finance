@@ -3,7 +3,7 @@
 ru:
   devise:
     views:
-      email: "email"
+      email: "Email"
       password: "Пароль"
       password_hint: "Оставьте пустым, если не хотите менять"
       password_confirmation: "Подтверждение пароля"
