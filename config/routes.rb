@@ -10,28 +10,14 @@ Rails.application.routes.draw do
     get '/:locale', to: 'posts#index'
   end
 
-  devise_for :users, skip: :omniauth_callbacks
-  devise_scope :user do
-    match "/users/auth/:provider",
-          constraints: {provider: /vkontakte|facebook|twitter/},
-          to: "users/omniauth_callbacks#passthru",
-          as: :user_omniauth_authorize,
-          via: [:get, :post]
-    match "/users/auth/:action/callback",
-          constraints: {action: /vkontakte|facebook|twitter/},
-          to: "users/omniauth_callbacks",
-          as: :user_omniauth_callback,
-          via: [:get, :post]
-  end
+  # devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+  # leaving omniauth with no locale and using locale for other devise
+  devise_for :users,
+             skip: [:session, :password, :registration],
+             controllers: {:omniauth_callbacks => "users/omniauth_callbacks"}
 
-
-
-  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   scope "/:locale" do
-
-
-
-
+    devise_for :users, skip: :omniauth_callbacks
     namespace :blog do
       root 'posts#index'
       resources :posts
