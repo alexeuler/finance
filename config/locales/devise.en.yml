@@ -2,6 +2,38 @@
 
 en:
   devise:
+      views:
+        email: "email"
+        password: "Пароль"
+        password_hint: "Оставьте пустым, если не хотите менять"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        current_password_hint: "Нам нужен пароль для подтверждения изменений"
+        new_password: "Новый пароль"
+        change_password: "Изменить пароль"
+        password_send_instructions: "Выслать инструкции по сбросу пароля"
+        password_forgot: "Забыли пароль?"
+        password_instruction_receive: "Didn't receive confirmation instructions?"
+        unlock_instruction_receive: "Didn't receive account unlock instructions?"
+        update: "Обновить"
+        back: "Назад"
+        min_chars: "символов минимум"
+        sign_up: "Зарегистрироваться"
+        remember_me: "Запомнить меня"
+        login: "Войти"
+        login_with: "Login with"
+        resend_unlock_instructions: "Выслать инструкции для разблокировки"
+      mailer:
+        welcome: "Welcome"
+        confirm_account: "Подтвердить аккаунт"
+        hello: "Здравствуйте"
+        reset1: "Someone has requested a link to change your password. You can do this through the link below."
+        reset2: "If you didn't request this, please ignore this email."
+        reset3: "Your password won't change until you access the link above and create a new one."
+        lock1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        lock2: "Click the link below to unlock your account."
+        lock3: "Unlock my account"
+
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
