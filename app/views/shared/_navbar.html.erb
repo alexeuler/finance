@@ -25,7 +25,8 @@
     <ul class="nav navbar-nav navbar-right login-panel">
       <li>
         <a href="#">
-          <%= image_tag "email_icon.png", alt: "email"%>
+          <%= link_to image_tag("email_icon.png", alt: "email"),
+          new_user_session_path%>
           <span class="visible-xs-inline"><%= t("navbar.email_icon") %></span>
         </a>
 
