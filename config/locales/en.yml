@@ -39,4 +39,6 @@ en:
     twitter_icon: "Sign in / subscribe via twitter"
     rss_icon: "Sign in / subscribe via rss"
     navigation: "Navigation"
-
+  rss:
+    blog_title: "Finance"
+    blog_desc: "Blog about finance"

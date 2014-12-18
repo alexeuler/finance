@@ -7,6 +7,12 @@ class Blog::PostsController < ApplicationController
     @blog_posts = Blog::Post.where(language: I18n.locale).order(created_at: :desc).text.all
     @blog_posts=@blog_posts.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
     @blog_tags = Blog::Tag.where(language: I18n.locale).all
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+    end
+
+
   end
 
   # GET /blog/posts/1

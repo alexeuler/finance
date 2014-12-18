@@ -39,4 +39,6 @@ ru:
     twitter_icon: "Войти / подписаться через twitter"
     rss_icon: "Войти / подписаться через rss"
     navigation: "Навигация"
-
+  rss:
+    blog_title: "Финансы"
+    blog_desc: "Блог о финансах"
