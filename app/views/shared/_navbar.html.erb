@@ -55,7 +55,7 @@
       </li>
       <li>
         <a href="#">
-          <%= image_tag "rss_icon.png", alt: "rss"%>
+          <%= link_to image_tag("rss_icon.png", alt: "rss"), blog_posts_path(I18n.locale,:rss)%>
           <span class="visible-xs-inline"><%= t("navbar.rss_icon") %></span>
         </a>
       </li>
