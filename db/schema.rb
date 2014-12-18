@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216132517) do
+ActiveRecord::Schema.define(version: 20141218093443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141216132517) do
     t.string   "language",       default: "ru", null: false
     t.integer  "video_group_id"
     t.string   "breed"
+    t.string   "rss"
   end
 
   create_table "blog_tags", force: true do |t|
