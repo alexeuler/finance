@@ -29,7 +29,8 @@ en:
     back: "Back"
     all: "All"
   navbar:
-    title: "Finance"
+    title: "Ka-ching!"
+    home: "Home"
     blog: "Blog"
     video: "Video"
     about: "About"
@@ -40,5 +41,5 @@ en:
     rss_icon: "Sign in / subscribe via rss"
     navigation: "Navigation"
   rss:
-    blog_title: "Finance"
+    blog_title: "Ka-ching!"
     blog_desc: "Blog about finance"

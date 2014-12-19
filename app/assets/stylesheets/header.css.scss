@@ -1,29 +1,30 @@
+$navbar-height: 50px;
 
 .app-header {
-
-  margin: 5px;
-  padding: 5px;
-//  height: 60px;
-  @include gradient-horizontal-three-colors(rgb(197, 224, 180), rgb(197, 224, 180), 25%, #fff);
-  border: 1px solid rgb(60, 92, 60);
-  @include box-shadow(0px 0px 10px);
-  border-radius: 10px;
+  height: $navbar-height;
+  background: rgba(255, 255, 255, 0.5);
 
   .app-header-brand > .navbar-brand {
-    font-family: Roboto, Arial, sans-serif;
-    font-size: 20px;
-    color: black;
+    padding: 0px;
+    .navbar-brand-logo{
+      display: inline-block;
+      height: $navbar-height;
+    }
 
+    .navbar-brand-title {
+      font-family: $font-family-links;
+      font-size: 32px;
+      color: black;
+      position: relative;
+      top:3px
+    }
   }
-
 
   .app-header-menu {
-    font-family: RobotoLight, Arial, sans-serif;
+    font-family: $font-family-links;
     font-size: 20px;
+    margin-right: 50px;
   }
-
-
-
 
   .inner-app-header {
 
@@ -34,11 +35,25 @@
       }
     }
 
+    a{
+      color:black !important;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    li {
+      a, a:hover, a:active{
+        padding:15px 10px;
+      }
+    }
 
     li.active {
-      a, a:hover {
+      a, a:hover, a:active {
         background: none;
         color: black;
+        text-decoration: underline;
       }
     }
 

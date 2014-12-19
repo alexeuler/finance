@@ -8,59 +8,54 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= t("navbar.title") %></a>
+      <a class="navbar-brand" href="#">
+        <table>
+          <tr>
+            <td class = "navbar-brand-layout">
+              <%= image_tag 'logo.png', alt: 'Ka-ching! logo', class: 'navbar-brand-logo' %>
+            </td>
+            <td class = "navbar-brand-layout">
+              <span class="navbar-brand-title"><%= t("navbar.title") %></span>
+            </td>
+          </tr>
+        </table>
+      </a>
     </div>
 
     <!--container that will collapse when the viewport is small-->
     <div id="navbar" class="navbar-collapse collapse">
-      <!--Links to pages-->
-      <ul class="nav navbar-nav app-header-menu">
-        <li class="<%= selected_tab == t("navbar.blog") ? 'active' : '' %>"><%= link_to t("navbar.blog"), blog_posts_path %></li>
-        <li class="<%= selected_tab == t("navbar.video") ? 'active' : '' %>"><%= link_to t("navbar.video"), video_posts_path  %></li>
-        <li class="<%= selected_tab == t("navbar.about") ? 'active' : '' %>"><a href="#"><%= t("navbar.about") %></a></li>
+      <!--Login buttons-->
+      <ul class="nav navbar-nav navbar-right login-panel">
+        <li>
+          <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path %>
+        </li>
+
+        <li>
+          <%= link_to image_tag("vk_icon.png", alt: "vkontakte"), user_omniauth_authorize_path(:vkontakte) %>
+        </li>
+
+
+        <li>
+          <%= link_to image_tag("facebook_icon.png", alt: "facebook"), user_omniauth_authorize_path(:facebook) %>
+        </li>
+        <li>
+          <%= link_to image_tag("twitter_icon.png", alt: "twitter"), user_omniauth_authorize_path(:twitter) %>
+        </li>
+        <li>
+          <%= link_to image_tag("rss_icon.png", alt: "rss"), blog_posts_path(I18n.locale, :rss) %>
+        </li>
+
       </ul>
 
+      <!--Links to pages-->
+      <ul class="nav navbar-nav app-header-menu navbar-right">
+        <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), blog_posts_path %></li>
+        <li class="<%= selected_tab == t("navbar.blog") ? 'active' : '' %>"><%= link_to t("navbar.blog"), blog_posts_path %></li>
+        <li class="<%= selected_tab == t("navbar.video") ? 'active' : '' %>"><%= link_to t("navbar.video"), video_posts_path %></li>
+        <li class="<%= selected_tab == t("navbar.about") ? 'active' : '' %>"><a href="#"><%= t("navbar.about") %></a>
+        </li>
+      </ul>
 
-    <!--Login buttons-->
-    <ul class="nav navbar-nav navbar-right login-panel">
-      <li>
-        <a href="#">
-          <%= link_to image_tag("email_icon.png", alt: "email"),
-          new_user_session_path%>
-          <span class="visible-xs-inline"><%= t("navbar.email_icon") %></span>
-        </a>
-
-      </li>
-
-      <li>
-        <a href="#">
-          <%= link_to image_tag("vk_icon.png", alt: "vkontakte"), user_omniauth_authorize_path(:vkontakte)%>
-          <span class="visible-xs-inline"><%= t("navbar.vk_icon") %></span>
-        </a>
-
-      </li>
-
-
-      <li>
-        <a href="#">
-          <%= link_to image_tag("facebook_icon.png", alt: "facebook"), user_omniauth_authorize_path(:facebook)%>
-          <span class="visible-xs-inline"><%= t("navbar.facebook_icon") %></span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <%= link_to image_tag("twitter_icon.png", alt: "twitter"), user_omniauth_authorize_path(:twitter)%>
-          <span class="visible-xs-inline"><%= t("navbar.twitter_icon") %></span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <%= link_to image_tag("rss_icon.png", alt: "rss"), blog_posts_path(I18n.locale,:rss)%>
-          <span class="visible-xs-inline"><%= t("navbar.rss_icon") %></span>
-        </a>
-      </li>
-
-    </ul>
 
     </div>
   </div>

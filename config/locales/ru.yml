@@ -29,10 +29,11 @@ ru:
     back: "Назад"
     all: "Все"
   navbar:
-    title: "Финансы"
+    title: "Ka-ching!"
+    home: "Главная"
     blog: "Блог"
     video: "Видео"
-    about: "О сайте"
+    about: "Котакты"
     email_icon: "Войти / подписаться через email"
     vk_icon: "Войти / подписаться через vkontakte"
     facebook_icon: "Войти / подписаться через facebook"
@@ -40,5 +41,5 @@ ru:
     rss_icon: "Войти / подписаться через rss"
     navigation: "Навигация"
   rss:
-    blog_title: "Финансы"
+    blog_title: "Ka-ching!"
     blog_desc: "Блог о финансах"
