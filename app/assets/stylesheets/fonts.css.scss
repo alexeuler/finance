@@ -1,21 +1,20 @@
 @font-face {
-  font-family: 'Roboto';
-  src: asset_url('Roboto-Regular-webfont.eot');
-  src: asset_url('Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-  asset_url('Roboto-Regular-webfont.woff') format('woff'),
-  asset_url('Roboto-Regular-webfont.ttf') format('truetype'),
-  asset_url('Roboto-Regular-webfont.svg#robotoregular') format('svg');
+  font-family: 'RobotoCondensed';
+  src: asset_url('RobotoCondensed-Regular-webfont.eot');
+  src: asset_url('RobotoCondensed-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+  asset_url('RobotoCondensed-Regular-webfont.woff') format('woff'),
+  asset_url('RobotoCondensed-Regular-webfont.ttf') format('truetype'),
+  asset_url('RobotoCondensed-Regular-webfont.svg#RobotoCondensedregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'RobotoLight';
-  src: asset_url('Roboto-Light-webfont.eot');
-  src: asset_url('Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
-  asset_url('Roboto-Light-webfont.woff') format('woff'),
-  asset_url('Roboto-Light-webfont.ttf') format('truetype'),
-  asset_url('Roboto-Light-webfont.svg#robotoLight') format('svg');
+  font-family: 'NotoSans';
+  src: asset_url('NotoSans-Regular-webfont.eot');
+  src: asset_url('NotoSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+  asset_url('NotoSans-Regular-webfont.woff') format('woff'),
+  asset_url('NotoSans-Regular-webfont.ttf') format('truetype'),
+  asset_url('NotoSans-Regular-webfont.svg#robotoregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-

@@ -7,9 +7,17 @@
 @import "blog/posts";
 @import "images";
 
+body {
+
+  background: asset-url("background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
 .page-container {
   min-height: 1024px;
   position: relative;
-  padding:80px 10px;
-  @include gradient-vertical-three-colors(rgb(232, 228, 185), #fff8cc, 50px, rgb(255, 255, 255));
+  padding:80px 0px 0px 0px;
 }
