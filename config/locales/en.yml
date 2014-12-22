@@ -41,6 +41,12 @@ en:
     twitter_icon: "Sign in / subscribe via twitter"
     rss_icon: "Sign in / subscribe via rss"
     navigation: "Navigation"
+    tooltip:
+      email: "Sign in via Email"
+      facebook: "Sign in via Facebook"
+      vkontakte: "Sign in via Вконтакте"
+      twitter: "Sign in via Twitter"
+      rss: "Subscribe to RSS"
   rss:
     blog_title: "Ka-ching!"
     blog_desc: "Blog about finance"

@@ -41,6 +41,12 @@ ru:
     twitter_icon: "Войти / подписаться через twitter"
     rss_icon: "Войти / подписаться через rss"
     navigation: "Навигация"
+    tooltip:
+      email: "Войти через Email"
+      facebook: "Войти через Facebook"
+      vkontakte: "Войти через Вконтакте"
+      twitter: "Войти через Twitter"
+      rss: "Подписаться на RSS"
   rss:
     blog_title: "Ka-ching!"
     blog_desc: "Блог о финансах"
