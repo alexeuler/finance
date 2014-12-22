@@ -23,6 +23,7 @@ en:
       login: "Sign in"
       login_with: "Sign in with"
       resend_unlock_instructions: "Send unblocking account instructions"
+      sign_out: "Sign out"
     mailer:
       welcome: "Welcome"
       confirm_account: "Confirm account"

@@ -24,29 +24,7 @@
 
     <!--container that will collapse when the viewport is small-->
     <div id="navbar" class="navbar-collapse collapse">
-      <!--Login buttons-->
-      <ul class="nav navbar-nav navbar-right login-panel">
-        <li class='navbar-icon' title="<%= t('navbar.tooltip.email') %>">
-          <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path %>
-        </li>
-
-        <li class='navbar-icon' title="<%= t('navbar.tooltip.vkontakte') %>">
-          <%= link_to image_tag("vk_icon.png", alt: "vkontakte"), user_omniauth_authorize_path(:vkontakte) %>
-        </li>
-
-
-        <li class='navbar-icon' title="<%= t('navbar.tooltip.facebook') %>">
-          <%= link_to image_tag("facebook_icon.png", alt: "facebook"), user_omniauth_authorize_path(:facebook) %>
-        </li>
-        <li class='navbar-icon' title="<%= t('navbar.tooltip.twitter') %>">
-          <%= link_to image_tag("twitter_icon.png", alt: "twitter"), user_omniauth_authorize_path(:twitter) %>
-        </li>
-        <li class='navbar-icon' title="<%= t('navbar.tooltip.rss') %>">
-          <%= link_to image_tag("rss_icon.png", alt: "rss"), blog_posts_path(I18n.locale, :rss) %>
-        </li>
-
-      </ul>
-
+      <%= render partial:'shared/login_panel' %>
       <!--Links to pages-->
       <ul class="nav navbar-nav app-header-menu navbar-right">
         <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), blog_posts_path %></li>

@@ -1,0 +1,42 @@
+<!--Login buttons-->
+<ul class="nav navbar-nav navbar-right login-panel">
+
+  <% if user_signed_in? %>
+      <div class='signed-in-user'>
+        <li>
+          <table>
+            <tr>
+              <td>
+                <%= current_user.full_name %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= link_to(t('devise.views.sign_out'), destroy_user_session_path, :method => :delete) %>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li><%= image_tag current_user.image, class: 'profile-image' %></li>
+      </div>
+  <% else %>
+      <li class='navbar-icon' title="<%= t('navbar.tooltip.email') %>">
+        <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path %>
+      </li>
+
+      <li class='navbar-icon' title="<%= t('navbar.tooltip.vkontakte') %>">
+        <%= link_to image_tag("vk_icon.png", alt: "vkontakte"), user_omniauth_authorize_path(:vkontakte) %>
+      </li>
+
+
+      <li class='navbar-icon' title="<%= t('navbar.tooltip.facebook') %>">
+        <%= link_to image_tag("facebook_icon.png", alt: "facebook"), user_omniauth_authorize_path(:facebook) %>
+      </li>
+      <li class='navbar-icon' title="<%= t('navbar.tooltip.twitter') %>">
+        <%= link_to image_tag("twitter_icon.png", alt: "twitter"), user_omniauth_authorize_path(:twitter) %>
+      </li>
+      <li class='navbar-icon' title="<%= t('navbar.tooltip.rss') %>">
+        <%= link_to image_tag("rss_icon.png", alt: "rss"), blog_posts_path(I18n.locale, :rss) %>
+      </li>
+  <% end %>
+</ul>
