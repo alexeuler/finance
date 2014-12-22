@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
+  before_action :require_admin
 
   def default_url_options(options={})
     {:locale => I18n.locale}
@@ -11,6 +12,14 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def admin?
+    user_signed_in? && current_user.admin?
+  end
+
+  def require_admin
+    render text: t('errors.messages.admin_required') unless admin?
   end
 
 end

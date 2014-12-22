@@ -1,5 +1,6 @@
 class Blog::PostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_admin, only: [:index, :show]
   layout 'layouts/blog_posts'
   # GET /blog/posts
   # GET /blog/posts.json
