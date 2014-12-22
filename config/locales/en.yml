@@ -28,6 +28,8 @@ en:
     show: "Edit"
     back: "Back"
     all: "All"
+    new_blog_post: "New blog post"
+    edit_blog_post: "Edit blog post"
   navbar:
     title: "Ka-ching!"
     home: "Home"

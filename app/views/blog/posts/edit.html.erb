@@ -1,4 +1,12 @@
-<%= render 'form' %>
+<div class='edit-blog-post'>
+  <div class='heading'>
+    <h1><%= t('general.edit_blog_post') %></h1>
+  </div>
+  <div class='body'>
+    <%= render 'form' %>
+    <%= link_to t("general.show"), @blog_post %> |
+    <%= link_to t("general.back"), blog_posts_path %>
+  </div>
+</div>
 
-<%= link_to t("general.show"), @blog_post %> |
-<%= link_to t("general.back"), blog_posts_path %>
+

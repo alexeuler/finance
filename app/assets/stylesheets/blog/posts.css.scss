@@ -84,32 +84,38 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
     @include post-panel;
   }
 
+  .edit-blog-post {
+    @include post-panel;
+  }
+
 }
 
-//.blog-post-form-body {
-//
-//  #myModal {
-//    .modal-dialog {
-//      width: 90%;
-//    }
-//  }
-//
-//  .form-table {
-//    width: 100%;
-//    .left-controls, .right-controls {
-//      vertical-align: top;
-//      padding: 10px;
-//      & > div {
-//
-//      }
-//
-//    }
-//    .left-controls {
-//      width: 80%;
-//    }
-//
-//    .right-controls {
-//      width: 20%;
-//    }
-//  }
-//}
+.blog-post-form-body {
+
+  #myModal {
+    .modal-dialog {
+      width: 90%;
+    }
+  }
+
+  .form-table {
+//    background: none;
+//    border: none;
+    width: 100%;
+    .left-controls, .right-controls {
+      vertical-align: top;
+      padding: 10px;
+      & > div {
+
+      }
+
+    }
+    .left-controls {
+      width: 80%;
+    }
+
+    .right-controls {
+      width: 20%;
+    }
+  }
+}
