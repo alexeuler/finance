@@ -3,9 +3,11 @@
 </div>
 
 <div class="body">
-  <div class="blog-tag">
-    <%= link_to t("general.new"), new_blog_post_path %>
-  </div>
+  <% if admin? %>
+      <div class="blog-tag">
+        <%= link_to t("general.new"), new_blog_post_path %>
+      </div>
+  <% end %>
   <div class="blog-tag">
     <%= link_to t("general.all"), blog_posts_path %>
   </div>

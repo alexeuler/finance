@@ -1,14 +1,17 @@
 <% show_url = blog_post.slug.empty? ? blog_post : blog_post.slug %>
-  <div class="blog-item">
-    <div class="heading">
-      <h1> <%= link_to blog_post.title, show_url %> </h1>
-    </div>
-    <div class="body">
-      <p><%= blog_post.excerpt.html_safe %></p>
-      <div class="edit">
-        <%= link_to t("general.edit"), edit_blog_post_path(blog_post) %>
-        <%= link_to t("general.destroy"), blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
-      </div>
-
-    </div>
+<div class="blog-item">
+  <div class="heading">
+    <h1> <%= link_to blog_post.title, show_url %> </h1>
   </div>
+  <div class="body">
+    <p><%= blog_post.excerpt.html_safe %></p>
+
+    <div class="edit">
+      <% if admin? %>
+          <%= link_to t("general.edit"), edit_blog_post_path(blog_post) %>
+          <%= link_to t("general.destroy"), blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

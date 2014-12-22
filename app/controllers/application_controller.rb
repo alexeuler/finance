@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :require_admin
+  helper_method :admin?
 
   def default_url_options(options={})
     {:locale => I18n.locale}
