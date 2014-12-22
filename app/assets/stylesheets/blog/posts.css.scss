@@ -7,34 +7,39 @@ $color2-heading: rgba(255, 227, 140, 0.8);
 $color3-heading: rgba(255, 242, 204, 0.8);
 $border-blog-post: 1px solid rgb(191, 144, 0);
 
+@mixin post-panel {
+  padding: 10px;
+  .heading {
+    border-top: $border-blog-post;
+    border-left: $border-blog-post;
+    border-right: $border-blog-post;
+    h1 {
+      margin: 0px;
+      font-size:28px;
+      a {@include transition(color 0.2s ease-in);}
+      a:hover{text-decoration: none; color:#a07864 }
+    }
+    padding: 5px 10px;
+    @include gradient-vertical-three-colors($color1-heading, $color2-heading, 90%, $color3-heading);
+  }
+  .body {
+    border-bottom: $border-blog-post;
+    border-left: $border-blog-post;
+    border-right: $border-blog-post;
+    padding: 5px 10px;
+    background-color: $color3-heading;
+  }
+
+}
+
 .blog-container {
   padding:20px;
 
-  .blog-container-layout {
+  .blog-posts-container-layout {
     width:100%;
 
     .blog-item {
-      padding: 10px;
-      .heading {
-        border-top: $border-blog-post;
-        border-left: $border-blog-post;
-        border-right: $border-blog-post;
-        h1 {
-          margin: 0px;
-          font-size:28px;
-          a {@include transition(color 0.2s ease-in);}
-          a:hover{text-decoration: none; color:#a07864 }
-        }
-        padding: 5px 10px;
-        @include gradient-vertical-three-colors($color1-heading, $color2-heading, 90%, $color3-heading);
-      }
-      .body {
-        border-bottom: $border-blog-post;
-        border-left: $border-blog-post;
-        border-right: $border-blog-post;
-        padding: 5px 10px;
-        background-color: $color3-heading;
-      }
+      @include post-panel;
     }
 
     .posts-panel {
@@ -74,32 +79,37 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
     }
 
   }
-}
 
-.blog-post-form-body {
-
-  #myModal {
-    .modal-dialog {
-      width: 90%;
-    }
+  .blog-post-container {
+    @include post-panel;
   }
 
-  .form-table {
-    width: 100%;
-    .left-controls, .right-controls {
-      vertical-align: top;
-      padding: 10px;
-      & > div {
-
-      }
-
-    }
-    .left-controls {
-      width: 80%;
-    }
-
-    .right-controls {
-      width: 20%;
-    }
-  }
 }
+
+//.blog-post-form-body {
+//
+//  #myModal {
+//    .modal-dialog {
+//      width: 90%;
+//    }
+//  }
+//
+//  .form-table {
+//    width: 100%;
+//    .left-controls, .right-controls {
+//      vertical-align: top;
+//      padding: 10px;
+//      & > div {
+//
+//      }
+//
+//    }
+//    .left-controls {
+//      width: 80%;
+//    }
+//
+//    .right-controls {
+//      width: 20%;
+//    }
+//  }
+//}
