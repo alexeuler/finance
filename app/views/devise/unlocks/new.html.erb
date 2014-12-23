@@ -2,19 +2,23 @@
     <%= t('devise.unlocks.send_instructions') %>
 <% end %>
 
-<% content_for :modal_ceiling do %>
-    <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
-    <button type="button" class="btn btn-primary ok-button" id="ok_button"><%= t('general.ok') %></button>
+
+<%= form_for(resource, remote: true, as: resource_name, url: unlock_path(resource_name), html: {method: :post}) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label t('devise.views.email') %><br/>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <%= render "devise/shared/links" %>
+
+    <div class="field ceiling">
+      <%= f.submit t('devise.views.send'), class: 'btn btn-primary' %>
+      <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
+    </div>
+
+
 <% end %>
 
-<%= form_for(resource, remote:true, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label t('devise.views.email') %><br />
-    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-  </div>
-
-<% end %>
-
-<%= render "devise/shared/links" %>

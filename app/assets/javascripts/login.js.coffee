@@ -18,10 +18,14 @@ $(document).on "page:change", ->
       alert( "Request failed: " + textStatus );
     )
 
-  modalDialog.on 'click', '#ok_button', (e)->
-    form = modalDialog.find('form')
-    form.trigger('submit.rails')
-    window.location.href = rootUrl
+  modalDialog.on 'ajax:success', (e)->
+    location.reload()
+  modalDialog.on 'ajax:error', (e, xhr, status, error)->
+    modalDialog.find('.errors').html(xhr.responseText)
+
+#    form = modalDialog.find('form')
+#    form.trigger('submit.rails')
+#    window.location.href = rootUrl
 
 
   $('#navbar #email_login').on 'click', (e)->

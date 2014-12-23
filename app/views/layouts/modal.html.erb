@@ -6,13 +6,8 @@
   <% end %>
 
   <div class="body">
+    <div class="errors"></div>
     <%= yield %>
-    <% if content_for?(:modal_ceiling) %>
-        <div class="ceiling">
-          <%= yield :modal_ceiling %>
-        </div>
-    <% end %>
-
   </div>
 
 </div>

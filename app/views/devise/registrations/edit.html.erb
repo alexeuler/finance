@@ -8,32 +8,39 @@
 <% end %>
 
 
-<%= form_for(resource, remote:true, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, remote: true, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label t('devise.views.email') %><br />
-    <%= f.email_field :email, autofocus: true, class:'form-control' %>
-  </div>
+    <div class="field">
+      <%= f.label t('devise.views.email') %><br/>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label t('devise.views.password') %> <i>(<%= t('devise.views.password_hint') %></i><br />
-    <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
-  </div>
+    <div class="field">
+      <%= f.label t('devise.views.password') %> <i>(<%= t('devise.views.password_hint') %></i><br/>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label t('devise.views.password_confirmation') %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
-  </div>
+    <div class="field">
+      <%= f.label t('devise.views.password_confirmation') %><br/>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label t('devise.views.current_password') %> <i>(<%= t('devise.views.current_password_hint')%> )</i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class:'form-control' %>
-  </div>
+    <div class="field">
+      <%= f.label t('devise.views.current_password') %> <i>(<%= t('devise.views.current_password_hint') %> )</i><br/>
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+
+    <div class="field ceiling">
+      <%= f.submit t('general.ok'), class: 'btn btn-primary' %>
+      <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
+    </div>
+
 
 <% end %>
 

@@ -2,32 +2,33 @@
     <%= t('devise.views.sign_up') %>
 <% end %>
 
-<% content_for :modal_ceiling do %>
-    <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
-    <button type="button" class="btn btn-primary ok-button" id="ok_button"><%= t('general.ok') %></button>
+<%= form_for(resource, remote: true, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label t('devise.views.email') %><br/>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label t('devise.views.password') %>
+      <% if @validatable %>
+          <em>(<%= @minimum_password_length %> <%= t('devise.views.min_chars') %>)</em>
+      <% end %><br/>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label t('devise.views.password_confirmation') %><br/>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+    <%= render "devise/shared/links" %>
+
+    <div class="field ceiling">
+      <%= f.submit t('general.ok'), class: 'btn btn-primary' %>
+      <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
+    </div>
+
+
 <% end %>
-
-<%= form_for(resource, remote:true, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label t('devise.views.email') %><br />
-    <%= f.email_field :email, autofocus: true, class:'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label t('devise.views.password') %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> <%= t('devise.views.min_chars') %>)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label t('devise.views.password_confirmation') %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
-  </div>
-
-<% end %>
-
-<%= render "devise/shared/links" %>

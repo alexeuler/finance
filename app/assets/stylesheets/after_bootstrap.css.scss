@@ -8,6 +8,9 @@
       font-size: 20px;
       padding: 5px 10px;
     }
+    .errors {
+      color: #FF3A00;
+    }
 
     .body {
       @include gradient-vertical(#fff, #aaa);
@@ -19,6 +22,9 @@
       .ceiling {
         padding:10px 0px 0px 0px;
         text-align: right;
+      }
+      .field {
+        margin-bottom: 10px;
       }
     }
   }
