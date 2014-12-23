@@ -21,6 +21,13 @@ module Finance
       Devise::PasswordsController.skip_before_filter :require_admin
       Devise::RegistrationsController.skip_before_filter :require_admin
       Devise::UnlocksController.skip_before_filter :require_admin
+      Devise::SessionsController.layout 'modal'
+      Devise::ConfirmationsController.layout 'modal'
+      Devise::PasswordsController.layout 'modal'
+      Devise::RegistrationsController.layout 'modal'
+      Devise::UnlocksController.layout 'modal'
+
+
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

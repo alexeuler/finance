@@ -25,4 +25,5 @@
 //= require_tree ./routers
 //= require init
 //= require images
+//= require login
 //= require_tree .

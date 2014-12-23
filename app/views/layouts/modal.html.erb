@@ -1,0 +1,17 @@
+<div class="modal-container">
+  <% if content_for?(:modal_header) %>
+      <div class="header">
+        <%= yield :modal_header %>
+      </div>
+  <% end %>
+
+  <div class="body">
+    <%= yield %>
+  </div>
+
+  <% if content_for?(:modal_ceiling) %>
+      <div class="ceiling">
+        <%= yield :modal_ceiling %>
+      </div>
+  <% end %>
+</div>
