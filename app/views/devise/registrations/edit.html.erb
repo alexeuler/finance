@@ -1,11 +1,19 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% content_for :modal_header do %>
+    <%= t('devise.views.sign_up') %>
+<% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<% content_for :modal_ceiling do %>
+    <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
+    <button type="button" class="btn btn-primary ok-button" id="ok_button"><%= t('general.ok') %></button>
+<% end %>
+
+
+<%= form_for(resource, remote:true, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label t('devise.views.email') %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class:'form-control' %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -14,22 +22,19 @@
 
   <div class="field">
     <%= f.label t('devise.views.password') %> <i>(<%= t('devise.views.password_hint') %></i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
   </div>
 
   <div class="field">
     <%= f.label t('devise.views.password_confirmation') %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
   </div>
 
   <div class="field">
     <%= f.label t('devise.views.current_password') %> <i>(<%= t('devise.views.current_password_hint')%> )</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", class:'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit t('devise.views.update') %>
-  </div>
 <% end %>
 
-<%= link_to t('devise.views.back'), :back %>
+

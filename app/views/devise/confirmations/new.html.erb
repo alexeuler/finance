@@ -1,16 +1,21 @@
-<h2>Resend confirmation instructions</h2>
+<% content_for :modal_header do %>
+    <%= t('devise.passwords.send_instructions') %>
+<% end %>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+<% content_for :modal_ceiling do %>
+    <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
+    <button type="button" class="btn btn-primary ok-button" id="ok_button"><%= t('general.ok') %></button>
+<% end %>
+
+
+<%= form_for(resource, remote:true, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>

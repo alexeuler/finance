@@ -24,6 +24,7 @@ ru:
       login_with: "Войти через"
       resend_unlock_instructions: "Выслать инструкции для разблокировки"
       sign_out: "Выйти"
+      send: "Выслать"
     mailer:
       welcome: "Welcome"
       confirm_account: "Подтвердить аккаунт"
