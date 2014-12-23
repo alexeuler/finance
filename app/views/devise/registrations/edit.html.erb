@@ -35,6 +35,16 @@
       <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
     </div>
 
+    <div class="field">
+      <%= f.label t('devise.views.first_name') %><br/>
+      <%= f.password_field :first_name, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label t('devise.views.last_name') %><br/>
+      <%= f.password_field :last_name, class: 'form-control' %>
+    </div>
+
 
     <div class="field ceiling">
       <%= f.submit t('general.ok'), class: 'btn btn-primary' %>

@@ -23,6 +23,17 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
     </div>
 
+    <div class="field">
+      <%= f.label t('devise.views.first_name') %><br/>
+      <%= f.password_field :first_name, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label t('devise.views.last_name') %><br/>
+      <%= f.password_field :last_name, class: 'form-control' %>
+    </div>
+
+
     <%= render "devise/shared/links" %>
 
     <div class="field ceiling">

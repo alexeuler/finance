@@ -25,6 +25,8 @@ ru:
       resend_unlock_instructions: "Выслать инструкции для разблокировки"
       sign_out: "Выйти"
       send: "Выслать"
+      first_name: "Имя"
+      last_name: "Фамилия"
     mailer:
       welcome: "Welcome"
       confirm_account: "Подтвердить аккаунт"

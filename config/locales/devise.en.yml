@@ -25,6 +25,8 @@ en:
       resend_unlock_instructions: "Send unblocking account instructions"
       sign_out: "Sign out"
       send: "Send"
+      first_name: "First name"
+      last_name: "Last name"
     mailer:
       welcome: "Welcome"
       confirm_account: "Confirm account"
