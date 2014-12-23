@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= auto_discovery_link_tag(:rss, {controller: "blog/posts", action: "index"})%>
+  <script>var rootUrl = "<%=root_url%>"</script>
 </head>
 <body>
 <div class="page-container">

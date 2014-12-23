@@ -21,7 +21,7 @@ $(document).on "page:change", ->
   modalDialog.on 'click', '#ok_button', (e)->
     form = modalDialog.find('form')
     form.trigger('submit.rails')
-    location.reload()
+    window.location.href = rootUrl
 
 
   $('#navbar #email_login').on 'click', (e)->
