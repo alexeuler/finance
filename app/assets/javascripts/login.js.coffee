@@ -7,20 +7,11 @@ $(document).on "page:change", ->
       type: 'get'
       url: ref
     ).done( (data)->
-      console.log data
-      $('#email_login').find('.modal-content').html(data)
+      $('#navbarModal').find('.modal-content').html(data)
     ).fail( (jqXHR, textStatus) ->
       alert( "Request failed: " + textStatus );
     )
-#    $.ajax(
-#      type: 'patch'
-#      url: "/images/#{id}"
-#    ).done( =>
-#    @collection.fetch()
-#    @toggleButtons(true)
-#  ).fail( (jqXHR, textStatus) =>
-#    alert( "Request failed: " + textStatus );
-#    @toggleButtons(true)
-#  )
-
+    $('#navbarModal .modal-dialog').css
+      width: 310,
+      left:20
     $('#navbarModal').modal('show')

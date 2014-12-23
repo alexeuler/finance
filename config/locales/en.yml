@@ -30,6 +30,9 @@ en:
     all: "All"
     new_blog_post: "New blog post"
     edit_blog_post: "Edit blog post"
+    ok: "Ok"
+    cancel: "Cance"
+
   navbar:
     title: "Ka-ching!"
     home: "Home"

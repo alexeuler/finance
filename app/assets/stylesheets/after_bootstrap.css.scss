@@ -1,0 +1,25 @@
+.modal-content {
+  border:none;
+  background: none;
+  .modal-container {
+    .header {
+      @include gradient-vertical(#fff, #aaa);
+      font-family: $font-family-links;
+      font-size: 20px;
+      padding: 5px 10px;
+    }
+
+    .body {
+      @include gradient-vertical(#fff, #aaa);
+      @include gradient-vertical(#fff, #aaa);
+      padding: 10px;
+      label {
+        font-weight: normal;
+      }
+      .ceiling {
+        padding:10px 0px 0px 0px;
+        text-align: right;
+      }
+    }
+  }
+}

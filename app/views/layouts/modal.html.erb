@@ -7,11 +7,12 @@
 
   <div class="body">
     <%= yield %>
+    <% if content_for?(:modal_ceiling) %>
+        <div class="ceiling">
+          <%= yield :modal_ceiling %>
+        </div>
+    <% end %>
+
   </div>
 
-  <% if content_for?(:modal_ceiling) %>
-      <div class="ceiling">
-        <%= yield :modal_ceiling %>
-      </div>
-  <% end %>
 </div>

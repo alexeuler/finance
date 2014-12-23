@@ -1,7 +1,8 @@
 @import "fonts";
-@import "bootstrap_override";
+@import "before_bootstrap";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "after_bootstrap";
 @import "header";
 @import "body";
 @import "blog/posts";
