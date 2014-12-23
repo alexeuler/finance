@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
     role=='admin'
   end
 
+  def full_name
+    if last_name and not last_name.blank?
+      first_name + ' ' + last_name
+    else
+      first_name
+    end
+  end
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -19,11 +27,9 @@ class User < ActiveRecord::Base
           user.nickname = auth.info.nickname
           user.first_name = auth.info.first_name
           user.last_name = auth.info.last_name
-          user.full_name = user.first_name + ' '+user.last_name
           user.url = auth.info.urls['Facebook']
           user.image = auth.info.image
         when 'twitter'
-          user.full_name = auth.info.name
           names = auth.info.name.split(' ')
           user.nickname = auth.info.nickname
           user.first_name = names[0]
@@ -38,7 +44,6 @@ class User < ActiveRecord::Base
           user.nickname = auth.info.nickname
           user.first_name = auth.info.first_name
           user.last_name = auth.info.last_name
-          user.full_name = user.first_name + ' '+user.last_name
           user.url = auth.info.urls['Vkontakte']
           user.image = auth.info.image
 
