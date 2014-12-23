@@ -86,6 +86,10 @@ en:
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
+      email_format: "Incorrect email format."
+      email_required: "Email required."
+      password_required: "Password required."
+      first_name_required: "First name required."
       admin_required: "Admin privileges required."
       already_confirmed: "was already confirmed, please try signing in"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"

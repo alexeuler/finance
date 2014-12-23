@@ -87,6 +87,10 @@ ru:
       unlocked: Ваша учетная запись разблокирована. Теперь вы можете войти в систему.
   errors:
     messages:
+      email_format: "Неверный формат email."
+      email_required: "Требуется email."
+      password_required: "Требуется пароль."
+      first_name_required: "Требуется имя."
       admin_required: "Требуются привелегии администратора."
       already_confirmed: уже подтверждена. Пожалуйста, попробуйте войти в систему
       confirmation_period_expired: должен быть подтвержден в течение %{period}, пожалуйста, повторите запрос на подтверждение

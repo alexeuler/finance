@@ -6,31 +6,36 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label t('devise.views.email') %><br/>
-      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      <%= f.label t('devise.views.email')+'*' %><br/>
+      <%= f.email_field :email, autofocus: true, class: 'form-control',
+        data: {email_message: t('errors.messages.email_format'),
+                required_message: t('errors.messages.email_required')}%>
     </div>
 
     <div class="field">
-      <%= f.label t('devise.views.password') %>
+      <%= f.label t('devise.views.password')+'*' %>
       <% if @validatable %>
           <em>(<%= @minimum_password_length %> <%= t('devise.views.min_chars') %>)</em>
       <% end %><br/>
-      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control',
+        data: {required_message: t('errors.messages.password_required')}%>
     </div>
 
     <div class="field">
-      <%= f.label t('devise.views.password_confirmation') %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+      <%= f.label t('devise.views.password_confirmation')+'*' %><br/>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control',
+                           data: {required_message: t('errors.messages.password_required')}%>
     </div>
 
     <div class="field">
-      <%= f.label t('devise.views.first_name') %><br/>
-      <%= f.password_field :first_name, class: 'form-control' %>
+      <%= f.label t('devise.views.first_name')+'*' %><br/>
+      <%= f.text_field :first_name, class: 'form-control',
+                           data: {required_message: t('errors.messages.first_name_required')}%>
     </div>
 
     <div class="field">
       <%= f.label t('devise.views.last_name') %><br/>
-      <%= f.password_field :last_name, class: 'form-control' %>
+      <%= f.text_field :last_name, class: 'form-control' %>
     </div>
 
 
