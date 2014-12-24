@@ -66,12 +66,21 @@ $(document).on "page:change", ->
     location.reload()
   modalDialog.on 'ajax:error', (e, xhr, status, error)->
     toggleButtons(true)
-    modalDialog.find('.errors').html(xhr.responseText)
+    resp = xhr.responseText
+    errors = $.parseJSON(resp)
+    result = ''
+    for key, error of errors
+      if key == 'errors'
+        for type, message of error
+          result += message + '\n'
+      else
+        result = error
+    modalDialog.find('.errors').html(result)
 
-  $('#navbar #email_login').on 'click', (e)->
+  $('#navbar #email_login, #navbar #edit_user').on 'click', (e)->
     e.preventDefault()
     e.stopPropagation()
-    ref = $('#email_login').attr('href')
+    ref = $(e.currentTarget).attr('href')
     $.ajax(
       type: 'get'
       url: ref

@@ -54,3 +54,17 @@ ru:
   rss:
     blog_title: "Ka-ching!"
     blog_desc: "Блог о финансах"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: "Неверный формат email"
+            password_confirmation:
+              confirmation: "Пароли не совпадают"
+            password:
+              too_short: "Слишком короткий пароль"
+            current_password:
+              invalid: "Неверный текущий пароль"
+

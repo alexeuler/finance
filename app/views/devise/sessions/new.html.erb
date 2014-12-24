@@ -2,7 +2,8 @@
     <%= t('devise.views.login') %>
 <% end %>
 
-<%= form_for(resource, remote:true, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, remote:true, as: resource_name, url: session_path(resource_name),
+        html: {:'data-type' => 'json'}) do |f| %>
     <div class="field">
       <%= f.label t('devise.views.email') %><br/>
       <%= f.email_field :email, autofocus: true, class:'form-control' %>

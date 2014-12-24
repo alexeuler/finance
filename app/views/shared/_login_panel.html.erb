@@ -7,7 +7,11 @@
           <table>
             <tr>
               <td>
-                <%= current_user.full_name %>
+                <% if current_user.provider %>
+                    <%= current_user.full_name %>
+                <% else %>
+                    <%= link_to current_user.full_name, edit_user_registration_path, id: 'edit_user' %>
+                <% end %>
               </td>
             </tr>
             <tr>
@@ -21,7 +25,7 @@
       </div>
   <% else %>
       <li class='navbar-icon' title="<%= t('navbar.tooltip.email') %>">
-        <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path, id:'email_login'%>
+        <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path, id: 'email_login' %>
       </li>
 
       <li class='navbar-icon' title="<%= t('navbar.tooltip.vkontakte') %>">

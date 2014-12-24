@@ -8,7 +8,8 @@
 <% end %>
 
 
-<%= form_for(resource, remote: true, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
+<%= form_for(resource, remote: true, as: resource_name, format: :json,
+             url: registration_path(resource_name), html: {method: :put, :'data-type' => 'json'}) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="field">
@@ -37,12 +38,12 @@
 
     <div class="field">
       <%= f.label t('devise.views.first_name') %><br/>
-      <%= f.password_field :first_name, class: 'form-control' %>
+      <%= f.text_field :first_name, class: 'form-control' %>
     </div>
 
     <div class="field">
       <%= f.label t('devise.views.last_name') %><br/>
-      <%= f.password_field :last_name, class: 'form-control' %>
+      <%= f.text_field :last_name, class: 'form-control' %>
     </div>
 
 

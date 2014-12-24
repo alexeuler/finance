@@ -55,3 +55,16 @@ en:
   rss:
     blog_title: "Ka-ching!"
     blog_desc: "Blog about finance"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: "Invalid email"
+            password_confirmation:
+              confirmation: "Passwords do not match"
+            password:
+              too_short: "Password is too short"
+            current_password:
+              invalid: "Invalid current password"

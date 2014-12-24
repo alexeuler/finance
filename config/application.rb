@@ -16,6 +16,7 @@ Bundler.require(*Rails.groups)
 module Finance
   class Application < Rails::Application
     config.to_prepare do
+      DeviseController.respond_to :html, :json
       Devise::SessionsController.skip_before_filter :require_admin
       Devise::ConfirmationsController.skip_before_filter :require_admin
       Devise::PasswordsController.skip_before_filter :require_admin
