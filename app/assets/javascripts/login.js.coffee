@@ -12,6 +12,7 @@ initValidator = ->
         required:true
       'user[password]':
         required:true
+        minlength:3
       'user[password_confirmation]':
         required:true
       'user[first_name]':
@@ -22,6 +23,7 @@ initValidator = ->
         required:$("input#user_email").data('required-message'),
       'user[password]':
         required:$("input#user_password").data('required-message'),
+        minlength:$("input#user_password").data('minlength-message'),
       'user[password_confirmation]':
         required:$("input#user_password_confirmation").data('required-message'),
       'user[first_name]':
