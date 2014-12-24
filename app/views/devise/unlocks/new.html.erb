@@ -3,7 +3,7 @@
 <% end %>
 
 
-<%= form_for(resource, remote: true, as: resource_name, url: unlock_path(resource_name), html: {method: :post}) do |f| %>
+<%= form_for(resource, remote: true, as: resource_name, url: unlock_path(resource_name), html: {method: :post, :'data-type' => 'json'}) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="field">

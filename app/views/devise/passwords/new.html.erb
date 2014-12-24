@@ -2,7 +2,7 @@
     <%= t('devise.views.password_forgot') %>
 <% end %>
 
-<%= form_for(resource, remote: true, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+<%= form_for(resource, remote: true, as: resource_name, url: password_path(resource_name), html: {method: :post, :'data-type' => 'json'}) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="field">

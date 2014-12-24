@@ -2,7 +2,7 @@
     <%= t('devise.views.change_password') %>
 <% end %>
 
-<%= form_for(resource, remote: true, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
+<%= form_for(resource, remote: true, as: resource_name, url: password_path(resource_name), html: {method: :put, :'data-type' => 'json'}) do |f| %>
     <%= devise_error_messages! %>
     <%= f.hidden_field :reset_password_token %>
 
