@@ -1,4 +1,4 @@
-<div class="blog-post-form-body">
+<div class="video-group-form-body">
   <%= form_for(@video_group) do |f| %>
       <% if @video_group.errors.any? %>
           <div id="error_explanation">
@@ -42,6 +42,18 @@
               </div>
               <br/>
 
+              <div class="field">
+                <%= f.label :language %><br>
+                <%= f.text_field :language, class: "form-control", rows: 5 %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <%= f.label :tags %><br>
+                <%= f.text_field :tags, class: "form-control", rows: 5 %>
+              </div>
+              <br/>
+
             </div>
           </td>
 
@@ -56,16 +68,21 @@
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="myModalLabel">Image gallery</h4>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary image-gallery-ok-button">Ok</button>
+        <div class="modal-container">
+          <div class="header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Image gallery</h4>
+          </div>
+          <div class="body">
+            <div class="main-body">
+
+            </div>
+            <div class="ceiling">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary image-gallery-ok-button">Ok</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
