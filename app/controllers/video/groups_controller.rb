@@ -5,16 +5,19 @@ class Video::GroupsController < ApplicationController
   # GET /video/groups.json
   def index
     @video_groups = Video::Group.all
+    respond_with @video_groups
   end
 
   # GET /video/groups/1
   # GET /video/groups/1.json
   def show
+    respond_with @video_group
   end
 
   # GET /video/groups/new
   def new
     @video_group = Video::Group.new
+    respond_with @video_group
   end
 
   # GET /video/groups/1/edit

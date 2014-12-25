@@ -12,7 +12,7 @@
   <tbody>
     <% @video_groups.each do |video_group| %>
       <tr>
-        <td><%= video_group.value %></td>
+        <td><%= video_group.title %></td>
         <td><%= video_group.tags %></td>
         <td><%= link_to 'Show', video_group %></td>
         <td><%= link_to 'Edit', edit_video_group_path(video_group) %></td>
