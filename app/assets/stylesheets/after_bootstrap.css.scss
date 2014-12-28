@@ -3,6 +3,35 @@ $color2-heading: rgba(255, 227, 140, 0.8);
 $color3-heading: rgba(255, 242, 204, 0.8);
 $border-blog-post: 1px solid rgb(191, 144, 0);
 
+.form-body {
+
+  #myModal {
+    .modal-dialog {
+      width: 90%;
+    }
+  }
+
+  .form-table {
+    width: 100%;
+    .left-controls, .right-controls {
+      vertical-align: top;
+      padding: 10px;
+      & > div {
+
+      }
+
+    }
+    .left-controls {
+      width: 80%;
+    }
+
+    .right-controls {
+      width: 20%;
+    }
+  }
+}
+
+
 .modal-content {
   border:none;
   background: none;

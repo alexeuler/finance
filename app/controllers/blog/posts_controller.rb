@@ -37,14 +37,14 @@ class Blog::PostsController < ApplicationController
   # POST /blog/posts.json
   def create
     @blog_post = Blog::Post.new(blog_post_params)
-    flash[:notice] = 'Blog::Post was successfully created.' if @video_lesson.save
+    flash[:notice] = 'Blog::Post was successfully created.' if @blog_post.save
     respond_with(@blog_post)
   end
 
   # PATCH/PUT /blog/posts/1
   # PATCH/PUT /blog/posts/1.json
   def update
-    flash[:notice] = 'Video::Lesson was successfully updated.' if @video_lesson.update(lesson_params)
+    flash[:notice] = 'Blog::Post was successfully updated.' if @blog_post.update(blog_post_params)
     respond_with(@blog_post)
   end
 
