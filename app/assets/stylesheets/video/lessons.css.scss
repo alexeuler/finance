@@ -2,9 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .video-container {
   .edit-video-lesson {
     @include post-panel;
   }
+  .lesson-item {
+    @include post-panel-no-heading;
+    td {
+      padding: 10px;
+      h1 {
+        margin: 0px 0px 10px 0px;
+        font-family: $font-family-links;
+        a, a:hover, a:active, a:visited {
+          color: #000000;
+        }
+      }
+      img {
+        height: 100px;
+        float: left;
+      }
+    }
+  }
+
 }
