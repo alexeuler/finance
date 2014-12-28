@@ -34,7 +34,8 @@ en:
     edit_video_lesson: "Edit blog post"
     add_image: "Add Image"
     ok: "Ok"
-    cancel: "Cance"
+    cancel: "Cancel"
+    save: "Save"
 
   navbar:
     title: "Ka-ching!"

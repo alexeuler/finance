@@ -35,6 +35,7 @@ ru:
     add_image: "Добавить изображение"
     ok: "Ок"
     cancel: "Отмена"
+    save: "Сохранить"
   navbar:
     title: "Ka-ching!"
     home: "Главная"

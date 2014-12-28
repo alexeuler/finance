@@ -66,10 +66,12 @@
         </tr>
       </table>
       <div class="actions">
-        <%= f.submit %>
+        <%= f.submit t('general.save') %>
       </div>
       <br/>
 
   <% end %>
+
+  <%= render partial: 'shared/modal', locals:{id:'myModal'} %>
 
 </div>
