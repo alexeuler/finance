@@ -30,6 +30,9 @@ ru:
     all: "Все"
     new_blog_post: "Новый пост в блоге"
     edit_blog_post: "Правка поста в блоге"
+    new_video_lesson: "Новый видео урок"
+    edit_video_lesson: "Правка видео урока"
+    add_image: "Добавить изображение"
     ok: "Ок"
     cancel: "Отмена"
   navbar:

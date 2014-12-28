@@ -30,6 +30,9 @@ en:
     all: "All"
     new_blog_post: "New blog post"
     edit_blog_post: "Edit blog post"
+    new_video_lesson: "New blog post"
+    edit_video_lesson: "Edit blog post"
+    add_image: "Add Image"
     ok: "Ok"
     cancel: "Cance"
 

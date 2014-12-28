@@ -20,13 +20,13 @@ class Video::LessonsController < ApplicationController
   end
 
   def create
-    @video_lesson = Video::Lesson.new(lesson_params)
+    @video_lesson = Video::Lesson.new(video_lesson_params)
     flash[:notice] = 'Video::Lesson was successfully created.' if @video_lesson.save
     respond_with(@video_lesson)
   end
 
   def update
-    flash[:notice] = 'Video::Lesson was successfully updated.' if @video_lesson.update(lesson_params)
+    flash[:notice] = 'Video::Lesson was successfully updated.' if @video_lesson.update(video_lesson_params)
     respond_with(@video_lesson)
   end
 
@@ -37,10 +37,14 @@ class Video::LessonsController < ApplicationController
 
   private
     def set_video_lesson
-      @video_lesson = Video::Lesson.find(params[:id])
+      if params[:slug]
+        @video_lesson = Video::Lesson.where(slug: params[:slug]).first
+      else
+        @video_lesson = Video::Lesson.find(params[:id])
+      end
     end
 
     def video_lesson_params
-      params.require(:video_lesson).permit(:title, :description, :image, :tags, :order)
+      params.require(:video_lesson).permit(:title, :description, :image, :tags, :order, :language)
     end
 end
