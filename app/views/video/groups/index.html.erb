@@ -1,4 +1,4 @@
-<%= link_to 'New Group', new_video_group_path %>
+<%= link_to t('general.new'), new_video_group_path %>
 <% @video_groups.each do |video_group| %>
     <div class="group-item">
       <div class="body">
@@ -13,8 +13,8 @@
             </td>
           </tr>
         </table>
-        <%= link_to 'Edit', edit_video_group_path(video_group) %>
-        <%= link_to 'Destroy', video_group, method: :delete, data: {confirm: 'Are you sure?'} %>
+        <%= link_to t('general.edit'), edit_video_group_path(video_group) %>
+        <%= link_to t('general.destroy'), video_group, method: :delete, data: {confirm: 'Are you sure?'} %>
       </div>
     </div>
 <% end %>
