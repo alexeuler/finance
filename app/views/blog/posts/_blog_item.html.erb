@@ -4,7 +4,7 @@
     <h1> <%= link_to blog_post.title, show_url %> </h1>
   </div>
   <div class="body">
-    <p><%= blog_post.excerpt.html_safe %></p>
+    <p><%= blog_post.description.html_safe %></p>
 
     <div class="edit">
       <% if admin? %>

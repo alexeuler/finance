@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141228172259) do
+ActiveRecord::Schema.define(version: 20141228181319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 20141228172259) do
     t.text     "tags"
     t.string   "status"
     t.string   "category"
-    t.text     "excerpt"
+    t.text     "description"
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "language",   default: "ru", null: false
+    t.string   "language",    default: "ru", null: false
     t.text     "rss"
     t.integer  "order"
   end
@@ -80,5 +80,15 @@ ActiveRecord::Schema.define(version: 20141228172259) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "video_lessons", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image"
+    t.string   "tags"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

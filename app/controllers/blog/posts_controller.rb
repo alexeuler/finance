@@ -5,11 +5,12 @@ class Blog::PostsController < ApplicationController
   # GET /blog/posts
   # GET /blog/posts.json
   def index
-    @blog_posts = Blog::Post.where(language: I18n.locale).order(created_at: :desc).text.all
+    @blog_posts = Blog::Post.where(language: I18n.locale).order(created_at: :desc).all
     @blog_posts=@blog_posts.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
     @blog_tags = Blog::Tag.where(language: I18n.locale).all
     respond_to do |format|
       format.html
+      format.json {render json: @blog_posts}
       format.rss { render :layout => false }
     end
 
@@ -82,7 +83,7 @@ class Blog::PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_post_params
-      params.require(:blog_post).permit(:title, :body, :tags, :status, :breed, :category, :excerpt, :slug,
-                                        :video_group_id, :language, :rss)
+      params.require(:blog_post).permit(:title, :body, :tags, :status, :category, :description, :slug,
+                                        :language, :rss)
     end
 end
