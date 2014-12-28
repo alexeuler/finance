@@ -1,0 +1,9 @@
+<% content_for :content do%>
+    <div class="video-container">
+      <%= yield %>
+    </div>
+<% end %>
+
+<% content_for(:selected_tab) {t('navbar.video')} %>
+
+<%= render template: 'layouts/application' %>

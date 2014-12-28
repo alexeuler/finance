@@ -1,5 +1,6 @@
 class Video::LessonsController < ApplicationController
   before_action :set_video_lesson, only: [:show, :edit, :update, :destroy]
+  layout 'video'
 
   def index
     @video_lessons = Video::Lesson.all

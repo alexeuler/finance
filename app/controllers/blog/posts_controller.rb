@@ -1,7 +1,7 @@
 class Blog::PostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :require_admin, only: [:index, :show]
-  layout 'layouts/blog_posts'
+  layout 'layouts/blog'
   # GET /blog/posts
   # GET /blog/posts.json
   def index
@@ -20,11 +20,13 @@ class Blog::PostsController < ApplicationController
   # GET /blog/posts/1
   # GET /blog/posts/1.json
   def show
+    respond_with(@blog_post)
   end
 
   # GET /blog/posts/new
   def new
     @blog_post = Blog::Post.new
+    respond_with(@blog_post)
   end
 
   # GET /blog/posts/1/edit
@@ -35,40 +37,22 @@ class Blog::PostsController < ApplicationController
   # POST /blog/posts.json
   def create
     @blog_post = Blog::Post.new(blog_post_params)
-
-    respond_to do |format|
-      if @blog_post.save
-        format.html { redirect_to @blog_post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @blog_post }
-      else
-        format.html { render :new }
-        format.json { render json: @blog_post.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Blog::Post was successfully created.' if @video_lesson.save
+    respond_with(@blog_post)
   end
 
   # PATCH/PUT /blog/posts/1
   # PATCH/PUT /blog/posts/1.json
   def update
-    respond_to do |format|
-      if @blog_post.update(blog_post_params)
-        format.html { redirect_to @blog_post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @blog_post }
-      else
-        format.html { render :edit }
-        format.json { render json: @blog_post.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Video::Lesson was successfully updated.' if @video_lesson.update(lesson_params)
+    respond_with(@blog_post)
   end
 
   # DELETE /blog/posts/1
   # DELETE /blog/posts/1.json
   def destroy
     @blog_post.destroy
-    respond_to do |format|
-      format.html { redirect_to blog_posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with(@blog_post)
   end
 
   private
