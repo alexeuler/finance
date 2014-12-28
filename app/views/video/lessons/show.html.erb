@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @video_lesson.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @video_lesson.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @video_lesson.image %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @video_lesson.tags %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @video_lesson.order %>
+</p>
+
+<%= link_to 'Edit', edit_video_lesson_path(@video_lesson) %> |
+<%= link_to 'Back', video_lessons_path %>
