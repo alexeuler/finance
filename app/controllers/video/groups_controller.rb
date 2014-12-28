@@ -1,5 +1,6 @@
 class Video::GroupsController < ApplicationController
   before_action :set_video_group, only: [:show, :edit, :update, :destroy]
+  layout 'video_posts'
 
   # GET /video/groups
   # GET /video/groups.json

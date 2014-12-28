@@ -2,7 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.video-group-form-body {
+.video-container {
+
+  .group-item {
+    @include post-panel-no-heading;
+    td {
+      padding:10px;
+      h3 {
+        margin:0px 0px 10px 0px;
+        font-family: $font-family-links;
+        a, a:hover, a:active, a:visited {
+          color: #000000;
+        }
+      }
+      img {
+        @include box-shadow(0px 0px 5px #aaa);
+        height: 100px;
+        float: left;
+      }
+    }
+  }
 
   #myModal {
     .modal-dialog {
