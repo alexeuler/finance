@@ -26,8 +26,10 @@ Rails.application.routes.draw do
 
     namespace :video do
       root 'posts#index'
-      resources :groups
-      resources :posts, only: ['index']
+      resources :groups, except: ['show']
+      scope '/:group' do
+        resources :posts, only: ['index', 'show']
+      end
     end
   end
 
