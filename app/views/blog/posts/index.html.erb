@@ -9,7 +9,9 @@
     </td>
     <td class="posts-panel-layout">
       <div class="posts-panel">
-        <%= render partial: 'shared/tags_panel', locals: {tags: @blog_tags, new_path: new_blog_post_path} %>
+        <%= render partial: 'shared/tags_panel', locals: {tags: @blog_tags,
+                                                          new_path: new_blog_post_path,
+                                                          index_path: blog_posts_path} %>
       </div>
     </td>
   </tr>

@@ -3,7 +3,10 @@ class Video::LessonsController < ApplicationController
   layout 'video'
 
   def index
-    @video_lessons = Video::Lesson.all
+    @video_lessons = Video::Lesson.where(language: I18n.locale).
+                        order(:order).all
+    @video_lessons=@video_lessons.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
+    @video_lesson_tags = Video::LessonTag.where(language: I18n.locale).all
     respond_with(@video_lessons)
   end
 

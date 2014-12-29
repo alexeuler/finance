@@ -9,12 +9,12 @@
       </div>
   <% end %>
   <div class="tag">
-    <%= link_to t("general.all"), blog_posts_path %>
+    <%= link_to t("general.all"), index_path if index_path %>
   </div>
 
   <% tags.each do |tag| %>
       <div class="tag">
-        <%= link_to tag.value, blog_posts_path(tag: tag.value) %>
+        <%= link_to tag.value, index_path+"?tag=#{tag.value}" %>
       </div>
   <% end %>
 </div>

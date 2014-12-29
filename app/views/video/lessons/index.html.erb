@@ -1,7 +1,19 @@
-<%= link_to t('general.new'), new_video_lesson_path %>
-
-<% @video_lessons.each do |video_lesson| %>
-    <%= render partial: 'video_lesson_item', locals: {video_lesson: video_lesson} %>
-<% end %>
-
+<table class="video-lessons-container-layout">
+  <tr>
+    <td class="lessons-container-layout">
+      <div class="lessons-container">
+        <% @video_lessons.each do |video_lesson| %>
+            <%= render partial: 'video_lesson_item', locals: {video_lesson: video_lesson} %>
+        <% end %>
+      </div>
+    </td>
+    <td class="lessons-panel-layout">
+      <div class="lessons-panel">
+        <%= render partial: 'shared/tags_panel', locals: {tags: @video_lesson_tags,
+                                                          new_path: new_video_lesson_path,
+                                                          index_path: video_lessons_path} %>
+      </div>
+    </td>
+  </tr>
+</table>
 

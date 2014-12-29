@@ -3,25 +3,48 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .video-container {
+
   .edit-video-lesson {
     @include app-panel;
   }
-  .lesson-item {
-    @include app-panel-no-heading;
-    td {
-      padding: 10px;
-      h1 {
-        margin: 0px 0px 10px 0px;
-        font-family: $font-family-links;
-        a, a:hover, a:active, a:visited {
-          color: #000000;
+
+
+  .video-lessons-container-layout {
+    width: 100%;
+
+    .lessons-panel {
+      @include app-panel;
+    }
+
+    .lessons-container-layout {
+      vertical-align: top;
+      width: 80%;
+      padding: 20px 20px;
+    }
+
+    .lessons-panel-layout {
+      vertical-align: top;
+      width: 20%;
+      padding: 20px 0px;
+    }
+
+    .lesson-item {
+      @include app-panel-no-heading;
+      td {
+        padding: 10px;
+        h1 {
+          margin: 0px 0px 10px 0px;
+          font-family: $font-family-links;
+          a, a:hover, a:active, a:visited {
+            color: #000000;
+          }
+        }
+        img {
+          height: 100px;
+          float: left;
         }
       }
-      img {
-        height: 100px;
-        float: left;
-      }
     }
-  }
 
+  }
 }
