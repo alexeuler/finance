@@ -1,23 +1,7 @@
 <%= link_to t('general.new'), new_video_lesson_path %>
 
 <% @video_lessons.each do |video_lesson| %>
-    <div class="lesson-item">
-      <div class="body">
-        <table>
-          <tr>
-            <td>
-              <%= link_to image_tag(video_lesson.image), video_lesson_path(video_lesson) if video_lesson.image %>
-            </td>
-            <td>
-              <h1><%= link_to video_lesson.title, video_lesson_path(video_lesson)  %></h1>
-              <%= video_lesson.description %>
-            </td>
-          </tr>
-        </table>
-        <%= link_to t('general.edit'), edit_video_lesson_path(video_lesson) %>
-        <%= link_to t('general.destroy'), video_lesson, method: :delete, data: {confirm: 'Are you sure?'} %>
-      </div>
-    </div>
+    <%= render partial: 'video_lesson_item', locals: {video_lesson: video_lesson} %>
 <% end %>
 
 

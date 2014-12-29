@@ -12,31 +12,11 @@
     width:100%;
 
     .blog-item {
-      @include post-panel;
+      @include app-panel;
     }
 
     .posts-panel {
-      padding: 10px 0px;
-      .heading {
-        border-top: $border-blog-post;
-        border-left: $border-blog-post;
-        border-right: $border-blog-post;
-        font-family: $font-family-links;
-        p {
-          font-size:18px;
-          margin:0;
-        }
-        padding: 5px 10px;
-        @include gradient-vertical-three-colors($color1-heading, $color2-heading, 90%, $color3-heading);
-      }
-      .body {
-        border-bottom: $border-blog-post;
-        border-left: $border-blog-post;
-        border-right: $border-blog-post;
-        padding: 5px 10px;
-        background-color: $color3-heading;
-      }
-
+      @include app-panel;
     }
 
     .posts-container-layout {
@@ -54,11 +34,11 @@
   }
 
   .blog-post-container {
-    @include post-panel;
+    @include app-panel;
   }
 
   .edit-blog-post {
-    @include post-panel;
+    @include app-panel;
   }
 
 }

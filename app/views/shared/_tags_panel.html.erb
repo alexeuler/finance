@@ -1,19 +1,19 @@
 <div class="heading">
-  <p><%= t('navbar.tags') %></p>
+  <h2><%= t('navbar.tags') %></h2>
 </div>
 
 <div class="body">
   <% if admin? %>
-      <div class="blog-tag">
-        <%= link_to t("general.new"), new_blog_post_path %>
+      <div class="tag">
+        <%= link_to t("general.new"), new_path if new_path %>
       </div>
   <% end %>
-  <div class="blog-tag">
+  <div class="tag">
     <%= link_to t("general.all"), blog_posts_path %>
   </div>
 
-  <% blog_tags.each do |tag| %>
-      <div class="blog-tag">
+  <% tags.each do |tag| %>
+      <div class="tag">
         <%= link_to tag.value, blog_posts_path(tag: tag.value) %>
       </div>
   <% end %>

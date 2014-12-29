@@ -4,10 +4,10 @@
 
 .video-container {
   .edit-video-lesson {
-    @include post-panel;
+    @include app-panel;
   }
   .lesson-item {
-    @include post-panel-no-heading;
+    @include app-panel-no-heading;
     td {
       padding: 10px;
       h1 {

@@ -64,7 +64,7 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
   }
 }
 
-@mixin post-panel {
+@mixin app-panel {
   padding: 10px;
   .heading {
     border-top: $border-blog-post;
@@ -76,6 +76,13 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
       a {@include transition(color 0.2s ease-in);}
       a:hover{text-decoration: none; color:#a07864 }
     }
+
+    h2 {
+      margin: 0px;
+      font-size:18px;
+      font-family: $font-family-links;
+    }
+
     padding: 5px 10px;
     @include gradient-vertical-three-colors($color1-heading, $color2-heading, 90%, $color3-heading);
   }
@@ -89,7 +96,7 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
 
 }
 
-@mixin post-panel-no-heading {
+@mixin app-panel-no-heading {
   padding: 10px;
   .body {
     border: $border-blog-post;
