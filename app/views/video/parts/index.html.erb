@@ -27,7 +27,7 @@
         <td><%= video_part.language %></td>
         <td><%= video_part.order %></td>
         <td><%= link_to 'Show', video_part %></td>
-        <td><%= link_to 'Edit', edit_video_part_path(video_part) %></td>
+        <td><%= link_to 'Edit', edit_video_lesson_part_path(video_part) %></td>
         <td><%= link_to 'Destroy', video_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Part', new_video_part_path %>
+<%= link_to 'New Part', new_video_lesson_part_path %>

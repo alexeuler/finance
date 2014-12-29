@@ -2,7 +2,7 @@ class Video::PartsController < ApplicationController
   before_action :set_video_part, only: [:show, :edit, :update, :destroy]
 
   def index
-    @video_parts = Video::Part.all
+    @video_parts = Video::Part.where(video_lesson_id: params[:lesson_id] ).all
     respond_with(@video_parts)
   end
 
@@ -11,7 +11,8 @@ class Video::PartsController < ApplicationController
   end
 
   def new
-    @video_part = Video::Part.new
+    @video_lesson = Video::Lesson.find(params[:lesson_id])
+    @video_part = Video::Part.new(video_lesson_id: params[:lesson_id])
     respond_with(@video_part)
   end
 
@@ -19,9 +20,9 @@ class Video::PartsController < ApplicationController
   end
 
   def create
-    @video_part = Video::Part.new(part_params)
+    @video_part = Video::Part.new(video_part_params)
     flash[:notice] = 'Video::Part was successfully created.' if @video_part.save
-    respond_with(@video_part)
+    respond_with(@video_part, url:blog_posts_path)
   end
 
   def update
@@ -36,10 +37,13 @@ class Video::PartsController < ApplicationController
 
   private
     def set_video_part
+      @video_lesson = Video::Lesson.find(params[:lesson_id])
       @video_part = Video::Part.find(params[:id])
     end
 
     def video_part_params
-      params.require(:video_part).permit(:title, :description, :body, :tags, :status, :slug, :language, :order)
+      params.require(:video_part).
+          permit(:title, :description, :body, :tags,
+                 :status, :slug, :language, :order, :lesson_id)
     end
 end
