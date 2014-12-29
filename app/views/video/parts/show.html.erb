@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @video_part.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @video_part.description %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @video_part.body %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @video_part.tags %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @video_part.status %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @video_part.slug %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @video_part.language %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @video_part.order %>
+</p>
+
+<%= link_to 'Edit', edit_video_part_path(@video_part) %> |
+<%= link_to 'Back', video_parts_path %>
