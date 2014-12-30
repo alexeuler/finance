@@ -40,5 +40,6 @@
   <%= @video_part.order %>
 </p>
 
-<%= link_to 'Edit', edit_video_part_path(@video_part) %> |
-<%= link_to 'Back', video_parts_path %>
+<%= link_to t('general.edit'), edit_video_lesson_part_path(lesson_id:@video_part.video_lesson_id,
+                             id: @video_part.id)  %> |
+<%= link_to t('devise.views.back'), video_lesson_parts_path %>

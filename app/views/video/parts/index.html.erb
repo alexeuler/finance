@@ -26,9 +26,15 @@
         <td><%= video_part.slug %></td>
         <td><%= video_part.language %></td>
         <td><%= video_part.order %></td>
-        <td><%= link_to 'Show', video_part %></td>
-        <td><%= link_to 'Edit', edit_video_lesson_part_path(video_part) %></td>
-        <td><%= link_to 'Destroy', video_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('general.show'), video_lesson_part_path({lesson_id: video_part.video_lesson_id,
+                                                       id: video_part.id}) %></td>
+        <td><%= link_to t('general.edit'), edit_video_lesson_part_path({lesson_id: video_part.video_lesson_id,
+                                                             id: video_part.id}) %></td>
+        <td><%= link_to t('general.destroy'),
+                        video_lesson_part_path({lesson_id: video_part.video_lesson_id,
+                                                id: video_part.id}),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Part', new_video_lesson_part_path %>
+<%= link_to t('general.new'), new_video_lesson_part_path %>

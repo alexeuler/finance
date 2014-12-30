@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @video_part %> |
-<%= link_to 'Back', video_parts_path %>
+<%= link_to t('general.show'), video_lesson_part_path({lesson_id: @video_part.video_lesson_id,
+                                                       id: @video_part.id}) %>
+<%= link_to 'Back', video_lesson_parts_path %>
