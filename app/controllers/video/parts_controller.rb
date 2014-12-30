@@ -54,6 +54,6 @@ class Video::PartsController < ApplicationController
 
     def video_part_params
       params.require(:video_part).permit(:title, :description, :body, :tags,
-                 :status, :slug, :language, :order, :lesson_id)
+                 :status, :slug, :language, :order, :image)
     end
 end
