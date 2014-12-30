@@ -1,45 +1,19 @@
-<h1>Listing video_parts</h1>
+<table class="video-parts-container-layout">
+  <tr>
+    <td class="parts-container-layout">
+      <div class="parts-container">
+        <div class="parts-header">
+          <div class="heading">
+            <h1><%= @title %></h1>
+          </div>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Body</th>
-      <th>Tags</th>
-      <th>Status</th>
-      <th>Slug</th>
-      <th>Language</th>
-      <th>Order</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @video_parts.each do |video_part| %>
-      <tr>
-        <td><%= video_part.title %></td>
-        <td><%= video_part.description %></td>
-        <td><%= video_part.body %></td>
-        <td><%= video_part.tags %></td>
-        <td><%= video_part.status %></td>
-        <td><%= video_part.slug %></td>
-        <td><%= video_part.language %></td>
-        <td><%= video_part.order %></td>
-        <td><%= link_to t('general.show'), video_lesson_part_path({lesson_id: video_part.video_lesson_id,
-                                                       id: video_part.id}) %></td>
-        <td><%= link_to t('general.edit'), edit_video_lesson_part_path({lesson_id: video_part.video_lesson_id,
-                                                             id: video_part.id}) %></td>
-        <td><%= link_to t('general.destroy'),
-                        video_lesson_part_path({lesson_id: video_part.video_lesson_id,
-                                                id: video_part.id}),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+        <% @video_parts.each do |video_part| %>
+            <%= render partial: 'video_part_item', locals: {video_part: video_part} %>
+        <% end %>
+        <%= link_to t('general.new'), new_video_lesson_part_path %>
+      </div>
+    </td>
+  </tr>
 </table>
 
-<br>
-
-<%= link_to t('general.new'), new_video_lesson_part_path %>

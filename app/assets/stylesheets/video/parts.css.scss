@@ -7,3 +7,43 @@
     @include app-panel;
   }
 }
+
+.video-parts-container-layout {
+  width: 100%;
+
+  .parts-container-layout {
+    vertical-align: top;
+    width: 80%;
+    padding: 20px 20px;
+  }
+
+  .parts-panel-layout {
+    vertical-align: top;
+    width: 20%;
+    padding: 20px 0px;
+  }
+
+  .parts-header {
+    @include app-panel-no-body;
+  }
+
+  .part-item {
+    @include app-panel-no-heading;
+    td {
+      padding: 10px;
+      vertical-align: top;
+      h1 {
+        margin: 0px 0px 10px 0px;
+        font-family: $font-family-links;
+        a, a:hover, a:active, a:visited {
+          color: #000000;
+        }
+      }
+      img {
+        height: 100px;
+        float: left;
+      }
+    }
+  }
+
+}

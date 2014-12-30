@@ -1,0 +1,24 @@
+<div class="part-item">
+  <div class="body">
+    <table>
+      <tr>
+        <td>
+          <%= link_to image_tag(video_part.image), video_lesson_part_path(id: video_part.id, lesson_id: video_part.video_lesson_id) if video_part.image %>
+        </td>
+        <td>
+          <h1><%= link_to video_part.title, video_lesson_part_path(id: video_part.id, lesson_id: video_part.video_lesson_id) %></h1>
+          <%= video_part.description %>
+        </td>
+      </tr>
+    </table>
+    <%= link_to t('general.show'), video_lesson_part_path({lesson_id: video_part.video_lesson_id,
+                                                               id: video_part.id}) %>
+    <%= link_to t('general.edit'), edit_video_lesson_part_path({lesson_id: video_part.video_lesson_id,
+                                                                    id: video_part.id}) %>
+    <%= link_to t('general.destroy'),
+                    video_lesson_part_path({lesson_id: video_part.video_lesson_id,
+                                            id: video_part.id}),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'} %>
+  </div>
+</div>

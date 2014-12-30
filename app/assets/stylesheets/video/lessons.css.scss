@@ -32,6 +32,7 @@
       @include app-panel-no-heading;
       td {
         padding: 10px;
+        vertical-align: top;
         h1 {
           margin: 0px 0px 10px 0px;
           font-family: $font-family-links;

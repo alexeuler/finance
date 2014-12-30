@@ -31,9 +31,8 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
   }
 }
 
-
 .modal-content {
-  border:none;
+  border: none;
   background: none;
   .modal-container {
     .header {
@@ -54,7 +53,7 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
         font-weight: normal;
       }
       .ceiling {
-        padding:10px 0px 0px 0px;
+        padding: 10px 0px 0px 0px;
         text-align: right;
       }
       .field {
@@ -72,14 +71,19 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
     border-right: $border-blog-post;
     h1 {
       margin: 0px;
-      font-size:28px;
-      a {@include transition(color 0.2s ease-in);}
-      a:hover{text-decoration: none; color:#a07864 }
+      font-size: 28px;
+      a {
+        @include transition(color 0.2s ease-in);
+      }
+      a:hover {
+        text-decoration: none;
+        color: #a07864
+      }
     }
 
     h2 {
       margin: 0px;
-      font-size:18px;
+      font-size: 18px;
       font-family: $font-family-links;
     }
 
@@ -102,6 +106,33 @@ $border-blog-post: 1px solid rgb(191, 144, 0);
     border: $border-blog-post;
     padding: 5px 10px;
     background-color: $color3-heading;
+  }
+}
+
+@mixin app-panel-no-body {
+  padding: 10px;
+  .heading {
+    border: $border-blog-post;
+    h1 {
+      margin: 0px;
+      font-size: 28px;
+      a {
+        @include transition(color 0.2s ease-in);
+      }
+      a:hover {
+        text-decoration: none;
+        color: #a07864
+      }
+    }
+
+    h2 {
+      margin: 0px;
+      font-size: 18px;
+      font-family: $font-family-links;
+    }
+
+    padding: 5px 10px;
+    @include gradient-vertical-three-colors($color1-heading, $color2-heading, 90%, $color3-heading);
   }
 
 }
