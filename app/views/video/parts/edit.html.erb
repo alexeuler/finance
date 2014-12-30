@@ -1,7 +1,14 @@
-<h1>Editing video_part</h1>
+<div class="edit-video-part">
 
-<%= render 'form' %>
+  <div class="heading">
+    <h1><%= t('general.edit_video_part') %></h1>
+  </div>
+  <div class="body">
+    <%= render 'form' %>
+    <%= link_to t('general.show'), video_lesson_part_path({lesson_id: @video_part.video_lesson_id,
+                                                           id: @video_part.id}) %> |
+    <%= link_to t('general.back'), video_lesson_parts_path %>
 
-<%= link_to t('general.show'), video_lesson_part_path({lesson_id: @video_part.video_lesson_id,
-                                                       id: @video_part.id}) %>
-<%= link_to 'Back', video_lesson_parts_path %>
+  </div>
+
+</div>

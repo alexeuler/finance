@@ -32,6 +32,8 @@ ru:
     edit_blog_post: "Правка поста в блоге"
     new_video_lesson: "Новый видео урок"
     edit_video_lesson: "Правка видео урока"
+    new_video_part: "Новая часть видео урока"
+    edit_video_part: "Правка части видео урока"
     add_image: "Добавить изображение"
     ok: "Ок"
     cancel: "Отмена"

@@ -1,5 +1,6 @@
 class Video::PartsController < ApplicationController
   before_action :set_video_part, only: [:show, :edit, :update, :destroy]
+  layout 'video'
 
   def index
     @video_parts = Video::Part.where(video_lesson_id: params[:lesson_id] ).all

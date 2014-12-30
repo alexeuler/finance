@@ -32,6 +32,8 @@ en:
     edit_blog_post: "Edit blog post"
     new_video_lesson: "New blog post"
     edit_video_lesson: "Edit blog post"
+    new_video_part: "New video part"
+    edit_video_part: "Edit video part"
     add_image: "Add Image"
     ok: "Ok"
     cancel: "Cancel"

@@ -1,53 +1,70 @@
 <% url = @video_part.id ?
         video_lesson_part_path(id: @video_part.id, lesson_id: @video_part.video_lesson_id) :
         video_lesson_parts_path(lesson_id: @video_part.video_lesson_id) %>
-<%= form_for(@video_part,
-             url: url, method: @video_part.id ? :patch : :post)  do |f| %>
-  <% if @video_part.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@video_part.errors.count, "error") %> prohibited this video_part from being saved:</h2>
+<div class="form-body">
+  <%= form_for(@video_part,
+               url: url, method: @video_part.id ? :patch : :post) do |f| %>
+      <% if @video_part.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@video_part.errors.count, "error") %> prohibited this video_part from being saved:</h2>
 
-      <ul>
-      <% @video_part.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+              <% @video_part.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
+      <table class="form-table">
+        <tr>
+          <td class="left-controls">
+            <div class="field">
+              <%= f.label :title %><br>
+              <%= f.text_field :title, class: 'form-control' %>
+            </div>
+            <br/>
+            <div class="field">
+              <%= f.label :description %><br>
+              <%= f.text_area :description, class: 'form-control', rows:5 %>
+            </div>
+            <br/>
+            <div class="field">
+              <%= f.label :body %><br>
+              <%= f.text_area :body, class: 'form-control', rows:10 %>
+            </div>
+            <br/>
+          </td>
+          <td class="right-controls">
+            <div class="field">
+              <%= f.label :tags %><br>
+              <%= f.text_field :tags, class: 'form-control' %>
+            </div>
+            <br/>
+            <div class="field">
+              <%= f.label :status %><br>
+              <%= f.text_field :status, class: 'form-control' %>
+            </div>
+            <br/>
+            <div class="field">
+              <%= f.label :slug %><br>
+              <%= f.text_field :slug, class: 'form-control' %>
+            </div>
+            <br/>
+            <div class="field">
+              <%= f.label :language %><br>
+              <%= f.text_field :language, class: 'form-control' %>
+            </div>
+            <br/>
+            <div class="field">
+              <%= f.label :order %><br>
+              <%= f.number_field :order, class: 'form-control' %>
+            </div>
+            <br/>
+          </td>
+        </tr>
+      </table>
+      <div class="actions">
+        <%= f.submit t('general.save') %>
+      </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :tags %><br>
-    <%= f.text_area :tags %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :slug %><br>
-    <%= f.text_field :slug %>
-  </div>
-  <div class="field">
-    <%= f.label :language %><br>
-    <%= f.text_field :language %>
-  </div>
-  <div class="field">
-    <%= f.label :order %><br>
-    <%= f.number_field :order %>
-  </div>
-  <div class="actions">
-    <%= f.submit t('general.save') %>
-  </div>
-<% end %>
+</div>
