@@ -11,7 +11,11 @@ class Video::LessonsController < ApplicationController
   end
 
   def show
-    respond_with(@video_lesson)
+    respond_to do |format|
+      format.html {redirect_to video_lesson_parts_path(lesson_id: @video_lesson.id)}
+      format.json {render json: {redirect: video_lesson_parts_url(lesson_id: @video_lesson.id, format: :json)} }
+    end
+
   end
 
   def new
