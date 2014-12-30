@@ -33,6 +33,13 @@
               <%= f.text_field :image, class: 'form-control', rows:5 %>
             </div>
             <br/>
+            <div class="field">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary modal-launch-button">
+                <%= t('general.add_image') %>
+              </button>
+            </div>
+            <br/>
 
             <div class="field">
               <%= f.label :body %><br>
@@ -73,4 +80,7 @@
         <%= f.submit t('general.save') %>
       </div>
   <% end %>
+
+  <%= render partial: 'shared/modal', locals:{id:'myModal'} %>
+
 </div>
