@@ -1,9 +1,13 @@
 class Movie < ActiveRecord::Base
   attr_accessor :file
   has_attached_file :file,
-                    styles: {
-                               :thumb => { :geometry => '800x500', :format => 'jpg', :time => 10 }
-                           },
+                    styles:
+                        {
+                            :large => {:geometry => '800x500>', :format => 'jpg', :time => 10},
+                            :medium => {:geometry => '400x250>', :format => 'jpg', :time => 10},
+                            :small => {:geometry => '200x125>', :format => 'jpg', :time => 10},
+                            :thumb => {:geometry => '96x60>', :format => 'jpg', :time => 10},
+                        },
                     use_timestamp: false,
                     url: '/paperclip/movies/:style/:access_token.:extension',
                     path: ':rails_root/public/:url',
@@ -15,6 +19,9 @@ class Movie < ActiveRecord::Base
 
   def as_json(options = {})
     result = super(options)
+    result[:url_large] = self.file.url(:large)
+    result[:url_medium] = self.file.url(:medium)
+    result[:url_small] = self.file.url(:small)
     result[:url_thumb] = self.file.url(:thumb)
     result[:url] = self.file.url
     result
