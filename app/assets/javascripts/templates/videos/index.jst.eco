@@ -1,0 +1,18 @@
+<div class="image-gallery" data-no-turbolink>
+  <table>
+    <tr>
+      <td class="thumbs-layout">
+        <div class="thumbs-container">
+
+        </div>
+
+      </td>
+      <td class="control-panel-layout">
+        <div class="control-panel-container">
+
+        </div>
+
+      </td>
+    </tr>
+  </table>
+</div>

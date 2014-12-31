@@ -1,0 +1,19 @@
+<div class="upload-movie-control-panel">
+
+  <form accept-charset="UTF-8" action="/movies" class="new_movie" data-remote="true" data-type="html" enctype="multipart/form-data" id="new_movie" method="post">
+    <div style="display:none">
+      <input name="utf8" type="hidden" value="✓">
+    </div>
+
+    <div class="field">
+      <label for="image_file">Upload movie</label><br>
+      <input id="image_file" name="movie[file]" type="file">
+    </div>
+    <br>
+    <input class="btn btn-primary add-button" id="add_button" name="commit" type="submit" value="Add">
+    <button class="btn btn-primary delete-button">Delete</button>
+    <br>
+  </form>
+
+
+</div>

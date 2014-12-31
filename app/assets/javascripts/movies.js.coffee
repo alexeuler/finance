@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+prepare = (event, parent) ->
+  parent =$(parent)
+  movies_collection = new App.Collections.Movies
+  view = new App.Views.Movies.Index(collection: movies_collection)
+  parent.html(view.$el)
+  movies_collection.fetch()
+
+
+$(document).on "page:change", ->
+  $(document).on "movie.gallery.prepare", prepare
