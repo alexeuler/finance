@@ -32,7 +32,7 @@ $(document).on "page:change", ->
   $('#add_movie_to_body_button').on 'click', ->
     $(document).trigger('movie.gallery.prepare',
       modal.find('.main-body'))
-    $(".movie-gallery-ok-button").one 'click', (e) ->
+    $(".image-gallery-ok-button").one 'click', (e) ->
       thumbsContainer = $('.movie-gallery .thumbs-container')
       url = thumbsContainer.data('url')
       text = "<img src='#{url}' alt=''></img>"
