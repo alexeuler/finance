@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :movies
+
   #this string if you don't use locale
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
