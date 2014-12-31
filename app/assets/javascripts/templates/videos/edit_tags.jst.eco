@@ -1,6 +1,6 @@
 <div class="edit-tags-control-panel">
-  <label for="image_tags">Update Tags</label><br>
-  <input id="image_tags" name="image[tags]" type="text">
+  <label for="movie_tags">Update Tags</label><br>
+  <input id="movie_tags" name="movie[tags]" type="text">
   <br/><br/>
   <input class="btn btn-primary edit-tags-button" type="submit" value="Update">
 </div>

@@ -1,45 +1,51 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :set_movie, only: [:destroy, :show, :update]
 
+
+  # GET /movies
+  # GET /movies.json
   def index
     @movies = Movie.all
-    respond_with(@movies)
+    @movies = @movies.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
+    render json: @movies
   end
+
 
   def show
-    respond_with(@movie)
+    render json: @movie
   end
 
-  def new
-    @movie = Movie.new
-    respond_with(@movie)
-  end
-
-  def edit
-  end
+  # POST /movies
+  # POST /movies.json
 
   def create
     @movie = Movie.new(movie_params)
-    flash[:notice] = 'Movie was successfully created.' if @movie.save
-    respond_with(@movie)
+    @movie.save ? render(text:'Ok') : render(text: 'Error')
   end
 
+  # PATCH/PUT /movies/1
+  # PATCH/PUT /movies/1.json
   def update
-    flash[:notice] = 'Movie was successfully updated.' if @movie.update(movie_params)
-    respond_with(@movie)
+    @movie.update(movie_params) ? render(text:'Ok') : render(text: 'Error')
   end
 
+
+  # DELETE /movies/1
+  # DELETE /movies/1.json
   def destroy
+    @movie.file.clear
     @movie.destroy
-    respond_with(@movie)
+    render text:'Ok'
   end
 
   private
-    def set_movie
-      @movie = Movie.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_movie
+    @movie = Movie.find(params[:id])
+  end
 
-    def movie_params
-      params.require(:movie).permit(:tags)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def movie_params
+    params.require(:movie).permit(:file, :tags)
+  end
 end

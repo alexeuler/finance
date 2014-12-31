@@ -9,7 +9,7 @@ class Movie < ActiveRecord::Base
                     path: ':rails_root/public/:url',
                     processors: [:ffmpeg]
   validates_attachment_presence :file
-  validates_attachment :file, content_type: ['video/mp4']
+  validates_attachment :file, content_type: {content_type: ['video/mp4']}
 
   before_create :generate_access_token
 

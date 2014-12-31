@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-
-
-  resources :movies
-
-  #this string if you don't use locale
-  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
+  resources :movies, only: %w(index create update destroy show)
   resources :images, only: %w(index create update destroy show)
 
   scope module: :blog do
