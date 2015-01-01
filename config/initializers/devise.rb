@@ -263,7 +263,7 @@ Devise.setup do |config|
   config.omniauth :twitter, Rails.application.secrets.twitter_app_id,
                   Rails.application.secrets.twitter_app_secret
   config.omniauth :vkontakte, Rails.application.secrets.vkontakte_app_id,
-                  Rails.application.secrets.vkontakte_app_secret
+                  Rails.application.secrets.vkontakte_app_secret, {scope: :email}
 
   
 end
