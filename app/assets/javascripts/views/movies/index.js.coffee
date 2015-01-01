@@ -74,11 +74,13 @@ App.namespace 'App.Views.Movies', (ns)->
         id = $(e.currentTarget).data('id')
         model = @collection.get(id)
         url = model.get('url')
+        poster = model.get('url_large')
         uid = model.get('uid')
         tags = model.get('tags')
         thumbsContainer.data('id', id)
         thumbsContainer.data('url', url)
         thumbsContainer.data('uid', uid)
+        thumbsContainer.data('poster', poster)
 
         thumbsContainer.find(".movie-thumb-container").removeClass('selected')
         $(e.currentTarget).addClass('selected')

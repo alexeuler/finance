@@ -36,10 +36,12 @@ $(document).on "page:change", ->
       thumbsContainer = $('.movie-gallery .thumbs-container')
       url = thumbsContainer.data('url')
       uid = thumbsContainer.data('uid')
+      poster = thumbsContainer.data('poster')
       template = JST['templates/movies/movie']
       text = template data:
                         url: url
                         uid: uid
+                        poster: poster
       $("#video_part_body").val($("#video_part_body").val()+text)
       modal.modal('hide')
     modal.modal('show')
