@@ -60,6 +60,6 @@ namespace :deploy do
   #for some reason db:migrate isn't invoked two times
   #so need to do this before updated as this copies database from production
   #and only after that you have to run migrations
-  before :updated, 'assets:fetch'
+  #before :updated, 'assets:fetch'
 end
 
