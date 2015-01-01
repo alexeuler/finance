@@ -11,7 +11,9 @@
         <% @video_parts.each do |video_part| %>
             <%= render partial: 'video_part_item', locals: {video_part: video_part} %>
         <% end %>
-        <%= link_to t('general.new'), new_video_lesson_part_path %>
+        <% if admin? %>
+            <%= link_to t('general.new'), new_video_lesson_part_path %>
+        <% end %>
       </div>
     </td>
   </tr>

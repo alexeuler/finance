@@ -25,5 +25,7 @@
   <%= @video_lesson.order %>
 </p>
 
-<%= link_to 'Edit', edit_video_lesson_path(@video_lesson) %> |
+<% if admin? %>
+    <%= link_to 'Edit', edit_video_lesson_path(@video_lesson) %> |
+<% end %>
 <%= link_to 'Back', video_lessons_path %>

@@ -1,5 +1,6 @@
 class Video::PartsController < ApplicationController
   before_action :set_video_part, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_admin, only: [:index, :show]
   layout 'video'
 
   def index
