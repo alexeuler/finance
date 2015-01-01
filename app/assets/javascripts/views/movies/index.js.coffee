@@ -8,6 +8,7 @@ App.namespace 'App.Views.Movies', (ns)->
     controlPanelTemplate:JST['templates/movies/control_panel']
     tagsTemplate:JST['templates/movies/tags']
     editTagsTemplate:JST['templates/movies/edit_tags']
+    editUidTemplate:JST['templates/movies/edit_uid']
     uploadmovieTemplate:JST['templates/movies/upload_movie']
     template:JST['templates/movies/index']
 
@@ -23,6 +24,37 @@ App.namespace 'App.Views.Movies', (ns)->
         buttons.removeClass('disabled')
       else
         buttons.addClass('disabled')
+
+    renderEditUid: ->
+      controlPanel = $(".movie-gallery .control-panel-container")
+      #rendering edit_tags
+      editUidView = @editUidTemplate()
+      controlPanel.append editUidView
+
+      updateButton = controlPanel.find(".edit-uid-button")
+      updateButton.on 'click', =>
+        id=$('.movie-gallery .thumbs-container').data('id')
+        if id?
+          uid=controlPanel.find("#movie_uid").val()
+          csrfToken = $("meta[name=csrf-token]")[0].content
+          @toggleButtons(false)
+          $.ajax(
+            type: 'patch'
+            url: "/movies/#{id}"
+            data:
+              csrf: csrfToken
+              movie:
+                uid: uid
+          ).done( =>
+            @collection.fetch()
+            @toggleButtons(true)
+          ).fail( (jqXHR, textStatus) =>
+            alert( "Request failed: " + textStatus );
+            @toggleButtons(true)
+          )
+        else
+          alert("Error: movie is not selected")
+
 
     renderThumbs: ->
       #rendering thumbs
@@ -42,14 +74,17 @@ App.namespace 'App.Views.Movies', (ns)->
         id = $(e.currentTarget).data('id')
         model = @collection.get(id)
         url = model.get('url')
+        uid = model.get('uid')
+        tags = model.get('tags')
         thumbsContainer.data('id', id)
         thumbsContainer.data('url', url)
+        thumbsContainer.data('uid', uid)
 
         thumbsContainer.find(".movie-thumb-container").removeClass('selected')
         $(e.currentTarget).addClass('selected')
-        model = @collection.get(id)
-        tags = model.get('tags')
+
         $(".movie-gallery #movie_tags").val(tags)
+        $(".movie-gallery #movie_uid").val(uid)
 
 
     renderEditTags: ->
@@ -156,5 +191,6 @@ App.namespace 'App.Views.Movies', (ns)->
       @renderThumbs()
       @renderTags()
       @renderEditTags()
+      @renderEditUid()
       @renderUploadmovie()
       @

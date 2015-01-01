@@ -1,0 +1,6 @@
+<div class="edit-uid-control-panel">
+  <label for="movie_uid">Update Uid</label><br>
+  <input id="movie_uid" name="movie[uid]" type="text">
+  <br/><br/>
+  <input class="btn btn-primary edit-uid-button" type="submit" value="Update">
+</div>

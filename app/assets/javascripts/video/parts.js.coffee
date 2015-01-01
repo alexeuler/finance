@@ -35,7 +35,11 @@ $(document).on "page:change", ->
     $(".image-gallery-ok-button").one 'click', (e) ->
       thumbsContainer = $('.movie-gallery .thumbs-container')
       url = thumbsContainer.data('url')
-      text = "<img src='#{url}' alt=''></img>"
+      uid = thumbsContainer.data('uid')
+      template = JST['templates/movies/movie']
+      text = template data:
+                        url: url
+                        uid: uid
       $("#video_part_body").val($("#video_part_body").val()+text)
       modal.modal('hide')
     modal.modal('show')
