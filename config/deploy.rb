@@ -87,6 +87,20 @@ namespace :assets do
     invoke 'assets:symlink'
   end
 
+  task :reset do
+    on roles(:web) do
+      invoke 'server:stop'
+      environment = fetch(:rails_env).to_s
+      assets = environment=='production' ? '/var/www/finance/shared/public/paperclip' : '/var/www/finance_staging/shared/public/paperclip'
+      execute "rm -rf #{assets}"
+      db = environment=='production' ? 'finance_production' : 'finance_staging'
+      execute "dropdb #{db}"
+      execute "createdb #{db}"
+      invoke 'deploy:migrate'
+      invoke 'server:start'
+    end
+  end
+
   task :fetch do
     invoke 'assets:fetch_db'
     invoke 'assets:fetch_files'
