@@ -32,9 +32,9 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.action_mailer.default_options =
-      {from: 'no-reply@localhost',
-       host: 'localhost'}
+  config.action_mailer.default_options = {from: 'no-reply@localhost'}
+  config.action_mailer.default_url_options = {host: 'localhost'}
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
