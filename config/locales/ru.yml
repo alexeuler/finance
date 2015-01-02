@@ -68,6 +68,7 @@ ru:
           attributes:
             email:
               invalid: "Неверный формат email"
+              taken: "Пользователь с таким email уже зарегистрирован"
             password_confirmation:
               confirmation: "Пароли не совпадают"
             password:

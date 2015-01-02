@@ -69,6 +69,7 @@ en:
           attributes:
             email:
               invalid: "Invalid email"
+              taken: "This email is already taken"
             password_confirmation:
               confirmation: "Passwords do not match"
             password:
