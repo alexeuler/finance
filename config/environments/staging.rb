@@ -79,6 +79,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_options = {from: 'no-reply@ka-ching.ru'}
-  config.action_mailer.default_url_options = {host: 'ka-ching.ru'}
+  config.action_mailer.default_url_options = {host: 'staging.ka-ching.ru'}
 
 end
