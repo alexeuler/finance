@@ -2,16 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :confirmable
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :vkontakte]
-
-  before_create :generate_auth_id
-
-  def generate_auth_id
-    email_string = email || ''
-    provider_string = provider || 'email'
-    auth_id = email_string + '|' + provider_string
-  end
 
   def admin?
     role=='admin'
@@ -28,6 +20,7 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.skip_confirmation!
       case auth.provider
         when 'facebook'
           user.email = auth.info.email
