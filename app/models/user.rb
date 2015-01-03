@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
     if user.id.nil?
       user.skip_confirmation!
       email = auth.info.email
-      user_by_email=User.where(email:email)
+      user_by_email=User.where(email:email).first
       user = user_by_email unless user_by_email.nil?
       case auth.provider
         when 'facebook'
