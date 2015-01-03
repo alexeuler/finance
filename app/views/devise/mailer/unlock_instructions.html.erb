@@ -4,4 +4,4 @@
 
 <p><%= t('devise.mailer.lock2') %></p>
 
-<p><%= link_to t('devise.mailer.lock3'), unlock_url(@resource, unlock_token: @token) %></p>
+<p><%= link_to t('devise.mailer.lock3'), unlock_url(@resource, unlock_token: @token, locale: I18n.locale) %></p>
