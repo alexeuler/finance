@@ -14,6 +14,10 @@
       <%= f.password_field :password, autocomplete: "off", class:'form-control'  %>
     </div>
 
+    <div class="field">
+      <%= f.hidden_field :provider, 'email'  %>
+    </div>
+
     <% if devise_mapping.rememberable? -%>
         <div class="field">
           <%= f.check_box :remember_me %>

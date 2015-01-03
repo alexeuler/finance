@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :confirmable
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :vkontakte]
 
+  before_create :defaults
+
+  def defaults
+    self.provider||='email'
+  end
+
   def admin?
     role=='admin'
   end
