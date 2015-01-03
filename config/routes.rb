@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   devise_for :users,
              skip: [:session, :password, :registration],
              controllers: {omniauth_callbacks: 'users/omniauth_callbacks',
-                          confrimations: 'users/confirmations'}
+                          confirmations: 'users/confirmations'}
 
   scope "/:locale" do
     devise_for :users, skip: :omniauth_callbacks
