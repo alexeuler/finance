@@ -19,12 +19,7 @@ class User < ActiveRecord::Base
 
 
   def self.from_omniauth(auth)
-    user = self.where(provider: auth.provider, uid: auth.uid).first_or_initialize
-    if user.id.nil?
-      user.skip_confirmation!
-      email = auth.info.email
-      user_by_email=User.where(email:email).first
-      user = user_by_email unless user_by_email.nil?
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       case auth.provider
         when 'facebook'
           user.email = auth.info.email
@@ -51,10 +46,9 @@ class User < ActiveRecord::Base
           user.last_name = auth.info.last_name
           user.url = auth.info.urls['Vkontakte']
           user.image = auth.info.image
+
       end
-      user.save
     end
-    user
   end
 
   def self.new_with_session(params, session)
