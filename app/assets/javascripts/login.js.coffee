@@ -79,7 +79,7 @@ $(document).on "page:change", ->
         result = error
     modalDialog.find('.errors').html(result)
 
-  $('#navbar #email_login, #navbar #edit_user, #navbar #profile-image').on 'click', (e)->
+  $('#navbar #email_login, #navbar #edit_user').on 'click', (e)->
     e.preventDefault()
     e.stopPropagation()
     ref = $(e.currentTarget).attr('href')
