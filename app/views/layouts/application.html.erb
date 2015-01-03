@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for?(:title) ? yield(:title) : "Finance"  %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Finance" %></title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= auto_discovery_link_tag(:rss, {controller: "blog/posts", action: "index"})%>
+  <%= auto_discovery_link_tag(:rss, {controller: "blog/posts", action: "index"}) %>
   <script>var rootUrl = "<%=root_url%>"</script>
   <script type="text/javascript" src="//cdn.sublimevideo.net/js/uvkynhxx.js"></script>
 </head>
@@ -15,6 +15,9 @@
   <div class="body-container">
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
+  <% if flash[:notice] %>
+      <%= hidden_field_tag :notice, flash[:notice] %>
+  <% end %>
 </div>
 
 
