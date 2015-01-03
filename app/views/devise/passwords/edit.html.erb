@@ -1,13 +1,9 @@
-<% content_for :modal_header do %>
-    <%= t('devise.views.change_password') %>
-<% end %>
-
-<%= form_for(resource, remote: true, as: resource_name, url: password_path(resource_name), html: {method: :put, :'data-type' => 'json'}) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
     <%= devise_error_messages! %>
     <%= f.hidden_field :reset_password_token %>
 
     <div class="field">
-      <%= f.label :password, t('devise.views.remember_me') %><br/>
+      <%= f.label :password, t('devise.views.password') %><br/>
       <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control' %>
     </div>
 
@@ -16,10 +12,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
     </div>
 
-    <%= render "devise/shared/links" %>
-
     <div class="field ceiling">
-      <%= f.submit t('devise.views.send'), class: 'btn btn-primary' %>
+      <%= f.submit t('general.ok'), class: 'btn btn-primary' %>
       <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
     </div>
 
