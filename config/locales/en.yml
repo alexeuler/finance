@@ -39,6 +39,23 @@ en:
     ok: "Ok"
     cancel: "Cancel"
     save: "Save"
+  mailer:
+    welcome: "Welcome"
+    confirm_account: "Confirm account"
+    hello: "Hello"
+    reset1: "Someone has requested a link to change your password. You can do this through the link below."
+    reset2: "If you didn't request this, please ignore this email."
+    reset3: "Your password won't change until you access the link above and create a new one."
+    lock1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+    lock2: "Click the link below to unlock your account."
+    lock3: "Unlock my account"
+    confirmation_instructions:
+      subject: "Confirmation instructions"
+    reset_password_instructions:
+      subject: "Reset password instructions"
+    unlock_instructions:
+      subject: "Unlock instructions"
+
 
   navbar:
     title: "Ka-ching!"
