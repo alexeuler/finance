@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   # leaving omniauth with no locale and using locale for other devise
   devise_for :users,
              skip: [:session, :password, :registration],
-             controllers: {:omniauth_callbacks => "users/omniauth_callbacks"}
+             controllers: {omniauth_callbacks: 'users/omniauth_callbacks',
+                          confrimations: 'users/confirmations'}
 
   scope "/:locale" do
     devise_for :users, skip: :omniauth_callbacks

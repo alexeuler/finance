@@ -27,6 +27,8 @@ ru:
       send: "Выслать"
       first_name: "Имя"
       last_name: "Фамилия"
+      reconfirm: "Подтвердить email"
+      recofirm_instructions: "Выслать подтвеждение"
     mailer:
       welcome: "Welcome"
       confirm_account: "Подтвердить аккаунт"

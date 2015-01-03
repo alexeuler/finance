@@ -1,5 +1,5 @@
 <% content_for :modal_header do %>
-    <%= t('devise.passwords.send_instructions') %>
+    <%= t('devise.views.reconfirm') %>
 <% end %>
 
 <%= form_for(resource, remote: true, as: resource_name, url: confirmation_path(resource_name), html: {method: :post, :'data-type' => 'json'}) do |f| %>
