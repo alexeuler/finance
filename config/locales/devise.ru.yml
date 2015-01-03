@@ -39,6 +39,12 @@ ru:
       lock1: "Ваш аккаунт был заблокирован из-за большого количества неудачных попыток входа."
       lock2: "Нажмите ссылку ниже, чтобы разблокировать ваш аккаунт."
       lock3: "Разблокировать аккаунт"
+      confirmation_instructions:
+        subject: Инструкции по подтверждению учетной записи
+      reset_password_instructions:
+        subject: Инструкции по восстановлению пароля
+      unlock_instructions:
+        subject: Инструкции по разблокировке учетной записи
 
 
     confirmations:
@@ -55,13 +61,6 @@ ru:
       timeout: Ваш сеанс закончился. Пожалуйста, войдите в систему снова.
       unauthenticated: Вам необходимо войти в систему или зарегистрироваться.
       unconfirmed: Вы должны подтвердить вашу учетную запись.
-    mailer:
-      confirmation_instructions:
-        subject: Инструкции по подтверждению учетной записи
-      reset_password_instructions:
-        subject: Инструкции по восстановлению пароля
-      unlock_instructions:
-        subject: Инструкции по разблокировке учетной записи
     omniauth_callbacks:
       failure: Вы не можете войти в систему с учетной записью из %{kind}, т.к. "%{reason}".
       success: Вход в систему выполнен с учетной записью из %{kind}.
