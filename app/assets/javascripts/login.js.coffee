@@ -65,6 +65,14 @@ $(document).on "page:change", ->
     toggleButtons(false)
   modalDialog.on 'ajax:success', (e)->
     toggleButtons(true)
+    # doing message for user registration
+    ru_regex = /\/ru\/users$/
+    if e.target.action.match(ru_regex) && e.target.method == 'post'
+      alert 'На ваш email было выслано письмо для подтверждения'
+    en_regex = /\/en\/users$/
+    if e.target.action.match(en_regex) && e.target.method == 'post'
+      alert 'Please check your email to confirm your account'
+    #end
     location.reload()
   modalDialog.on 'ajax:error', (e, xhr, status, error)->
     toggleButtons(true)
