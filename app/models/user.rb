@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
 
   validates_format_of :email,
                       with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
-                      message: t('activerecord.errors.models.user.attributes.email.invalid')
+                      message: I18n.t('activerecord.errors.models.user.attributes.email.invalid')
 
   validates_presence_of :email,
-                        message: t('activerecord.errors.models.user.attributes.email.blank')
+                        message: I18n.t('activerecord.errors.models.user.attributes.email.blank')
 
   before_create :defaults
 
