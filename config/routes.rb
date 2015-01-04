@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   scope "/:locale" do
     devise_for :users, skip: :omniauth_callbacks
+
+    get 'home/show'
+
     namespace :blog do
       root 'posts#index'
       resources :posts

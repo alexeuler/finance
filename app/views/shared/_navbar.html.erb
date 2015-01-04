@@ -27,10 +27,9 @@
       <%= render partial:'shared/login_panel' %>
       <!--Links to pages-->
       <ul class="nav navbar-nav app-header-menu navbar-right">
-        <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), blog_posts_path %></li>
+        <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), home_show_path %></li>
         <li class="<%= selected_tab == t("navbar.blog") ? 'active' : '' %>"><%= link_to t("navbar.blog"), blog_posts_path %></li>
         <li class="<%= selected_tab == t("navbar.video") ? 'active' : '' %>"><%= link_to t("navbar.video"), video_lessons_path %></li>
-        <li class="<%= selected_tab == t("navbar.about") ? 'active' : '' %>"><a href="#"><%= t("navbar.about") %></a>
         </li>
       </ul>
 
