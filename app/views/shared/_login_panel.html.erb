@@ -7,7 +7,7 @@
           <table>
             <tr>
               <td>
-                <% if current_user.provider %>
+                <% unless current_user.provider == 'email' %>
                     <%= current_user.full_name %>
                 <% else %>
                     <%= link_to current_user.full_name, edit_user_registration_path, id: 'edit_user' %>

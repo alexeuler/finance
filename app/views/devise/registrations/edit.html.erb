@@ -18,6 +18,11 @@
     </div>
 
     <div class="field">
+      <%= f.label t('devise.views.current_password') %> <i>(<%= t('devise.views.current_password_hint') %> )</i><br/>
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+    <div class="field">
       <%= f.label t('devise.views.first_name') %><br/>
       <%= f.text_field :first_name, class: 'form-control' %>
     </div>

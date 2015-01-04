@@ -94,3 +94,4 @@ en:
               too_short: "Password is too short"
             current_password:
               invalid: "Invalid current password"
+              blank: "Current password must be not blank"
