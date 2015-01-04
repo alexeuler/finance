@@ -3,6 +3,16 @@ $color2-heading: rgba(255, 227, 140, 0.8);
 $color3-heading: rgba(255, 242, 204, 0.8);
 $border-blog-post: 1px solid rgb(191, 144, 0);
 
+
+.breadcrumb {
+  background: rgba(255, 255, 190, 0.75);
+  border-radius: 0;
+  margin: 10px;
+  li:before {
+    color: #587AB5 !important;
+  }
+}
+
 .form-body {
 
   #myModal {
