@@ -88,10 +88,11 @@ en:
             email:
               invalid: "Invalid email"
               taken: "This email is already taken"
+              blank: "Current password must be not blank"
             password_confirmation:
               confirmation: "Passwords do not match"
             password:
               too_short: "Password is too short"
             current_password:
               invalid: "Invalid current password"
-              blank: "Current password must be not blank"
+              blank: "Password must be not blank"

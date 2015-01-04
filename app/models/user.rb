@@ -5,6 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :confirmable
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :vkontakte]
 
+  validates_format_of :email,
+                      with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
+                      message: t('activerecord.errors.models.user.attributes.email.invalid')
+
+  validates_presence_of :email,
+                        message: t('activerecord.errors.models.user.attributes.email.blank')
+
   before_create :defaults
 
   def defaults
