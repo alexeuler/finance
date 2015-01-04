@@ -6,6 +6,7 @@ class Video::PartsController < ApplicationController
 
   def index
     @video_parts = Video::Part.where(video_lesson_id: params[:lesson_id]).all
+    @video_parts = @video_parts.published unless admin?
     video_lesson = Video::Lesson.find(params[:lesson_id])
     @title = video_lesson.title
     respond_with(@video_parts)

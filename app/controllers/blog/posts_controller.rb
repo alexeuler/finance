@@ -8,6 +8,7 @@ class Blog::PostsController < ApplicationController
   def index
     @blog_posts = Blog::Post.where(language: I18n.locale).order(created_at: :desc).all
     @blog_posts=@blog_posts.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
+    @blog_posts=@blog_posts.published unless admin?
     @blog_tags = Blog::Tag.where(language: I18n.locale).all
     respond_to do |format|
       format.html
