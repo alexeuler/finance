@@ -2,17 +2,15 @@ Rails.application.routes.draw do
   resources :movies, only: %w(index create update destroy show)
   resources :images, only: %w(index create update destroy show)
 
-  scope module: :blog do
-    root 'posts#index'
-    get '/:locale', to: 'posts#index'
-  end
+  root 'home#show'
+  get '/:locale', to: 'home#show'
 
   # devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
   # leaving omniauth with no locale and using locale for other devise
   devise_for :users,
              skip: [:session, :password, :registration],
              controllers: {omniauth_callbacks: 'users/omniauth_callbacks',
-                          confirmations: 'users/confirmations'}
+                           confirmations: 'users/confirmations'}
 
   scope "/:locale" do
     devise_for :users, skip: :omniauth_callbacks
