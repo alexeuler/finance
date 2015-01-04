@@ -1,11 +1,12 @@
 class Video::LessonsController < ApplicationController
   before_action :set_video_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :set_breadcrumbs, only: [:index, :show, :new, :edit]
   skip_before_action :require_admin, only: [:index, :show]
   layout 'video'
 
   def index
     @video_lessons = Video::Lesson.where(language: I18n.locale).
-                        order(:order).all
+        order(:order).all
     @video_lessons=@video_lessons.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
     @video_lesson_tags = Video::LessonTag.where(language: I18n.locale).all
     respond_with(@video_lessons)
@@ -13,8 +14,8 @@ class Video::LessonsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html {redirect_to video_lesson_parts_path(lesson_id: @video_lesson.id)}
-      format.json {render json: {redirect: video_lesson_parts_url(lesson_id: @video_lesson.id, format: :json)} }
+      format.html { redirect_to video_lesson_parts_path(lesson_id: @video_lesson.id) }
+      format.json { render json: {redirect: video_lesson_parts_url(lesson_id: @video_lesson.id, format: :json)} }
     end
 
   end
@@ -44,15 +45,20 @@ class Video::LessonsController < ApplicationController
   end
 
   private
-    def set_video_lesson
-      if params[:slug]
-        @video_lesson = Video::Lesson.where(slug: params[:slug]).first
-      else
-        @video_lesson = Video::Lesson.find(params[:id])
-      end
+  def set_video_lesson
+    if params[:slug]
+      @video_lesson = Video::Lesson.where(slug: params[:slug]).first
+    else
+      @video_lesson = Video::Lesson.find(params[:id])
     end
+  end
 
-    def video_lesson_params
-      params.require(:video_lesson).permit(:title, :description, :image, :tags, :order, :language)
-    end
+  def video_lesson_params
+    params.require(:video_lesson).permit(:title, :description, :image, :tags, :order, :language)
+  end
+
+  def set_breadcrumbs
+    @breadcrumbs = []
+    @breadcrumbs.push [I18n.t('navbar.video'), video_lessons_path]
+  end
 end

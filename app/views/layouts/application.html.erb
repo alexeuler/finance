@@ -12,6 +12,13 @@
 <body>
 <div class="page-container">
   <%= render partial: 'shared/navbar', locals: {selected_tab: yield(:selected_tab)} %>
+  <% if @breadcrumbs %>
+      <ol class="breadcrumb">
+        <% @breadcrumbs.each do |crumb| %>
+            <li> <%= link_to crumb[0], crumb[1]%> </li>
+        <% end %>
+      </ol>
+  <% end %>
   <div class="body-container">
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>

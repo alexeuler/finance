@@ -1,5 +1,6 @@
 class Blog::PostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_breadcrumbs, only: [:index, :show, :new, :edit]
   skip_before_action :require_admin, only: [:index, :show]
   layout 'layouts/blog'
   # GET /blog/posts
@@ -20,6 +21,7 @@ class Blog::PostsController < ApplicationController
   # GET /blog/posts/1
   # GET /blog/posts/1.json
   def show
+    @breadcrumbs.push [@blog_post.title, blog_post_path(@blog_post)]
     respond_with(@blog_post)
   end
 
@@ -70,4 +72,9 @@ class Blog::PostsController < ApplicationController
       params.require(:blog_post).permit(:title, :body, :tags, :status, :category, :description, :slug,
                                         :language, :rss)
     end
+
+  def set_breadcrumbs
+    @breadcrumbs = []
+    @breadcrumbs.push [I18n.t('navbar.blog'), blog_posts_path]
+  end
 end
