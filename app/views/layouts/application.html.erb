@@ -8,6 +8,9 @@
   <%= auto_discovery_link_tag(:rss, {controller: "blog/posts", action: "index"}) %>
   <script>var rootUrl = "<%=root_url%>"</script>
   <script type="text/javascript" src="//cdn.sublimevideo.net/js/uvkynhxx.js"></script>
+  <% if Rails.env.production? %>
+      <%= render partial: 'shared/google_analytics' %>
+  <% end %>
 </head>
 <body>
 <div class="page-container">
@@ -15,7 +18,7 @@
   <% if @breadcrumbs %>
       <ol class="breadcrumb">
         <% @breadcrumbs.each do |crumb| %>
-            <li> <%= link_to crumb[0], crumb[1]%> </li>
+            <li> <%= link_to crumb[0], crumb[1] %> </li>
         <% end %>
       </ol>
   <% end %>
