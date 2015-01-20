@@ -21,6 +21,9 @@
 
 en:
   hello: "Hello world"
+  home:
+    welcome: "Welcome!"
+    message: "On this site you will find many helpful tips starting a new business. Enjoy and share your feedback!"
   general:
     new: "New"
     edit: "Edit"
