@@ -44,6 +44,7 @@ ru:
     ok: "Ок"
     cancel: "Отмена"
     save: "Сохранить"
+    read_more: "Читать далее >>"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"

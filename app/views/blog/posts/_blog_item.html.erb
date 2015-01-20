@@ -4,8 +4,10 @@
     <h1> <%= link_to blog_post.title, show_url %> </h1>
   </div>
   <div class="body">
-    <p><%= blog_post.description.html_safe %></p>
-
+    <p>
+      <%= blog_post.description.html_safe %>
+    </p>
+    <%= link_to t('general.read_more'), show_url %>
     <div class="edit">
       <% if admin? %>
           <%= link_to t("general.edit"), edit_blog_post_path(blog_post) %>
