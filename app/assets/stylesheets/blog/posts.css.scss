@@ -7,6 +7,22 @@
 
 .blog-container {
   padding:20px;
+  float-left {
+    float:left
+    &img {
+     margin-right:20px;
+    }
+  }
+  float-right {
+    float:right
+    &img {
+      margin-left:20px;
+    }
+  }
+
+  img {
+   @include box-shadow(0px 0px 5px #000)
+  }
 
   .blog-posts-container-layout {
     width:100%;
