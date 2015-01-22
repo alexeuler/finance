@@ -42,6 +42,12 @@
 
     .blog-item {
       @include app-panel;
+      .description-image-container {
+        width:210px;
+        padding-right:10px;
+        text-align:center;
+        img {max-width: 250px;}
+      }
     }
 
     .posts-panel {

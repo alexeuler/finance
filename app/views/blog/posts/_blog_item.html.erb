@@ -4,8 +4,19 @@
     <h1> <%= link_to blog_post.title, show_url %> </h1>
   </div>
   <div class="body">
+    <table>
+      <tr>
+        <td class="description-image-container">
+          <%= image_tag blog_post.image, alt: blog_post.title%>
+        </td>
+        <td>
+          <%= blog_post.description.html_safe %>
+        </td>
+      </tr>
+
+    </table>
     <p>
-      <%= blog_post.description.html_safe %>
+
     </p>
     <%= link_to t('general.read_more'), show_url %>
     <div class="edit">
