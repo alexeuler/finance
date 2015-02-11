@@ -45,6 +45,7 @@ ru:
     cancel: "Отмена"
     save: "Сохранить"
     read_more: "Читать далее >>"
+    comments: "Комментарии"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"

@@ -45,6 +45,7 @@ en:
     cancel: "Cancel"
     save: "Save"
     read_more: "Read more >>"
+    comments: "Comments"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"

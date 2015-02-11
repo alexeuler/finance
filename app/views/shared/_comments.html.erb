@@ -1,0 +1,22 @@
+<div class="comment-panel">
+  <div class="comment-header">
+    <%= t('general.comments') %>
+  </div>
+
+  <% comments.each do |comment| %>
+      <div class="comment">
+        <table>
+            <tr>
+              <td class="avatar">
+                <%= image_tag comment.user.image %>
+                <%= comment.user.full_name %>
+              </td>
+              <td class="text">
+                <%= comment.text %>
+              </td>
+            </tr>
+        </table>
+        <%= link_to 'reply' %>
+      </div>
+  <% end %>
+</div>
