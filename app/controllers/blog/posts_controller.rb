@@ -23,6 +23,8 @@ class Blog::PostsController < ApplicationController
   # GET /blog/posts/1.json
   def show
     @breadcrumbs.push [@blog_post.title, blog_post_path(@blog_post)]
+    @comments = Comment.where(category:'post').
+        where(entity_id:@blog_post.id).all
     respond_with(@blog_post)
   end
 
