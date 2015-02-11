@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+
   resources :movies, only: %w(index create update destroy show)
   resources :images, only: %w(index create update destroy show)
 
