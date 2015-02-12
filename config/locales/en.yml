@@ -46,6 +46,7 @@ en:
     save: "Save"
     read_more: "Read more >>"
     comments: "Comments"
+    reply: "Reply"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"

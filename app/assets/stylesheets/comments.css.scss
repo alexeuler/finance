@@ -17,7 +17,18 @@
           @include box-shadow(0px 0px 5px gray)
         }
       }
-
     }
+    &.indent0 {margin-left:0px;}
+    &.indent1 {margin-left:40px;}
+    &.indent2 {margin-left:80px;}
+    &.indent3 {margin-left:120px;}
+    &.indent4 {margin-left:160px;}
+    &.indent5 {margin-left:200px;}
+    &.indent6 {margin-left:240px;}
+    &.indent7 {margin-left:280px;}
+    &.indent8 {margin-left:320px;}
+    &.indent9 {margin-left:360px;}
+
+
   }
 }

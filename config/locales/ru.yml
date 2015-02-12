@@ -46,6 +46,7 @@ ru:
     save: "Сохранить"
     read_more: "Читать далее >>"
     comments: "Комментарии"
+    reply: "Ответить"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"
