@@ -20,4 +20,5 @@
   </div>
 </div>
 
-<%= render partial:'shared/comments', locals: {comments: @comments} %>
+<%= render partial:'shared/comments',
+           locals: {comments: @comments, entity_id: @blog_post.id, category:'post'} %>

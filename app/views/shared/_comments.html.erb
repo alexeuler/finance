@@ -24,7 +24,9 @@
                 <%= comment.text %>
                 </p>
                 <p>
-                  <%= link_to t('general.reply'), nil, data: {id: comment.id }%>
+                  <%= link_to t('general.reply'), nil,
+                              data: {id: comment.id, entity_id: entity_id, category: category},
+                              class:"comment-reply"%>
                 </p>
               </td>
             </tr>
