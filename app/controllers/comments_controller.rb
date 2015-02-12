@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    if user_signed_in?
+    if user_signed_in? and not comment_params['text'].blank?
       @comment = Comment.new(comment_params)
       @comment.user_id=current_user.id
       @comment.save ? render(text:'Ok') : render(text: 'Error')

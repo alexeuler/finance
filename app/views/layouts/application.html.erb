@@ -29,7 +29,8 @@
       <%= hidden_field_tag :notice, flash[:notice] %>
   <% end %>
 </div>
-
+<input type="hidden" id="i18n" data-ok="<%= t('general.ok')%>"
+data-cancel="<%= t('general.cancel') %>"/>
 
 </body>
 </html>

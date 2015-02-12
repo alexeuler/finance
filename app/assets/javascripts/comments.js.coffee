@@ -12,8 +12,18 @@ $(document).on "page:change", ->
     indent=target.data('indent')
     avatar=$('.profile-image').attr('src')
     name=$('.profile-name').data('name')
+    ok_text=$('#i18n').data('ok')
+    cancel_text=$('#i18n').data('cancel')
     template=JST['templates/comments/edit']
-    el=template indent: indent + 1, avatar:avatar, name:name, entity_id:entity_id, parent_id: parent_id, category:category
+    el=template({
+      indent: indent + 1,
+      avatar:avatar,
+      name:name,
+      entity_id:entity_id,
+      parent_id: parent_id,
+      category:category,
+      ok_text:ok_text,
+      cancel_text:cancel_text})
     parent = $('#comment_'+parent_id)
     parent.after(el)
 
