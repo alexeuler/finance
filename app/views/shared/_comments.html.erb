@@ -1,22 +1,35 @@
 <div class="comment-panel">
-  <div class="comment-header">
-    <%= t('general.comments') %>
+  <div class="comment-heading">
+    <div class="heading">
+      <%= t('general.comments') %>
+    </div>
   </div>
 
   <% comments.each do |comment| %>
-      <div class="comment">
-        <table>
+      <div class="comment" data-id="<%= comment.id %>" data-indent="<%= comment.indent %>">
+        <div class="body">
+          <table>
             <tr>
-              <td class="avatar">
-                <%= image_tag comment.user.image %>
-                <%= comment.user.full_name %>
+              <td class="user">
+                <div class="avatar">
+                  <%= image_tag comment.user.image %>
+                </div>
+                <div class="name">
+                  <%= comment.user.full_name %>
+                </div>
               </td>
               <td class="text">
+                <p>
                 <%= comment.text %>
+                </p>
+                <p>
+                  <%= link_to 'reply' %>
+                </p>
               </td>
             </tr>
-        </table>
-        <%= link_to 'reply' %>
+          </table>
+
+        </div>
       </div>
   <% end %>
 </div>
