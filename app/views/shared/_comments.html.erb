@@ -6,7 +6,7 @@
   </div>
 
   <% comments.each do |comment| %>
-      <div class="comment" data-id="<%= comment.id %>" data-indent="<%= comment.indent %>">
+      <div class="comment indent<%= comment.indent  %>" data-id="<%= comment.id %>" data-indent="<%= comment.indent %>">
         <div class="body">
           <table>
             <tr>
