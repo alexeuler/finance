@@ -24,6 +24,9 @@ $(document).on "page:change", ->
       category:category,
       ok_text:ok_text,
       cancel_text:cancel_text})
+    el=$(el)
     parent = $('#comment_'+parent_id)
     parent.after(el)
+    el.on 'click', '#cancel_comment', (e)->
+      el.remove()
 

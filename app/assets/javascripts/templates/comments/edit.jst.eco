@@ -20,7 +20,7 @@
         <textarea class="form-control" id="comment_text" name="comment[text]" rows="7"/>
         <br/>
         <input class="btn btn-primary" name="commit" type="submit" value="<%= @ok_text %>">
-        <button type="button" class="btn btn-default"><%= @cancel_text %></button>
+        <button id="cancel_comment" type="button" class="btn btn-default"><%= @cancel_text %></button>
       </form>
     </div>
   </div>
