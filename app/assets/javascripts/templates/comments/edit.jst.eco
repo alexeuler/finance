@@ -10,11 +10,17 @@
       </div>
     </div>
     <div class="text">
-      <p>
-        <textarea class="form-control" id="comment_input" rows="7"/>
+      <form accept-charset="UTF-8" action="/comments" class="new_comment" data-remote="true" id="new_comment" method="post">
+        <div style="display:none">
+          <input name="utf8" type="hidden" value="✓">
+          <input name="comment[entity_id]" type="hidden" value="<%= @entity_id %>">
+          <input name="comment[parent_id]" type="hidden" value="<%= @parent_id %>">
+          <input name="comment[category]" type="hidden" value="<%= @category %>">
+        </div>
+        <textarea class="form-control" id="comment_text" name="comment[text]" rows="7"/>
         <br/>
-        <button type="button" id="comment_submit" class="btn btn-primary">Ok</button>
-      </p>
+        <input name="commit" type="submit" value="Ok">
+      </form>
     </div>
   </div>
 </div>

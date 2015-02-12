@@ -21,9 +21,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    flash[:notice] = 'Comment was successfully created.' if @comment.save
-    respond_with(@comment)
+    if user_signed_in?
+      @comment = Comment.new(comment_params)
+      @comment.user_id=current_user.id
+      @comment.save ? render(text:'Ok') : render(text: 'Error')
+    else
+      render(text: 'Error')
+    end
   end
 
   def update
