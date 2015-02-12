@@ -27,4 +27,5 @@
 //= require init
 //= require images
 //= require login
+//= require comments
 //= require_tree .

@@ -6,7 +6,7 @@
         <li>
           <table>
             <tr>
-              <td>
+              <td class="profile-name" data-name="<%= current_user.full_name %>">
                 <% unless current_user.provider == 'email' %>
                     <%= current_user.full_name %>
                 <% else %>
