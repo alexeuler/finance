@@ -8,6 +8,14 @@
   }
   .comment {
     @include app-panel-no-heading;
+    .user, .text {
+      display:inline-block;
+    }
+    .text {
+      padding-top:15px;
+      vertical-align: top;
+      width:80%;
+    }
     .user {
       padding:10px 50px 10px 10px;
       .avatar {

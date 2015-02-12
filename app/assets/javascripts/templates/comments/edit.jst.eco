@@ -1,24 +1,20 @@
-<div class="comment indent<%= @indent  %>" data-indent="<%= @indent %>">
+<div class="comment indent<%= @indent %>" data-indent="<%= @indent %>">
   <div class="body">
-    <table>
-      <tr>
-        <td class="user">
-          <div class="avatar">
-            <img src="<%= @avatar %>" alt=""/>
+    <div class="user">
+      <div class="avatar">
+        <img src="<%= @avatar %>" alt=""/>
 
-          </div>
-          <div class="name">
-            <%= @name %>
-          </div>
-        </td>
-        <td class="text">
-          <p>
-            <input id="comment_input" type="text"/>
-            <button id="comment_submit" class="btn btn-primary"></button>
-          </p>
-        </td>
-      </tr>
-    </table>
-
+      </div>
+      <div class="name">
+        <%= @name %>
+      </div>
+    </div>
+    <div class="text">
+      <p>
+        <textarea class="form-control" id="comment_input" rows="7"/>
+        <br/>
+        <button type="button" id="comment_submit" class="btn btn-primary">Ok</button>
+      </p>
+    </div>
   </div>
 </div>
