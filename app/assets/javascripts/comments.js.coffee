@@ -27,7 +27,11 @@ $(document).on "page:change", ->
       ok_text:ok_text,
       cancel_text:cancel_text})
     el=$(el)
-    parent = $('#comment_'+parent_id)
+    if parent_id?
+      parent = $('#comment_'+parent_id)
+    else
+      parent=$('.comment-heading')
+
     parent.after(el)
     el.on 'click', '#cancel_comment', (e)->
       el.remove()

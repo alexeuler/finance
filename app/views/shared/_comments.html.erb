@@ -2,6 +2,15 @@
   <div class="comment-heading">
     <div class="heading">
       <%= t('general.comments') %>
+      &nbsp;(
+      <% if user_signed_in? %>
+          <%= link_to t('general.leave_comment'), nil,
+                      data: {id: nil, entity_id: entity_id, category: category},
+                      class: "comment-reply" %>
+      <% else %>
+            <%= t('general.signed_in_to_leave_comment') %>
+      <% end %>
+      )
     </div>
   </div>
 

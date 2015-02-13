@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
 
   def self.flatten(comments)
     comment_hash = {}
-    root=nil
+    roots=[]
     comments.each do |comment|
       comment_hash[comment.id] = comment
     end
@@ -28,10 +28,14 @@ class Comment < ActiveRecord::Base
         comment.parent=comment_hash[parent_id]
         comment.parent.children.push comment
       else
-        root=comment
+        roots.push comment
       end
     end
-    traverse(root, [], 0)
+    list = []
+    roots.each do |root|
+      list+=traverse(root, [], 0)
+    end
+    list
   end
 
   private
