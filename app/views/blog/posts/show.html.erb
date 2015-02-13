@@ -2,7 +2,7 @@
     <% @blog_post.title %>
 <% end %>
 
-<% show_url = @blog_post.slug.empty? ? @blog_post : @blog_post.slug %>
+<% show_url = url_for(:only_path => false) %>
 <div class="blog-post-container">
   <div class="heading">
     <h1> <%= link_to @blog_post.title, show_url %> </h1>
@@ -11,10 +11,12 @@
     <p><%= @blog_post.body.html_safe %></p>
 
     <div class="edit">
+      <%= render partial:'shared/facebook_like_button', locals: {url: show_url} %>
       <% if admin? %>
           <%= link_to t("general.edit"), edit_blog_post_path(@blog_post) %>
           <%= link_to t("general.destroy"), @blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>
       <% end %>
+
       <%= link_to t("general.back"), blog_posts_path %>
     </div>
   </div>

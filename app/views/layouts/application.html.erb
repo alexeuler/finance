@@ -13,6 +13,7 @@
   <% end %>
 </head>
 <body>
+<%= render partial: 'shared/facebook_script' %>
 <div class="page-container">
   <%= render partial: 'shared/navbar', locals: {selected_tab: yield(:selected_tab)} %>
   <% if @breadcrumbs %>
