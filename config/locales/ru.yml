@@ -47,6 +47,8 @@ ru:
     read_more: "Читать далее >>"
     comments: "Комментарии"
     reply: "Ответить"
+    delete: "Удалить"
+    sure: "Вы уверены?"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"

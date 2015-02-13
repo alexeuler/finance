@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :require_admin, only: [:create]
   respond_to :html
 
   def index
@@ -36,8 +36,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
-    respond_with(@comment)
+    Comment.delete_tree(@comment)
+    render(text:'Ok')
   end
 
   private

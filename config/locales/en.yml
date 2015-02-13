@@ -47,6 +47,8 @@ en:
     read_more: "Read more >>"
     comments: "Comments"
     reply: "Reply"
+    delete: "Delete"
+    sure: "Are you sure?"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"

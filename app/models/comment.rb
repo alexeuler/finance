@@ -7,6 +7,14 @@ class Comment < ActiveRecord::Base
     @children=[]
   end
 
+  def self.delete_tree(comments)
+    comments=[comments] unless comments.is_a? Array
+    comments.each do |comment|
+      new_comments=self.where(parent_id:comment.id).to_a
+      comment.delete
+      self.delete_tree(new_comments)
+    end
+  end
 
   def self.flatten(comments)
     comment_hash = {}
