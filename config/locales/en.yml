@@ -49,6 +49,7 @@ en:
     reply: "Reply"
     delete: "Delete"
     sure: "Are you sure?"
+    signed_in_to_reply: "Sign in if you want to leave a comment"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"

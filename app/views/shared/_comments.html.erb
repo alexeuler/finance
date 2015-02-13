@@ -23,13 +23,17 @@
             </p>
 
             <p>
-              <%= link_to t('general.reply'), nil,
-                          data: {id: comment.id, entity_id: entity_id, category: category, indent: indent},
-                          class: "comment-reply" %>
-              <%= link_to(t('general.delete'), comment_path(comment),
-                          :method => :delete,
-                          :confirm => t('general.sure'),
-                          :remote => true) %>
+              <% if user_signed_in? %>
+                  <%= link_to t('general.reply'), nil,
+                              data: {id: comment.id, entity_id: entity_id, category: category, indent: indent},
+                              class: "comment-reply" %>
+              <% end %>
+              <% if admin? %>
+                  <%= link_to(t('general.delete'), comment_path(comment),
+                              :method => :delete,
+                              :confirm => t('general.sure'),
+                              :remote => true) %>
+              <% end %>
 
             </p>
           </div>

@@ -49,6 +49,7 @@ ru:
     reply: "Ответить"
     delete: "Удалить"
     sure: "Вы уверены?"
+    signed_in_to_reply: "Чтобы добавить комментарий Вам нужно залогиниться"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"
