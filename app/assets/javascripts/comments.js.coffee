@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "page:change", ->
+  $('.comment-panel').on 'ajax:complete', (e)->
+    location.reload();
   $('.comment-panel .comment-reply').on 'click', (e)->
     e.preventDefault()
     e.stopPropagation()
