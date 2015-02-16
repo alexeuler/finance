@@ -13,7 +13,7 @@
                locals: {
                        url: show_url,
                        title: @blog_post.title,
-                       image: @blog_post.image,
+                       image: request.protocol + request.host_with_port + @blog_post.image,
                        description: @blog_post.description
                } %>
     <div class="edit">
