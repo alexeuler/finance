@@ -52,4 +52,8 @@ renderTweetButtons = ->
   twttr.widgets.load()
 
 loadTwitterSDK = ->
-  $.getScript("//platform.twitter.com/widgets.js")
+  $.getScript "//platform.twitter.com/widgets.js", ->
+    twttr.events.bind 'rendered', ->
+      $('.twitter-share-button').each ->
+        button = $(this)
+        button.css('vertical-align', 'bottom')
