@@ -13,7 +13,8 @@
   <% end %>
 </head>
 <body>
-<%= render partial: 'shared/facebook_script' %>
+<!--Facebook-->
+<div id="fb-root"></div>
 <div class="page-container">
   <%= render partial: 'shared/navbar', locals: {selected_tab: yield(:selected_tab)} %>
   <% if @breadcrumbs %>
@@ -31,7 +32,8 @@
   <% end %>
 </div>
 <input type="hidden" id="i18n" data-ok="<%= t('general.ok')%>"
-data-cancel="<%= t('general.cancel') %>"/>
+data-cancel="<%= t('general.cancel') %>"
+data-locale="<%= I18n.locale.to_s %>"/>
 
 </body>
 </html>

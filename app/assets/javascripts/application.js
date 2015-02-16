@@ -25,6 +25,7 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require init
+//= require social
 //= require images
 //= require login
 //= require comments
