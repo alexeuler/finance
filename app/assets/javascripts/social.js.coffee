@@ -29,9 +29,9 @@ loadFacebookSDK = ->
   $.getScript("//connect.facebook.net/#{locale}/all.js#xfbml=1")
 
 initializeFacebookSDK = ->
-  appId=$('#fb-root').data('id')
+  appId=$('#service').data('fb-app-id')
   FB.init
-#    appId     : appId
+    appId     : appId
 #    channelUrl: '//WWW.YOUR_DOMAIN.COM/channel.html'
     status    : true
     cookie    : true

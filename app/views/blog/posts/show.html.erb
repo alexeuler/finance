@@ -9,9 +9,14 @@
   </div>
   <div class="body">
     <p><%= @blog_post.body.html_safe %></p>
-
+    <%= render partial:'shared/facebook_like_button',
+               locals: {
+                       url: show_url,
+                       title: @blog_post.title,
+                       image: @blog_post.image,
+                       description: @blog_post.description
+               } %>
     <div class="edit">
-      <%= render partial:'shared/facebook_like_button', locals: {url: show_url} %>
       <% if admin? %>
           <%= link_to t("general.edit"), edit_blog_post_path(@blog_post) %>
           <%= link_to t("general.destroy"), @blog_post, method: :delete, data: {confirm: 'Are you sure?'} %>

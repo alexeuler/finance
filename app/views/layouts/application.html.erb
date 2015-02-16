@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+>
 <head>
   <title><%= content_for?(:title) ? yield(:title) : "Finance" %></title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -34,6 +35,7 @@
 <input type="hidden" id="i18n" data-ok="<%= t('general.ok')%>"
 data-cancel="<%= t('general.cancel') %>"
 data-locale="<%= I18n.locale.to_s %>"/>
+<input type="hidden" id="service" data-fb-app-id="<%= Rails.application.secrets.facebook_app_id%>">
 
 </body>
 </html>
