@@ -29,7 +29,13 @@ restoreFacebookRoot = ->
 loadFacebookSDK = ->
   window.fbAsyncInit = initializeFacebookSDK
   locale = if $('#i18n').data('locale') == 'ru' then "ru_RU" else "en_US"
-  $.getScript("//connect.facebook.net/#{locale}/all.js#xfbml=1")
+  $.getScript "//connect.facebook.net/#{locale}/all.js#xfbml=1", ->
+    FB.Event.subscribe 'xfbml.render', ->
+      $('.fb-like').each ->
+        button = $(this)
+        button.css('vertical-align', 'bottom')
+        button.css('transform', 'scale(2)')
+        button.css('transform-origin', 'bottom left')
 
 initializeFacebookSDK = ->
   appId=$('#service').data('fb-app-id')
@@ -49,6 +55,7 @@ renderTweetButtons = ->
     button = $(this)
     button.attr('data-url', document.location.href) unless button.data('url')?
     button.attr('data-text', document.title) unless button.data('text')?
+
   twttr.widgets.load()
 
 loadTwitterSDK = ->
@@ -57,3 +64,5 @@ loadTwitterSDK = ->
       $('.twitter-share-button').each ->
         button = $(this)
         button.css('vertical-align', 'bottom')
+        button.css('transform', 'scale(2)')
+        button.css('transform-origin', 'bottom left')

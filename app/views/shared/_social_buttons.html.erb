@@ -8,8 +8,10 @@
     <meta property="og:description" content="<%= description %>"/>
 <% end %>
 <div class="fb-like" data-href="<%= url %>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="AlexeyKarasev1">Tweet</a>
 <a href="http://vkontakte.ru/share.php?url=<%= url %>
 &title=<%= title %>
 &description=<%= description %>
-&image=<%= image %>" target="_blank">Поделиться ВКонтакте</a>
+&image=<%= image %>" target="_blank">
+  <%= image_tag("vk_icon.png", alt: "vkontakte", style: "height: 40px; margin:0px 60px 0px 250px")%>
+</a>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="AlexeyKarasev1">Tweet</a>
