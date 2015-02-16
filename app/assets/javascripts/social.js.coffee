@@ -66,3 +66,4 @@ loadTwitterSDK = ->
         button.css('vertical-align', 'bottom')
         button.css('transform', 'scale(2)')
         button.css('transform-origin', 'bottom left')
+        button.css('transform-origin', 'bottom left')

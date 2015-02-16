@@ -51,6 +51,7 @@ en:
     sure: "Are you sure?"
     signed_in_to_leave_comment: "Sign in if you want to leave a comment"
     leave_comment: "Leave comment"
+    tweet: "Tweet"
 
   mailer:
     welcome: "Welcome"
