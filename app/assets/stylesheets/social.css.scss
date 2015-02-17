@@ -1,3 +1,18 @@
 .social-share-buttons {
   padding: 20px 0px;
+  .vk {
+    margin:0px 10px 0px 100px;
+    .vk-image {
+      height:32px;
+    }
+    .vk-anchor {
+      background-color: #658EB9;
+      color:#fff;
+      padding: 5px 10px;
+      vertical-align: middle;
+    }
+    .vk-anchor, .vk-anchor:link, .vk-anchor:visited, .vk-anchor:active, .vk-anchor:hover {
+      text-decoration: underline !important;
+    }
+  }
 }

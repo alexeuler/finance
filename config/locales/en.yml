@@ -57,6 +57,7 @@ en:
     sign_in: "Sign in"
     sign_in_to_download: " to download"
     sign_in_to_post_comment: " to post a comment"
+    share: "Share"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"
