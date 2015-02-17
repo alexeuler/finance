@@ -1,12 +1,22 @@
 <div class="attachments">
+  <div class="attachments-heading">
+    <div class="heading">
+      <%= t('general.attachments') %>
+    </div>
+  </div>
   <% attachments.each do |attachment| %>
-      <div class="attachement">
-        <div class="icon">
-          <%= image_tag attachment['icon'] %>
-        </div>
-        <div class="link">
-          <%= link_to attachment['description'], attachment['file'] %>
+      <div class="attachment">
+        <div class="body">
+          <div class="icon">
+            <%= link_to image_tag(attachment['icon']), attachment['file'] %>
+          </div>
+          <div class="link">
+            <h1>
+            <%= link_to attachment['description'], attachment['file'] %>
+            </h1>
+          </div>
         </div>
       </div>
+      <br/>
   <% end %>
 </div>

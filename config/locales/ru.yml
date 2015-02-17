@@ -52,6 +52,7 @@ ru:
     signed_in_to_leave_comment: "Чтобы добавить комментарий Вам нужно залогиниться"
     leave_comment: "Оставить комментарий"
     tweet: "Твитнуть"
+    attachments: "Приложения"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"
