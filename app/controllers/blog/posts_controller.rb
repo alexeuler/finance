@@ -28,13 +28,17 @@ class Blog::PostsController < ApplicationController
     @comments = Comment.flatten(comments)
     @attachments=[]
     if @blog_post.attachments
-      @attachments = @blog_post.attachments.split('|')
+      attachments_string = @blog_post.attachments
+      @attachments = attachments_string.split(';')
       @attachments = @attachments.map do |attachment_string|
-        attachment_string.gsub! ' ', ''
+        description, url = attachment_string.split '|'
+        url.strip!
+        description.strip!
         attachment = {
-            'file' => "/downloads/#{attachment_string}"
+            'file' => "/downloads/#{url}",
+            'description' => description
         }
-        extension = attachment_string.split('.')[1]
+        extension = url.split('.')[1]
         attachment['icon'] =
             case extension
               when 'xlsx', 'xls'
