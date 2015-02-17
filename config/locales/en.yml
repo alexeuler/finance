@@ -49,13 +49,14 @@ en:
     reply: "Reply"
     delete: "Delete"
     sure: "Are you sure?"
-    signed_in_to_leave_comment: "Sign in if you want to leave a comment"
+
     leave_comment: "Leave comment"
     tweet: "Tweet"
     attachments: "Attachments"
     download: "Download"
     sign_in: "Sign in"
     sign_in_to_download: " to download"
+    sign_in_to_post_comment: " to post a comment"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"

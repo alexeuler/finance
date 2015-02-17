@@ -25,7 +25,7 @@
       </div>
   <% else %>
       <li class='navbar-icon' title="<%= t('navbar.tooltip.email') %>">
-        <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path, id: 'email_login' %>
+        <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path, {id: 'email_login', class:'sign-in-button'} %>
       </li>
 
       <li class='navbar-icon' title="<%= t('navbar.tooltip.vkontakte') %>">
