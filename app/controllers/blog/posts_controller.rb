@@ -12,7 +12,7 @@ class Blog::PostsController < ApplicationController
     @blog_tags = Blog::Tag.where(language: I18n.locale).all
     respond_to do |format|
       format.html
-      format.json {render json: @blog_posts}
+      format.json { render json: @blog_posts }
       format.rss { render :layout => false }
     end
 
@@ -23,9 +23,30 @@ class Blog::PostsController < ApplicationController
   # GET /blog/posts/1.json
   def show
     @breadcrumbs.push [@blog_post.title, blog_post_path(@blog_post)]
-    comments = Comment.where(category:'post').
-        where(entity_id:@blog_post.id).all
+    comments = Comment.where(category: 'post').
+        where(entity_id: @blog_post.id).all
     @comments = Comment.flatten(comments)
+    @attachments=[]
+    if @blog_post.attachments
+      attachments_string = @blog_post.attachments
+      @attachments = attachments_string.split(';')
+      @attachments = @attachments.map do |attachment_string|
+        description, url = attachment_string.split '|'
+        url.strip!
+        description.strip!
+        attachment = {
+            'file' => "/downloads/#{url}",
+            'description' => description
+        }
+        extension = url.split('.')[1]
+        attachment['icon'] =
+            case extension
+              when 'xlsx', 'xls'
+                'excel_icon.png'
+            end
+        attachment
+      end
+    end
     respond_with(@blog_post)
   end
 
@@ -62,20 +83,20 @@ class Blog::PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog_post
-      if params[:slug]
-        @blog_post = Blog::Post.where(slug: params[:slug]).first
-      else
-        @blog_post = Blog::Post.find(params[:id])
-      end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blog_post
+    if params[:slug]
+      @blog_post = Blog::Post.where(slug: params[:slug]).first
+    else
+      @blog_post = Blog::Post.find(params[:id])
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blog_post_params
-      params.require(:blog_post).permit(:title, :body, :tags, :status, :category, :description, :slug,
-                                        :language, :rss, :image)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def blog_post_params
+    params.require(:blog_post).permit(:title, :body, :tags, :status, :category, :description, :slug,
+                                      :language, :rss, :image, :attachments)
+  end
 
   def set_breadcrumbs
     @breadcrumbs = []

@@ -25,17 +25,17 @@
       </div>
   <% else %>
       <li class='navbar-icon' title="<%= t('navbar.tooltip.email') %>">
-        <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path, id: 'email_login' %>
+        <%= link_to image_tag("email_icon.png", alt: "email"), new_user_session_path, {id: 'email_login', class:'sign-in-button'} %>
       </li>
 
+      <li class='navbar-icon' title="<%= t('navbar.tooltip.facebook') %>">
+        <%= link_to image_tag("facebook_icon.png", alt: "facebook"), user_omniauth_authorize_path(:facebook) %>
+      </li>
       <li class='navbar-icon' title="<%= t('navbar.tooltip.vkontakte') %>">
         <%= link_to image_tag("vk_icon.png", alt: "vkontakte"), user_omniauth_authorize_path(:vkontakte) %>
       </li>
 
 
-      <li class='navbar-icon' title="<%= t('navbar.tooltip.facebook') %>">
-        <%= link_to image_tag("facebook_icon.png", alt: "facebook"), user_omniauth_authorize_path(:facebook) %>
-      </li>
       <li class='navbar-icon' title="<%= t('navbar.tooltip.twitter') %>">
         <%= link_to image_tag("twitter_icon.png", alt: "twitter"), user_omniauth_authorize_path(:twitter) %>
       </li>

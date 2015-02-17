@@ -1,0 +1,16 @@
+.attachments {
+  .attachment {
+    @include app-panel-no-heading;
+  }
+  .attachments-heading {
+    @include app-panel-no-body;
+  }
+  .icon, .link {
+    display: inline-block;
+  }
+  .link {
+    padding:0px 0px 0px 20px;
+    vertical-align: middle;
+    h1 {margin:0}
+  }
+}

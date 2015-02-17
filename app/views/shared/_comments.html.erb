@@ -8,7 +8,8 @@
                       data: {id: nil, entity_id: entity_id, category: category},
                       class: "comment-reply" %>
       <% else %>
-            <%= t('general.signed_in_to_leave_comment') %>
+          <%= link_to t('general.sign_in'), new_user_session_path, {class: "sign-in-button"} %>
+          <%= t('general.sign_in_to_post_comment') %>
       <% end %>
       )
     </div>

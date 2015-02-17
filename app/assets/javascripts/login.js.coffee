@@ -40,7 +40,7 @@ $(document).on "page:change", ->
     else
       modalDialog.find('input, button').addClass('disabled')
 
-  modalDialog.on 'click', 'a', (e)->
+  modalDialog.on 'click', 'a:not(.social-button)', (e)->
     e.preventDefault()
     e.stopPropagation()
     clicked = $(e.currentTarget)
@@ -87,7 +87,7 @@ $(document).on "page:change", ->
         result = error
     modalDialog.find('.errors').html(result)
 
-  $('#navbar #email_login, #navbar #edit_user').on 'click', (e)->
+  $('.sign-in-button, #navbar #edit_user').on 'click', (e)->
     e.preventDefault()
     e.stopPropagation()
     ref = $(e.currentTarget).attr('href')

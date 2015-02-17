@@ -9,11 +9,14 @@
 <% end %>
 <div class="social-share-buttons">
   <div class="fb-like" data-href="<%= url %>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-  <a href="http://vkontakte.ru/share.php?url=<%= url %>
+
+  <a class='vk' href="http://vkontakte.ru/share.php?url=<%= url %>
 &title=<%= title %>
 &description=<%= description %>
 &image=<%= image %>" target="_blank">
-    <%= image_tag("vk_icon_32.png", alt: "vkontakte", style: "height: 40px; margin:0px 60px 0px 250px") %>
+    <%= image_tag("vk_icon.png", alt: "vkontakte", class: 'vk-image') %>
+    <span class="vk-anchor"><%= t('general.share') %></span>
+
   </a>
   <a href="https://twitter.com/share" class="twitter-share-button" data-via="AlexeyKarasev1" data-lang="<%= I18n.locale.to_s %>"><%= t('general.tweet') %></a>
 </div>

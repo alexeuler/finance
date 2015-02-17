@@ -1,0 +1,37 @@
+<% if attachments %>
+    <div class="attachments">
+      <div class="attachments-heading">
+        <div class="heading">
+          <%= t('general.attachments') %>
+        </div>
+      </div>
+      <% attachments.each do |attachment| %>
+          <div class="attachment">
+            <div class="body">
+              <div class="icon">
+                <% if user_signed_in? %>
+                    <%= link_to image_tag(attachment['icon']), attachment['file'] %>
+                <% else %>
+                    <%= link_to image_tag(attachment['icon']), new_user_session_path, {class: "sign-in-button"} %>
+                <% end %>
+              </div>
+              <div class="link">
+                <h1>
+                  <%= attachment['description'] %>
+                </h1>
+
+                <p>
+                  <% if user_signed_in? %>
+                      <%= link_to t('general.download'), attachment['file'] %>
+                  <% else %>
+                      <%= link_to t('general.sign_in'), new_user_session_path, {class: "sign-in-button"} %>
+                      <%= t('general.sign_in_to_download') %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <br/>
+      <% end %>
+    </div>
+<% end %>
