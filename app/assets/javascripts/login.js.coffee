@@ -40,7 +40,7 @@ $(document).on "page:change", ->
     else
       modalDialog.find('input, button').addClass('disabled')
 
-  modalDialog.on 'click', 'a', (e)->
+  modalDialog.on 'click', 'a:not(.social-button)', (e)->
     e.preventDefault()
     e.stopPropagation()
     clicked = $(e.currentTarget)

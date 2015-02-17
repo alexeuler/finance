@@ -2,20 +2,20 @@
     <%= t('devise.views.login') %>
 <% end %>
 
-<%= form_for(resource, remote:true, as: resource_name, url: session_path(resource_name),
-        html: {:'data-type' => 'json'}) do |f| %>
+<%= form_for(resource, remote: true, as: resource_name, url: session_path(resource_name),
+             html: {:'data-type' => 'json'}) do |f| %>
     <div class="field">
       <%= f.label t('devise.views.email') %><br/>
-      <%= f.email_field :email, autofocus: true, class:'form-control' %>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
     </div>
 
     <div class="field">
       <%= f.label t('devise.views.password') %><br/>
-      <%= f.password_field :password, autocomplete: "off", class:'form-control'  %>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
     </div>
 
     <div class="field">
-      <%= f.hidden_field :provider, value: 'email'  %>
+      <%= f.hidden_field :provider, value: 'email' %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
@@ -26,7 +26,9 @@
     <% end -%>
 
     <%= render "devise/shared/links" %>
-
+    <%= link_to image_tag("facebook_icon.png", alt: "facebook"), user_omniauth_authorize_path(:facebook), {class: 'social-button'} %>
+    <%= link_to image_tag("vk_icon.png", alt: "vkontakte"), user_omniauth_authorize_path(:vkontakte) , {class: 'social-button'} %>
+    <%= link_to image_tag("twitter_icon.png", alt: "twitter"), user_omniauth_authorize_path(:twitter), {class: 'social-button'} %>
     <div class="field ceiling">
       <%= f.submit t('general.ok'), class: 'btn btn-primary' %>
       <button type="button" class="btn btn-default cancel-button" id="cancel_button" data-dismiss="modal"><%= t('general.cancel') %></button>
