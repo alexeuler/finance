@@ -1,0 +1,12 @@
+<div class="attachments">
+  <% attachments.each do |attachment| %>
+      <div class="attachement">
+        <div class="icon">
+          <%= image_tag attachment['icon'] %>
+        </div>
+        <div class="link">
+          <%= link_to attachment['file'], attachment['file'] %>
+        </div>
+      </div>
+  <% end %>
+</div>
