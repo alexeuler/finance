@@ -8,12 +8,25 @@
       <div class="attachment">
         <div class="body">
           <div class="icon">
-            <%= link_to image_tag(attachment['icon']), attachment['file'] %>
+            <% if user_signed_in? %>
+                <%= link_to image_tag(attachment['icon']), attachment['file'] %>
+            <% else %>
+                <%= link_to image_tag(attachment['icon']), new_user_session_path %>
+            <% end %>
           </div>
           <div class="link">
             <h1>
-            <%= link_to attachment['description'], attachment['file'] %>
+              <%= attachment['description'] %>
             </h1>
+
+            <p>
+              <% if user_signed_in? %>
+                  <%= link_to t('general.download'), attachment['file'] %>
+              <% else %>
+                  <%= link_to t('general.sign_in'), new_user_session_path %>
+                <%= t('general.sign_in_to_download') %>
+            <% end %>
+            </p>
           </div>
         </div>
       </div>

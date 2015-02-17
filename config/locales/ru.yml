@@ -53,6 +53,9 @@ ru:
     leave_comment: "Оставить комментарий"
     tweet: "Твитнуть"
     attachments: "Приложения"
+    download: "Скачать"
+    sign_in: "Зарегистрируйтесь"
+    sign_in_to_download: " для того, чтобы скачать"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"

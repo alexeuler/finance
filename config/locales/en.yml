@@ -53,6 +53,9 @@ en:
     leave_comment: "Leave comment"
     tweet: "Tweet"
     attachments: "Attachments"
+    download: "Download"
+    sign_in: "Sign in"
+    sign_in_to_download: " to download"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"
