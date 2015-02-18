@@ -9,10 +9,13 @@
 <% end %>
 <div class="social-share-buttons">
   <div class="fb-like" data-href="<%= url %>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+  <br/>
   <span class="vk-share-button"
         data-title="<%= title %>"
         data-description="<%= description %>"
         data-image="<%= image %>"
   ></span>
+  <br/>
   <a href="https://twitter.com/share" class="twitter-share-button" data-via="AlexeyKarasev1" data-lang="<%= I18n.locale.to_s %>"><%= t('general.tweet') %></a>
+  <br/>
 </div>

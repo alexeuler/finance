@@ -12,7 +12,7 @@
   <% if Rails.env.production? %>
       <%= render partial: 'shared/google_analytics' %>
   <% end %>
-  <script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?9" charset="windows-1251"></script>
+  <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
 </head>
 <body>
 <!--Facebook-->
@@ -36,6 +36,7 @@
 <input type="hidden" id="i18n" data-ok="<%= t('general.ok')%>"
 data-cancel="<%= t('general.cancel') %>"
 data-tweet="<%= t('general.tweet') %>"
+data-share="<%= t('general.share') %>"
 data-locale="<%= I18n.locale.to_s %>"/>
 <input type="hidden" id="service" data-fb-app-id="<%= Rails.application.secrets.facebook_app_id%>">
 

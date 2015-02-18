@@ -70,7 +70,6 @@ loadTwitterSDK = ->
         button.css('vertical-align', 'bottom')
         button.css('transform', 'scale(1.5)')
         button.css('transform-origin', 'bottom left')
-        button.css('transform-origin', 'bottom left')
 
 renderVkButton = ->
   title = $('.vk-share-button').data('title')
@@ -80,8 +79,18 @@ renderVkButton = ->
     title: title,
     description: description,
     image: image,
+    url: document.location.href
     noparse: true
+  }, {
+    text: $('#i18n').data('share')
+    type: "link"
   })
+  $('.vk-share-button').find('span').css('font-size', '15px')
+  $('.vk-share-button').find('td').css('padding', '5px')
+  $('.vk-share-button').find('table').css('background-image', 'linear-gradient(rgb(253, 253, 253), rgb(232, 232, 232) 60%, rgb(224, 224, 224))')
+  $('.vk-share-button').find('table').css('box-shadow', '0px 0px 2px gray')
+  $('.vk-share-button').find('table').css('margin-top', '10px')
+
 
 bindVkEventHandlers = ->
   $(document).on 'page:load', ->
