@@ -35,6 +35,7 @@ loadFacebookSDK = ->
   locale = if $('#i18n').data('locale') == 'ru' then "ru_RU" else "en_US"
   $.getScript "//connect.facebook.net/#{locale}/all.js#xfbml=1", ->
     FB.Event.subscribe 'xfbml.render', ->
+      alert 'yo'
       $('.fb-like').each ->
         button = $(this)
         button.css('vertical-align', 'bottom')
