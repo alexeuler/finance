@@ -8,7 +8,7 @@
                       data: {id: nil, entity_id: entity_id, category: category},
                       class: "comment-reply" %>
       <% else %>
-          <%= link_to t('general.sign_in'), new_user_session_path, {class: "sign-in-button"} %>
+          <%= link_to t('general.sign_in'), new_user_session_path, {rel: 'nofollow', class: "sign-in-button"} %>
           <%= t('general.sign_in_to_post_comment') %>
       <% end %>
       )
@@ -35,8 +35,8 @@
             <p>
               <% if user_signed_in? %>
                   <%= link_to t('general.reply'), nil,
-                              data: {id: comment.id, entity_id: entity_id, category: category, indent: indent},
-                              class: "comment-reply" %>
+                              {data: {id: comment.id, entity_id: entity_id, category: category, indent: indent},
+                              class: "comment-reply",rel: 'nofollow'} %>
               <% end %>
               <% if admin? %>
                   <%= link_to(t('general.delete'), comment_path(comment),
