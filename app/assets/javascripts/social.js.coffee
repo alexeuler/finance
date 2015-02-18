@@ -80,7 +80,8 @@ renderVkButton = ->
   $('.vk-share-button').html VK.Share.button({
     title: title,
     description: description,
-    image: image
+    image: image,
+    noparse: true
   })
 
 bindVkEventHandlers = ->
