@@ -73,10 +73,9 @@ loadTwitterSDK = ->
         button.css('transform-origin', 'bottom left')
 
 renderVkButton = ->
-  title = $('meta[property="og:title"]').attr('content')
-  description = $('meta[property="og:description"]').attr('content')
-  image = $('meta[property="og:image"]').attr('content')
-
+  title = $('.vk-share-button').data('title')
+  description = $('.vk-share-button').data('description')
+  image = $('.vk-share-button').data('image')
   $('.vk-share-button').html VK.Share.button({
     title: title,
     description: description,
