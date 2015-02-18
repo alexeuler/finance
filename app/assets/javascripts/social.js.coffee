@@ -40,10 +40,6 @@ loadFacebookSDK = ->
         button.css('vertical-align', 'bottom')
         button.css('transform', 'scale(1.5)')
         button.css('transform-origin', 'bottom left')
-        button.css('-webkit-transform', 'scale(1.5)')
-        button.css('-webkit-transform-origin', 'bottom left')
-        button.css('-moz-transform', 'scale(1.5)')
-        button.css('-moz-transform-origin', 'bottom left')
 
 
 initializeFacebookSDK = ->
