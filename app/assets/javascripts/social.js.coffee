@@ -1,12 +1,16 @@
 fb_root = null
 fb_events_bound = false
 twttr_events_bound = false
+vk_events_bound = false
 
 $ ->
   loadFacebookSDK()
   bindFacebookEvents() unless fb_events_bound
   loadTwitterSDK()
   bindTwitterEventHandlers() unless twttr_events_bound
+  renderVkButton()
+  bindVkEventHandlers() unless vk_events_bound
+
 
 bindFacebookEvents = ->
   $(document)
@@ -67,3 +71,19 @@ loadTwitterSDK = ->
         button.css('transform', 'scale(1.5)')
         button.css('transform-origin', 'bottom left')
         button.css('transform-origin', 'bottom left')
+
+renderVkButton = ->
+  title = $('meta[property="og:title"]').attr('content')
+  description = $('meta[property="og:description"]').attr('content')
+  image = $('meta[property="og:image"]').attr('content')
+
+  $('.vk-share-button').html VK.Share.button({
+    title: title,
+    description: description,
+    image: image
+  })
+
+bindVkEventHandlers = ->
+  $(document).on 'page:load', ->
+    renderVkButton()
+  vk_events_bound = true
