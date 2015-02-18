@@ -22,7 +22,8 @@ class Blog::PostsController < ApplicationController
   # GET /blog/posts/1
   # GET /blog/posts/1.json
   def show
-    @breadcrumbs.push [@blog_post.title, blog_post_path(@blog_post)]
+    url = (@blog_post.slug.nil? || @blog_post.slug.empty?) ? blog_post_path(@blog_post) : "#{blog_root_path}/#{@blog_post.slug}"
+    @breadcrumbs.push [@blog_post.title, url]
     comments = Comment.where(category: 'post').
         where(entity_id: @blog_post.id).all
     @comments = Comment.flatten(comments)
