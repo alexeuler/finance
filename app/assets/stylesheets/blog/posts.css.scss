@@ -42,6 +42,9 @@
 
     .blog-item {
       @include app-panel;
+      .blog-item-image {
+        img {width: 100%;}
+      }
       .description-image-container {
         width:210px;
         padding-right:10px;
