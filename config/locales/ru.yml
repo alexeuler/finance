@@ -22,9 +22,7 @@
 ru:
   hello: "Привет, мир!"
   home:
-    welcome: "Добро пожаловать на сайт ka-ching.ru!"
-    message: "На этом сайте вы найдете много полезной информации по открытию и развитию своего бизнеса. Удачи! И не забудьте поделиться своим мнением, пишите комментарии!"
-    title: "Ka-ching! - как создать и развивать свой бизнес"
+    title: "iOpenBiznes | Блог о том, как открыть и начать свой бизнес"
   general:
     new: "Новый"
     edit: "Правка"
@@ -68,14 +66,14 @@ ru:
     lock2: "Нажмите ссылку ниже, чтобы разблокировать ваш аккаунт."
     lock3: "Разблокировать аккаунт"
     confirmation_instructions:
-      subject: Для того, чтобы подтвердить свой email нажмите на ссылку ниже. Если вы не регистрировались на сайте ka-ching.ru, просто игнорируйте этот email.
+      subject: Для того, чтобы подтвердить свой email нажмите на ссылку ниже. Если вы не регистрировались на сайте iopenbiznes.ru, просто игнорируйте этот email.
     reset_password_instructions:
       subject: Инструкции по восстановлению пароля
     unlock_instructions:
       subject: Инструкции по разблокировке учетной записи
 
   navbar:
-    title: "Ka-ching!"
+    title: "iOpenBiznes"
     home: "Главная"
     blog: "Блог"
     video: "Видео"
@@ -94,8 +92,8 @@ ru:
       twitter: "Войти через Twitter"
       rss: "Подписаться на RSS"
   rss:
-    blog_title: "Ka-ching!"
-    blog_desc: "Блог о финансах"
+    blog_title: "iOpenBiznes"
+    blog_desc: "Блог о том, как открыть и начать свой бизнес"
   activerecord:
     errors:
       models:
