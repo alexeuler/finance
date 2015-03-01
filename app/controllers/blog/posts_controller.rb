@@ -1,3 +1,5 @@
+require_relative '../../../lib/sitemap'
+
 class Blog::PostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
   before_action :set_breadcrumbs, only: [:index, :show, :new, :edit]
@@ -66,6 +68,7 @@ class Blog::PostsController < ApplicationController
   def create
     @blog_post = Blog::Post.new(blog_post_params)
     flash[:notice] = 'Blog::Post was successfully created.' if @blog_post.save
+    Sitemap::generate
     respond_with(@blog_post)
   end
 
@@ -73,6 +76,7 @@ class Blog::PostsController < ApplicationController
   # PATCH/PUT /blog/posts/1.json
   def update
     flash[:notice] = 'Blog::Post was successfully updated.' if @blog_post.update(blog_post_params)
+    Sitemap::generate
     respond_with(@blog_post)
   end
 
@@ -80,6 +84,7 @@ class Blog::PostsController < ApplicationController
   # DELETE /blog/posts/1.json
   def destroy
     @blog_post.destroy
+    Sitemap::generate
     respond_with(@blog_post)
   end
 
