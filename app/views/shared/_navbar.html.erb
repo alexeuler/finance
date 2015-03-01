@@ -8,11 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <table>
           <tr>
             <td class = "navbar-brand-layout">
-              <%= image_tag 'logo.png', alt: 'Ka-ching! logo', class: 'navbar-brand-logo' %>
+              <%= image_tag 'logo.png', alt: 'iOpenBiznes', class: 'navbar-brand-logo' %>
             </td>
             <td class = "navbar-brand-layout">
               <span class="navbar-brand-title"><%= t("navbar.title") %></span>
@@ -27,7 +27,7 @@
       <%= render partial:'shared/login_panel' %>
       <!--Links to pages-->
       <ul class="nav navbar-nav app-header-menu navbar-right">
-        <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), home_show_path %></li>
+        <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), '/' %></li>
         <li class="<%= selected_tab == t("navbar.blog") ? 'active' : '' %>"><%= link_to t("navbar.blog"), blog_posts_path %></li>
         <li class="<%= selected_tab == t("navbar.about") ? 'active' : '' %>"><%= link_to t("navbar.about"), about_show_path %></li>
         </li>
