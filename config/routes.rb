@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   resources :comments
 
   resources :movies, only: %w(index create update destroy show)
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks
 
     get 'home/show'
+    get 'about/show'
 
     namespace :blog do
       root 'posts#index'
