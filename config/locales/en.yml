@@ -24,7 +24,7 @@ en:
   home:
     welcome: "Welcome!"
     message: "On this site you will find many helpful tips starting a new business. Enjoy and share your feedback!"
-    title: "Ka-ching! - build and grow your business"
+    title: "iOpenBusiness! - build and grow your business"
   general:
     new: "New"
     edit: "Edit"
@@ -77,7 +77,7 @@ en:
 
 
   navbar:
-    title: "Ka-ching!"
+    title: "iOpenBusiness"
     home: "Home"
     blog: "Blog"
     video: "Video"
@@ -96,7 +96,7 @@ en:
       twitter: "Sign in via Twitter"
       rss: "Subscribe to RSS"
   rss:
-    blog_title: "Ka-ching!"
+    blog_title: "iOpenBusiness"
     blog_desc: "Blog about finance"
   activerecord:
     errors:
