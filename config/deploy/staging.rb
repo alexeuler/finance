@@ -4,11 +4,11 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-website_url='ka-ching.ru'
+website_url='iopenbiznes.ru'
 ssh_user='deployment'
 
 
-set :application, 'finance_staging'
+set :application, 'iopenbiznes_staging'
 set :root, "/var/www/#{fetch(:application)}/current"
 set :ssh_address, ssh_user+"@"+website_url
 
