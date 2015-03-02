@@ -115,10 +115,21 @@ namespace :assets do
     end
   end
 
+  task :sitemap do
+    on roles(:web) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "sitemap:generate"
+        end
+      end
+    end
+  end
+
 end
 
 
 namespace :deploy do
   after :published, 'assets:symlink'
+  after :published, 'assets:sitemap'
   after :published, 'server:restart'
 end
