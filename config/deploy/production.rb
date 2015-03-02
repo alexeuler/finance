@@ -7,7 +7,7 @@
 website_url='iopenbiznes.ru'
 ssh_user='deployment'
 
-set :application, 'iopenbiznes'
+set :application, 'finance'
 set :root, "/var/www/#{fetch(:application)}/current"
 set :ssh_address, ssh_user+"@"+website_url
 
