@@ -19,7 +19,6 @@
       width: 100%;
       display: block;
       margin: 0 auto;
-      max-width:600px;
       @include box-shadow(0px 0px 5px #000);
     }
   }
@@ -53,6 +52,9 @@
 
     .blog-item {
       @include app-panel;
+      .blog-image {
+        max-width:600px;
+      }
       .description-image-container {
         width:210px;
         padding-right:10px;
@@ -85,6 +87,8 @@
 
   .blog-post-container {
     @include app-panel;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   .edit-blog-post {
