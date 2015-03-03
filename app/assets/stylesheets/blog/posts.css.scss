@@ -53,7 +53,9 @@
     .blog-item {
       @include app-panel;
       .blog-image {
-        max-width:600px;
+        img{
+          max-width:600px;
+        }
       }
       .description-image-container {
         width:210px;
