@@ -8,6 +8,7 @@
     <h1> <%= link_to @blog_post.title, show_url %> </h1>
   </div>
   <div class="body">
+    <%= render partial:'blog_image', locals: {image: @blog_post.image, alt: @blog_post.title} %>
     <p><%= @blog_post.body.html_safe %></p>
     <% image_url = @blog_post.image && (request.protocol + request.host_with_port + @blog_post.image) %>
     <%= render partial: 'shared/social_buttons',

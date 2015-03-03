@@ -5,10 +5,8 @@
     <h1> <%= link_to blog_post.title, show_url %> </h1>
   </div>
   <div class="body">
-    <div class="blog-item-image">
-      <%= link_to image_tag(blog_post.image, alt: blog_post.title), show_url%>
-    </div>
-    <br/>
+    <%= render partial:'blog_image', locals: {image: blog_post.image, alt: blog_post.title, url:show_url} %>
+
     <p>
       <%= blog_post.description.html_safe %>
     </p>

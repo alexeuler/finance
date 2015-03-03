@@ -1,0 +1,8 @@
+<div class="blog-image">
+  <% unless local_assigns[:url].nil? %>
+      <%= link_to image_tag(image, alt: alt), url %>
+  <% else %>
+      <%= image_tag(image, alt: alt)%>
+  <% end %>
+</div>
+<br/>
