@@ -1,8 +1,9 @@
 <div class="blog-image">
+  <% image_url = "/paperclip/images/original/#{image}" %>
   <% unless local_assigns[:url].nil? %>
-      <%= link_to image_tag(image, alt: alt), url %>
+      <%= link_to image_tag(image_url, alt: alt), url %>
   <% else %>
-      <%= image_tag(image, alt: alt)%>
+      <%= image_tag(image_url, alt: alt)%>
   <% end %>
 </div>
 <br/>
