@@ -36,7 +36,7 @@ module Sitemap
         image_data=options.delete(:image)
         Sitemap.send('image:image') do
           Sitemap.send('image:loc') do
-            self.add @@host[0..-2]+image_data[:url]
+            self.add @@host[0..-2]+'/paperclip/images/original/'+image_data[:url]
           end
           Sitemap.send('image:title') do
             self.add image_data[:title]
