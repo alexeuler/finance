@@ -2,16 +2,13 @@
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-
 .blog-container {
-  padding:20px;
+  padding: 20px;
   .float-left {
-    float:left;
+    float: left;
   }
   .float-right {
-    float:right;
+    float: right;
   }
 
   .blog-image {
@@ -23,45 +20,49 @@
     }
   }
 
-
   img {
     &.bordered {
       @include box-shadow(0px 0px 5px #000);
     }
 
-   &.float-left {
-     margin-right: 20px;
-   }
-   &.float-right {
-     margin-left: 20px;
-   }
+    &.float-left {
+      margin-right: 20px;
+    }
+    &.float-right {
+      margin-left: 20px;
+    }
 
   }
 
   h1 {
-    font-size:$font-size-h3;
+    font-size: $font-size-h3;
   }
 
   h2 {
-    font-size:$font-size-h4;
+    font-size: $font-size-h4;
   }
 
-
   .blog-posts-container-layout {
-    width:100%;
+    width: 100%;
 
     .blog-item {
       @include app-panel;
+      .body {
+        padding: 20px 30px;
+      }
+
       .blog-image {
-        img{
-          max-width:600px;
+        img {
+          max-width: 600px;
         }
       }
       .description-image-container {
-        width:210px;
-        padding-right:10px;
-        text-align:center;
-        img {max-width: 250px;}
+        width: 210px;
+        padding-right: 10px;
+        text-align: center;
+        img {
+          max-width: 250px;
+        }
       }
     }
 
@@ -72,7 +73,7 @@
     .posts-container-layout {
       vertical-align: top;
       width: 80%;
-      padding:20px 20px;
+      padding: 20px 20px;
       .posts-container {
         max-width: 800px;
         margin: 0 auto;
@@ -82,7 +83,7 @@
     .posts-panel-layout {
       vertical-align: top;
       width: 20%;
-      padding:20px 0px;
+      padding: 20px 0px;
     }
 
   }
@@ -91,6 +92,9 @@
     @include app-panel;
     max-width: 1000px;
     margin: 0 auto;
+    .body {
+      padding: 30px;
+    }
   }
 
   .edit-blog-post {
