@@ -10,6 +10,7 @@
   <div class="body">
     <%= render partial:'blog_image', locals: {image: @blog_post.image, alt: @blog_post.title} %>
     <p><%= @blog_post.body.html_safe %></p>
+    <%= render partial: 'credentials', locals: {date: @blog_post.updated_at} %>
     <% image_url = @blog_post.image && (request.protocol + request.host_with_port + '/paperclip/images/original/' + @blog_post.image) %>
     <%= render partial: 'shared/social_buttons',
                locals: {

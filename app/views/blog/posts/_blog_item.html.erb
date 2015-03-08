@@ -1,4 +1,4 @@
-<!--use 1200x630 images-->
+<!--use 1280x670 images-->
 <% show_url = blog_post.slug.empty? ? blog_post : blog_post.slug %>
 <div class="blog-item">
   <div class="heading">
@@ -10,6 +10,9 @@
     <p>
       <%= blog_post.description.html_safe %>
     </p>
+
+    <%= render partial: 'credentials', locals: {date: blog_post.updated_at} %>
+
     <br/>
     <%= link_to t('general.read_more'), show_url %>
     <div class="edit">

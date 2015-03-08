@@ -55,6 +55,7 @@ ru:
     sign_in_to_download: " для того, чтобы скачать"
     sign_in_to_post_comment: " для того, чтобы оставить комментарий"
     share: "Поделиться"
+    published: "Опубликовано"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"

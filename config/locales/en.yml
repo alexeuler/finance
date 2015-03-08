@@ -49,7 +49,6 @@ en:
     reply: "Reply"
     delete: "Delete"
     sure: "Are you sure?"
-
     leave_comment: "Leave comment"
     tweet: "Tweet"
     attachments: "Attachments"
@@ -58,6 +57,7 @@ en:
     sign_in_to_download: " to download"
     sign_in_to_post_comment: " to post a comment"
     share: "Share"
+    published: "Published"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"

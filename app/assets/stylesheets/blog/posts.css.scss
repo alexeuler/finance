@@ -20,6 +20,11 @@
     }
   }
 
+  .blog-credentials-date {
+    color:rgb(155,155,155);
+
+  }
+
   img {
     &.bordered {
       @include box-shadow(0px 0px 5px #000);
