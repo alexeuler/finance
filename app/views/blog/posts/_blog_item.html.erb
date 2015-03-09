@@ -11,7 +11,7 @@
       <%= blog_post.description.html_safe %>
     </p>
 
-    <%= render partial: 'credentials', locals: {date: blog_post.updated_at} %>
+    <%= render partial: 'credentials', locals: {date: blog_post.published_at} %>
 
     <br/>
     <%= link_to t('general.read_more'), show_url %>

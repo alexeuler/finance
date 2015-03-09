@@ -8,7 +8,7 @@ class Blog::PostsController < ApplicationController
   # GET /blog/posts
   # GET /blog/posts.json
   def index
-    @blog_posts = Blog::Post.where(language: I18n.locale).order(created_at: :desc).all
+    @blog_posts = Blog::Post.where(language: I18n.locale).order(published_at: :desc).all
     @blog_posts=@blog_posts.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
     @blog_posts=@blog_posts.published unless admin?
     @blog_tags = Blog::Tag.where(language: I18n.locale).all
@@ -101,7 +101,7 @@ class Blog::PostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def blog_post_params
     params.require(:blog_post).permit(:title, :body, :tags, :status, :category, :description, :slug,
-                                      :language, :rss, :image, :attachments)
+                                      :language, :rss, :image, :attachments, :published_at)
   end
 
   def set_breadcrumbs
