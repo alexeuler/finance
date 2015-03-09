@@ -58,6 +58,7 @@ en:
     sign_in_to_post_comment: " to post a comment"
     share: "Share"
     published: "Published"
+    publish: "Publish"
   mailer:
     welcome: "Welcome"
     confirm_account: "Confirm account"

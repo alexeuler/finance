@@ -56,6 +56,7 @@ ru:
     sign_in_to_post_comment: " для того, чтобы оставить комментарий"
     share: "Поделиться"
     published: "Опубликовано"
+    publish: "Опубликовать"
   mailer:
     welcome: "Добро пожаловать"
     confirm_account: "Подтвердить email"

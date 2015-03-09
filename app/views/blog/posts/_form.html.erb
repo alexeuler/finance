@@ -1,121 +1,129 @@
-  <div class="form-body">
-    <%= form_for(@blog_post) do |f| %>
-        <% if @blog_post.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@blog_post.errors.count, "error") %> prohibited this blog_post from being
-                saved:</h2>
+<div class="form-body">
+  <%= form_for(@blog_post) do |f| %>
+      <% if @blog_post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@blog_post.errors.count, "error") %> prohibited this blog_post from being
+              saved:</h2>
 
-              <ul>
-                <% @blog_post.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
+            <ul>
+              <% @blog_post.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <table class="form-table">
+        <tr>
+          <td class="left-controls">
+            <div>
+              <div class="field">
+                <%= f.label :title %><br>
+                <%= f.text_field :title, class: "form-control" %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <%= f.label :body %><br>
+                <%= f.text_area :body, class: "form-control", rows: 15 %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary modal-launch-button">
+                  <%= t('general.add_image') %>
+                </button>
+              </div>
+              <br/>
+
+              <div class="field">
+                <%= f.label :image %><br>
+                <%= f.text_field :image, class: "form-control" %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <%= f.label "Attachments (| - link separator ; - attachment separator)" %><br>
+                <%= f.text_area :attachments, class: "form-control", rows: 5 %>
+              </div>
+              <br/>
+
+
+              <div class="field">
+                <%= f.label :description %><br>
+                <%= f.text_area :description, class: "form-control", rows: 5 %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <%= f.label :rss %><br>
+                <%= f.text_area :rss, class: "form-control", rows: 5 %>
+              </div>
+              <br/>
+
+
             </div>
-        <% end %>
-        <table class="form-table">
-          <tr>
-            <td class="left-controls">
-              <div>
-                <div class="field">
-                  <%= f.label :title %><br>
-                  <%= f.text_field :title, class: "form-control" %>
-                </div>
-                <br/>
+          </td>
 
-                <div class="field">
-                  <%= f.label :body %><br>
-                  <%= f.text_area :body, class: "form-control", rows: 15 %>
-                </div>
-                <br/>
-
-                <div class="field">
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary modal-launch-button">
-                    <%= t('general.add_image') %>
-                  </button>
-                </div>
-                <br/>
-
-                <div class="field">
-                  <%= f.label :image %><br>
-                  <%= f.text_field :image, class: "form-control" %>
-                </div>
-                <br/>
-
-                <div class="field">
-                  <%= f.label "Attachments (| - link separator ; - attachment separator)" %><br>
-                  <%= f.text_area :attachments, class: "form-control", rows: 5  %>
-                </div>
-                <br/>
-
-
-                <div class="field">
-                  <%= f.label :description %><br>
-                  <%= f.text_area :description, class: "form-control", rows: 5 %>
-                </div>
-                <br/>
-
-                <div class="field">
-                  <%= f.label :rss %><br>
-                  <%= f.text_area :rss, class: "form-control", rows: 5 %>
-                </div>
-                <br/>
-
-
+          <td class="right-controls">
+            <div>
+              <div class="field">
+                <%= f.label :language %><br>
+                <%= f.text_field :language, class: "form-control" %>
               </div>
-            </td>
-
-            <td class="right-controls">
-              <div>
-                <div class="field">
-                  <%= f.label :language %><br>
-                  <%= f.text_field :language, class: "form-control" %>
-                </div>
-                <br/>
+              <br/>
 
 
-                <div class="field">
-                  <%= f.label :tags %><br>
-                  <%= f.text_field :tags, class: "form-control" %>
-                </div>
-                <br/>
-
-                <div class="field">
-                  <%= f.label :status %><br>
-                  <%= f.text_field :status, class: "form-control" %>
-                </div>
-                <br/>
-
-                <div class="field">
-                  <%= f.label :category %><br>
-                  <%= f.text_field :category, class: "form-control" %>
-                </div>
-                <br/>
-
-                <div class="field">
-                  <%= f.label :slug %><br>
-                  <%= f.text_field :slug, class: "form-control" %>
-                </div>
-                <br/>
-                <div class="field">
-                  <%= f.label :published_at %><br>
-                  <%= f.text_field :published_at, class: "form-control" %>
-                </div>
-                <br/>
-
-
+              <div class="field">
+                <%= f.label :tags %><br>
+                <%= f.text_field :tags, class: "form-control" %>
               </div>
-            </td>
-          </tr>
-        </table>
-        <div class="actions">
-          <%= f.submit t('general.save')%>
-        </div>
-        <br/>
-    <% end %>
-    <%= render partial:'shared/modal', locals: {id:'myModal'} %>
+              <br/>
 
-  </div>
+              <div class="field">
+                <%= f.label :status %><br>
+                <%= f.text_field :status, class: "form-control" %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <%= f.label :category %><br>
+                <%= f.text_field :category, class: "form-control" %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <%= f.label :slug %><br>
+                <%= f.text_field :slug, class: "form-control" %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <%= f.label :published_at %><br>
+                <%= f.text_field :published_at, class: "form-control" %>
+              </div>
+              <br/>
+
+
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="actions">
+        <%= f.submit t('general.save') %>
+      </div>
+      <br/>
+  <% end %>
+
+  <%= form_for(@blog_post) do |f| %>
+      <%= f.hidden_field :status, :value => 'published' %>
+      <%= f.hidden_field :published_at, :value => Time.now %>
+      <%= f.submit t('general.publish') %>
+  <% end %>
+
+  <%= render partial: 'shared/modal', locals: {id: 'myModal'} %>
+
+</div>
 
 
 
