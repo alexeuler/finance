@@ -52,15 +52,17 @@ module Sitemap
   end
 
   def self.add_home
+    lastmod=Blog::Post.maximum(:published_at).strftime("%Y-%m-%d") || "2014-01-01"
     Sitemap.add_url "",
-                    lastmod: Blog::Post.maximum(:updated_at).strftime("%Y-%m-%d"),
+                    lastmod: lastmod,
                     changefreq: "weekly",
                     priority: '0.8'
   end
 
   def self.add_about(locale)
+    lastmod=Blog::Post.maximum(:published_at).strftime("%Y-%m-%d") || "2014-01-01"
     Sitemap.add_url "#{locale}/about/",
-                    lastmod: Blog::Post.maximum(:updated_at).strftime("%Y-%m-%d"),
+                    lastmod: lastmod,
                     changefreq: "weekly",
                     priority: '0.6'
   end
@@ -71,8 +73,9 @@ module Sitemap
     posts_path="#{blog_path}posts/"
     posts=Blog::Post.where(language: locale, status:'published').to_a
     if posts.count > 0
+      lastmod=Blog::Post.maximum(:published_at).strftime("%Y-%m-%d") || "2014-01-01"
       add_url posts_path,
-              lastmod: posts.map(&:updated_at).max.strftime("%Y-%m-%d"),
+              lastmod: lastmod,
               changefreq: 'daily',
               priority: '1.0'
 
@@ -84,7 +87,7 @@ module Sitemap
                  blog_path + post.slug
                end
         add_url slug,
-                lastmod: post.updated_at.strftime("%Y-%m-%d"),
+                lastmod: post.published_at.strftime("%Y-%m-%d"),
                 changefreq: 'monthly',
                 image: {url: post.image, title:post.title}
       end
