@@ -1,18 +1,20 @@
 module Sitemap
   @@host="http://iopenbiznes.ru/"
-  @@res=""
-  @@level=0
   @@home_page_date=Date.new 2015, 3, 1
   @@about_page_date=Date.new 2015, 3, 1
 
   def self.generate
+    @@level=0
+    @@res=""
     add_header
     urlset(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"') do
       add_home
       add_blog 'ru'
       add_blog 'en'
     end
-    File.open("#{Rails.root}/public/sitemap.xml", 'w') { |file| file.write(Sitemap.res) }
+    file = File.open "#{Rails.root}/public/sitemap.xml", "w"
+    file.write(@@res)
+    file.close
   end
 
   def self.res
