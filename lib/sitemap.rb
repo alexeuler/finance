@@ -90,7 +90,8 @@ module Sitemap
                end
         add_url slug,
                 lastmod: post.published_at.strftime("%Y-%m-%d"),
-                changefreq: 'monthly'
+                changefreq: 'monthly',
+                priority:'0.2'
                 #image: {url: post.image, title:post.title}
       end
     end
