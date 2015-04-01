@@ -1,11 +1,10 @@
-<!--use 1280x670 images-->
-<% show_url = blog_post.slug.empty? ? blog_post : blog_post.slug %>
+<% url = blog_post_link(blog_post) %>
 <div class="blog-item">
   <div class="heading">
-    <h1> <%= link_to blog_post.title, show_url %> </h1>
+    <h1> <%= link_to blog_post.title, url %> </h1>
   </div>
   <div class="body">
-    <%= render partial:'blog_image', locals: {image: blog_post.image, alt: blog_post.title, url:show_url} %>
+    <%= render partial:'blog_image', locals: {image: blog_post.image, alt: blog_post.title, url:url} %>
 
     <p>
       <%= blog_post.description.html_safe %>
@@ -14,7 +13,7 @@
     <%= render partial: 'credentials', locals: {date: blog_post.published_at} %>
 
     <br/>
-    <%= link_to t('general.read_more'), show_url %>
+    <%= link_to t('general.read_more'), url %>
     <div class="edit">
       <% if admin? %>
           <%= link_to t("general.edit"), edit_blog_post_path(blog_post) %>
