@@ -15,6 +15,9 @@ $navbar-height: 3em;
     .navbar-brand-title {
       font-family: $font-family-links;
       font-size: 160%;
+      @media (max-width: $screen-xs) {
+        font-size: 120%;
+      }
       color: black;
       position: relative;
       top: 0.18em;
