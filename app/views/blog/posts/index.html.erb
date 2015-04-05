@@ -1,21 +1,19 @@
 <% content_for(:title) { t('home.title') } %>
 
 
-<table class="blog-posts-container-layout">
-  <tr>
-    <td class="posts-container-layout">
-      <div class="posts-container">
-        <% @blog_posts.each do |blog_post| %>
-            <%= render partial: 'blog_item', locals: {blog_post: blog_post} %>
-        <% end %>
-      </div>
-    </td>
-    <td class="posts-panel-layout">
-      <div class="posts-panel">
-        <%= render partial: 'shared/tags_panel', locals: {tags: @blog_tags,
-                                                          new_path: new_blog_post_path,
-                                                          index_path: blog_posts_path} %>
-      </div>
-    </td>
-  </tr>
-</table>
+<div class="blog-posts-container-layout row">
+  <div class="posts-container-layout col-lg-10 col-md-9 col-sm-12 col-xs-12">
+    <div class="posts-container">
+      <% @blog_posts.each do |blog_post| %>
+          <%= render partial: 'blog_item', locals: {blog_post: blog_post} %>
+      <% end %>
+    </div>
+  </div>
+  <div class="posts-panel-layout col-lg-2 col-md-3 col-sm-12 col-xs-12">
+    <div class="posts-panel">
+      <%= render partial: 'shared/tags_panel', locals: {tags: @blog_tags,
+                                                        new_path: new_blog_post_path,
+                                                        index_path: blog_posts_path} %>
+    </div>
+  </div>
+</div>
