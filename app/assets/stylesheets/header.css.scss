@@ -4,6 +4,15 @@ $navbar-height: 3em;
   height: $navbar-height;
   background: rgba(255, 255, 255, 0.5);
 
+// navbar iphone button
+  .navbar-toggle {
+    background: #D5C2C2;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    box-shadow: 0px 0px 5px gray;
+    border: none;
+  }
+
   .navbar-brand {
     font-size:100%;
     padding: 0px !important;
@@ -20,7 +29,7 @@ $navbar-height: 3em;
       }
       color: black;
       position: relative;
-      top: 0.18em;
+      top: 0.2em / 1.2;
 
     }
   }
@@ -33,7 +42,25 @@ $navbar-height: 3em;
     li {
       display: inline;
       list-style-type: none;
+      position: relative;
+      top: 0.2em;
+
     }
+  }
+  .app-header-menu-popup {
+
+    box-shadow: 0px 0px 2px gray;
+    background: #FBEDC8;
+
+    ul {
+      padding: 0;
+     li {
+       font-family: $font-family-links;
+       box-shadow: 0px 0px 2px gray;
+       list-style-type: none;
+       height: auto !important;
+     }
+   }
   }
 
   .inner-app-header {
