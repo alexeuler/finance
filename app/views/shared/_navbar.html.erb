@@ -36,17 +36,21 @@
       </ul>
 
     </div>
-    <!--menu for iphone size-->
-    <div id="nav_toggle" class="collapse app-header-menu-popup">
-      <ul>
-        <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), '/' %></li>
-        <li class="<%= selected_tab == t("navbar.blog") ? 'active' : '' %>"><%= link_to t("navbar.blog"), blog_posts_path %></li>
-        <li class="<%= selected_tab == t("navbar.about") ? 'active' : '' %>"><%= link_to t("navbar.about"), about_show_path %></li>
-        </li>
-      </ul>
-    </div>
   </div>
 </nav>
+<!--menu for iphone size-->
+<div id="nav_toggle" class="collapse app-header-menu-popup">
+  <ul>
+    <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), '/' %></li>
+    <li class="<%= selected_tab == t("navbar.blog") ? 'active' : '' %>"><%= link_to t("navbar.blog"), blog_posts_path %></li>
+    <li class="<%= selected_tab == t("navbar.about") ? 'active' : '' %>"><%= link_to t("navbar.about"), about_show_path %></li>
+    </li>
+    <li>
+      <%= link_to t('general.navbar_sign_in'), new_user_session_path, {rel: 'nofollow', class: "sign-in-button"} %>
+    </li>
+  </ul>
+</div>
+
 <div class="modal fade" id="navbarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
