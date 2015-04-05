@@ -23,8 +23,21 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
+  font-size: 16px;
 }
+
+@media all and (max-width: $screen-lg) {
+  body{font-size: 18px;}
+}
+
+@media all and (max-width: $screen-md) {
+  body{font-size: 20px;}
+}
+
+@media all and (max-width: $screen-sm) {
+  body{font-size: 24px;}
+}
+
 .page-container {
   min-height: 1024px;
   position: relative;

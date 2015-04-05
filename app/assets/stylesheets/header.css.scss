@@ -1,4 +1,4 @@
-$navbar-height: 50px;
+$navbar-height: 3em;
 
 .app-header {
   min-width: 600px;
@@ -6,40 +6,44 @@ $navbar-height: 50px;
   background: rgba(255, 255, 255, 0.5);
 
   .navbar-brand {
+    font-size:100%;
     padding: 0px !important;
     .navbar-brand-logo {
       display: inline-block;
-      height: $navbar-height;
+      height: $navbar-height  / 1.25 ;
     }
 
     .navbar-brand-title {
       font-family: $font-family-links;
-      font-size: 32px;
+      font-size: 160%;
       color: black;
       position: relative;
-      top: 3px
+      top: 0.2em / 1.6;
+
     }
   }
 
   .app-header-menu {
-    line-height: $navbar-height;
+    line-height: $navbar-height / 1.25;
     font-family: $font-family-links;
-    font-size: 20px;
+    font-size: 125%;
     padding: 0px;
     li {
       display: inline;
       list-style-type: none;
+      position: relative;
+      top: 0.2em;
     }
   }
 
   .inner-app-header {
     .login-panel {
-      width: 250px;
       img {
+        height:2.5em;
         @include transition(transform 0.2s ease-in);
       }
       a, a:hover, a:visited, a:active {
-        padding: 5px !important;
+        padding: 0.3125em !important;
       }
       img, img:hover, img:visited, img:active {
         @include scale(1)
@@ -60,7 +64,7 @@ $navbar-height: 50px;
 
           .profile-image {
             @include box-shadow(0px 0px 2px black);
-            height: 40px;
+            height: 2.5em;
           }
         }
       }
