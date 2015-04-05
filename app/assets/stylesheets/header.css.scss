@@ -1,12 +1,13 @@
 $navbar-height: 50px;
 
 .app-header {
+  min-width: 600px;
   height: $navbar-height;
   background: rgba(255, 255, 255, 0.5);
 
-  .app-header-brand > .navbar-brand {
-    padding: 0px;
-    .navbar-brand-logo{
+  .navbar-brand {
+    padding: 0px !important;
+    .navbar-brand-logo {
       display: inline-block;
       height: $navbar-height;
     }
@@ -16,33 +17,45 @@ $navbar-height: 50px;
       font-size: 32px;
       color: black;
       position: relative;
-      top:3px
+      top: 3px
     }
   }
 
   .app-header-menu {
+    line-height: $navbar-height;
     font-family: $font-family-links;
     font-size: 20px;
-    margin-right: 50px;
+    padding: 0px;
+    li {
+      display: inline;
+      list-style-type: none;
+    }
   }
 
   .inner-app-header {
     .login-panel {
-      width:250px;
-      img {@include transition(transform 0.2s ease-in);}
-      a, a:hover, a:visited, a:active
-      {
+      width: 250px;
+      img {
+        @include transition(transform 0.2s ease-in);
+      }
+      a, a:hover, a:visited, a:active {
         padding: 5px !important;
       }
-      img, img:hover, img:visited, img:active {@include scale(1)}
-      img:hover{transform: scale(1.3) rotate(4deg)}
+      img, img:hover, img:visited, img:active {
+        @include scale(1)
+      }
+      img:hover {
+        transform: scale(1.3) rotate(4deg)
+      }
       .signed-in-user {
         li {
-          float:right;
-          padding:5px 10px;
-          td{
-            text-align:right;
-            a, a:hover, a:visited, a:active {padding:0 !important;}
+          float: right;
+          padding: 5px 10px;
+          td {
+            text-align: right;
+            a, a:hover, a:visited, a:active {
+              padding: 0 !important;
+            }
           }
 
           .profile-image {
@@ -53,20 +66,22 @@ $navbar-height: 50px;
       }
     }
 
-    a{
-      color:black !important;
+    a {
+      color: black !important;
     }
 
-
     li {
-      a {@include transition(color 0.2s ease-in);}
-      a, a:hover, a:visited, a:active{
+      height: $navbar-height;
+      a {
+        @include transition(color 0.2s ease-in);
+      }
+      a, a:hover, a:visited, a:active {
         color: black;
-        padding:15px 10px;
+        padding: 15px 10px;
       }
       a:hover {
         text-decoration: underline;
-        color: rgb(160,120,100) !important;
+        color: rgb(160, 120, 100) !important;
       }
 
     }
@@ -74,7 +89,7 @@ $navbar-height: 50px;
     li.active {
       a, a:hover, a:active {
         background: none;
-        color: rgb(160,120,100) !important;
+        color: rgb(160, 120, 100) !important;
         text-decoration: underline;
       }
     }
@@ -83,6 +98,6 @@ $navbar-height: 50px;
 }
 
 #navbarModal .modal-dialog {
-  width:310px;
-  left:20px;
+  width: 310px;
+  left: 20px;
 }
