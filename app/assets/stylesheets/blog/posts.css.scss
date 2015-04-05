@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .blog-container {
-  padding: 20px;
   .float-left {
     float: left;
   }
@@ -50,7 +49,7 @@
 
   .blog-posts-container-layout {
     width: 100%;
-
+    margin: 0 !important;
     .blog-item {
       @include app-panel;
       .body {
@@ -73,8 +72,6 @@
 
     .posts-container-layout {
       vertical-align: top;
-//      width: 80%;
-      padding: 20px 20px;
       .posts-container {
         max-width: 800px;
         margin: 0 auto;
@@ -83,8 +80,6 @@
 
     .posts-panel-layout {
       vertical-align: top;
-//      width: 20%;
-      padding: 20px 0px;
     }
 
   }
