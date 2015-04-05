@@ -1,7 +1,6 @@
 $navbar-height: 3em;
 
 .app-header {
-  min-width: 600px;
   height: $navbar-height;
   background: rgba(255, 255, 255, 0.5);
 
@@ -18,7 +17,7 @@ $navbar-height: 3em;
       font-size: 160%;
       color: black;
       position: relative;
-      top: 0.2em / 1.6;
+      top: 0.18em;
 
     }
   }
@@ -31,8 +30,6 @@ $navbar-height: 3em;
     li {
       display: inline;
       list-style-type: none;
-      position: relative;
-      top: 0.2em;
     }
   }
 

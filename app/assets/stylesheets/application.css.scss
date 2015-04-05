@@ -23,17 +23,20 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-size: 16px;
+  font-size: 16px; //large desktop
 }
 
+//medium desktop
 @media all and (max-width: $screen-lg) {
   body{font-size: 18px;}
 }
 
+//ipad
 @media all and (max-width: $screen-md) {
   body{font-size: 20px;}
 }
 
+//iphone
 @media all and (max-width: $screen-sm) {
   body{font-size: 24px;}
 }
