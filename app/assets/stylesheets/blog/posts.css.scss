@@ -54,6 +54,10 @@
       @include app-panel;
       .body {
         padding: 20px 30px;
+        @media all and (max-width: $screen-xs) {
+          padding: 10px 10px;
+        }
+
       }
 
       .description-image-container {
