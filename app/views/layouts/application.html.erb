@@ -5,6 +5,7 @@
   <title><%= content_for?(:title) ? yield(:title) : "iOpenBiznes" %></title>
   <%= yield(:head) if content_for?(:head) %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= auto_discovery_link_tag(:rss, {controller: "blog/posts", action: "index"}) %>
   <link rel="icon" type="image/png" href="favicon.png"/>
@@ -35,7 +36,7 @@
        data-locale="<%= I18n.locale.to_s %>"/>
 <input type="hidden" id="service" data-fb-app-id="<%= Rails.application.secrets.facebook_app_id %>">
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 <script>var rootUrl = "<%=root_url%>"</script>
 <!--<script type="text/javascript" src="//cdn.sublimevideo.net/js/uvkynhxx.js"></script>-->
 <% if Rails.env.production? %>
