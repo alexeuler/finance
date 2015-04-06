@@ -7,7 +7,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= auto_discovery_link_tag(:rss, {controller: "blog/posts", action: "index"}) %>
+  <link href="<%= "#{blog_posts_path}.rss" %>" rel="alternate" title="<%= content_for?(:title) ? yield(:title) : "iOpenBiznes" %>" type="application/rss+xml">
   <link rel="icon" type="image/png" href="favicon.png"/>
 </head>
 <body>
