@@ -10,10 +10,10 @@
           <a class="navbar-brand" href="/">
             <table>
               <tr>
-                <td class = "navbar-brand-layout">
+                <td class="navbar-brand-layout">
                   <%= image_tag 'logo.png', alt: 'iOpenBiznes', class: 'navbar-brand-logo' %>
                 </td>
-                <td class = "navbar-brand-layout">
+                <td class="navbar-brand-layout">
                   <span class="navbar-brand-title"><%= t("navbar.title") %></span>
                 </td>
               </tr>
@@ -26,7 +26,7 @@
 
     <!--container that will collapse when the viewport is small-->
     <div class="navbar-collapse collapse">
-      <%= render partial:'shared/login_panel' %>
+      <%= render partial: 'shared/login_panel' %>
       <!--Links to pages-->
       <ul class="nav navbar-nav app-header-menu">
         <li class="<%= selected_tab == t("navbar.home") ? 'active' : '' %>"><%= link_to t("navbar.home"), '/' %></li>
@@ -46,7 +46,11 @@
     <li class="<%= selected_tab == t("navbar.about") ? 'active' : '' %>"><%= link_to t("navbar.about"), about_show_path %></li>
     </li>
     <li>
-      <%= link_to t('general.navbar_sign_in'), new_user_session_path, {rel: 'nofollow', class: "sign-in-button"} %>
+      <% if user_signed_in? %>
+          <%= link_to("#{t('devise.views.sign_out')} (#{current_user.full_name})", destroy_user_session_path, :method => :delete) %>
+      <% else %>
+          <%= link_to t('general.navbar_sign_in'), new_user_session_path, {rel: 'nofollow', class: "sign-in-button"} %>
+      <% end %>
     </li>
   </ul>
 </div>
