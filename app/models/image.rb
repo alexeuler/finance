@@ -1,3 +1,6 @@
+require 'net/https'
+require 'uri'
+
 class Image < ActiveRecord::Base
   attr_accessor :file
   has_attached_file :file, styles: {:large => '800x500>', :medium => '400x250>', :small => '200x125>', :thumb => '96x60>'},
@@ -8,6 +11,7 @@ class Image < ActiveRecord::Base
   validates_attachment :file, content_type: {content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']}
 
   before_create :generate_access_token
+  after_save :tiny_png_preprocessor
 
   def as_json(options = {})
 
@@ -22,6 +26,34 @@ class Image < ActiveRecord::Base
 
   private
 
+
+  def tiny_png_preprocessor
+
+    key = Rails.application.secrets.tiny_png_key
+
+    arr = [:large, :medium, :small, :thumb]
+
+    arr.each do |style|
+
+      input = self.file.path(style)
+      output = input
+
+      uri = URI.parse('https://api.tinypng.com/shrink')
+
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+
+      request = Net::HTTP::Post.new(uri.request_uri)
+      request.basic_auth('api', key)
+
+      response = http.request(request, File.binread(input))
+      if response.code == '201'
+        File.binwrite(output, http.get(response['location']).body)
+      else
+        Rails.logger.error 'Compression failed'
+      end
+    end
+  end
 
   # simple random salt
   def random_salt(len = 20)
