@@ -40,8 +40,9 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass', '~> 3.3.1'
 
-#for image uploading
+#for image and video uploading
 gem 'paperclip', '~> 4.2'
+gem 'paperclip-ffmpeg'
 
 group :development do
   gem 'capistrano-rails'
@@ -64,4 +65,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
-gem 'paperclip-ffmpeg'
+
+#pagination
+gem 'kaminari'

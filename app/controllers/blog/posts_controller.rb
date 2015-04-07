@@ -11,6 +11,8 @@ class Blog::PostsController < ApplicationController
     @blog_posts = Blog::Post.where(language: I18n.locale).order(published_at: :desc).all
     @blog_posts=@blog_posts.where("tags LIKE ?", "%"+params[:tag]+"%") if params[:tag]
     @blog_posts=@blog_posts.published unless admin?
+    page=params[:page]||1
+    @blog_posts=@blog_posts.page(page)
     @blog_tags = Blog::Tag.where(language: I18n.locale).all
     respond_to do |format|
       format.html

@@ -10,6 +10,17 @@
     float: right;
   }
 
+  .pagination {
+    li a{
+      background-color: rgba(255,255,255,0.5);
+    }
+    li.active a{
+      background-color: rgb(247, 219, 144);
+      border: 1px solid rgb(149, 141, 119);
+      color:black;
+    }
+  }
+
   .blog-image {
     img {
       width: 100%;
