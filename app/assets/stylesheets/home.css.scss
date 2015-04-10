@@ -3,5 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .home-container {
   @include app-panel-no-heading;
-
+  max-width: 800px;
+  margin: 0 auto;
+  .body {
+    padding:1em;
+  }
 }
